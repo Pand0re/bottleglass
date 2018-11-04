@@ -136,7 +136,7 @@
 
   ul {
     margin: 0;
-    padding: 0;
+    padding: 0 30%;
     height: 40px;
     display: flex;
     justify-content: space-around;
@@ -149,6 +149,8 @@
     display: block;
     color: white;
     text-decoration: none;
+    font-weight: 400;
+    font-size: 0.95em;
   }
 
 
