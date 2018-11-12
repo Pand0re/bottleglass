@@ -1,6 +1,9 @@
 <template>
-  <div>
-    Accueil
+  <div class="main-container">
+    <h1>BottleGlass</h1>
+    <p>
+
+    </p>
   </div>
 </template>
 

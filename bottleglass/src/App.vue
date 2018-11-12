@@ -32,6 +32,31 @@
     margin-top: 50px;
   }
 
+  .main-container {
+    margin: 60px 30% 30px 30%;
+    max-width: 610px;
+  }
+
+  p {
+    padding-left: 30px;
+    text-align: justify;
+    padding-right: 15px;
+  }
+
+  h1 {
+    padding-left: 20px;
+    font-size: 3em;
+    padding-bottom: 5px;
+    margin-bottom: 0;
+    border-bottom: 2px solid #ddd;
+  }
+
+  h2 {
+    border-bottom: 1px solid #eee;
+    font-size: 2em;
+    margin-bottom: 5px;
+  }
+
   /* Disable text selection */
   .noselect {
     -webkit-touch-callout: none;

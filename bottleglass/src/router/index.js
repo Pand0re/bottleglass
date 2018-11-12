@@ -32,7 +32,7 @@ export default new Router({
     {
       /* Redirect invalid paths to `Accueil` */
       path: '*',
-      name: 'Accueil',
+      name: 'Default',
       component: Accueil
     }
   ],

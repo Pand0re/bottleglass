@@ -12,7 +12,7 @@
 
 <style scoped>
   .container {
-    padding-top: 200px;
+    padding-bottom: 20px;
     margin: 0;
     height: auto;
     /*background: #f3e5ab;*/
