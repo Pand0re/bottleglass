@@ -86,9 +86,8 @@
               ></Article>
             </div>
 
-            <div class="add-article-container">
-              <input class="add-article" placeholder="Entrez le nom de l'article"/>
-              <button class="add-article">+</button>
+            <div class="total">
+              Total : {{ GetTotalCost }} CHF
             </div>
           </fieldset>
         </div>
@@ -104,6 +103,15 @@
     name: "Acheter",
     components: {Article},
 
+    computed: {
+      GetTotalCost: function() {
+        let Total = 0.;
+        for (let item of this.$parent.ShoppingCart) {
+          Total += item.amount * item.uprice;
+        }
+        return Total.toFixed(2);
+      }
+    },
     methods: {
       RemoveArticle: function(Index) {
         this.$parent.ShoppingCart[Index].amount = 0;
@@ -172,7 +180,6 @@
     border: 1px solid black;
     position: relative;
     padding-right: 0;
-    min-height: 300px;
   }
 
   .order fieldset legend {
@@ -230,7 +237,7 @@
 
   .scroll-area {
     overflow: auto;
-    max-height: 250px;
+    max-height: 500px;
   }
 
   .left-container {
@@ -249,6 +256,12 @@
 
   .info {
     width: 25px;
+  }
+
+  .total {
+    margin-top: 15px;
+    padding-right: 11%;
+    text-align: right;
   }
 
   @media (max-width: 1000px) {
