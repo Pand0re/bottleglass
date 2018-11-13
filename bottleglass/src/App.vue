@@ -11,7 +11,68 @@
   import Footer from "./components/Footer";
   export default {
     name: 'App',
-    components: {Footer, Header}
+    components: {Footer, Header},
+    data: function() {
+      return {
+        ShoppingCart: [
+          {
+            name: 'Bougie',
+            amount: 0,
+            uprice: 6.5
+          },
+          {
+            name: 'Verre à pieds',
+            amount: 0,
+            uprice: 7.5
+          },
+          {
+            name: 'Verre classique',
+            amount: 0,
+            uprice: 8.95
+          },
+          {
+            name: 'Pot de fleurs',
+            amount: 0,
+            uprice: 7.5
+          },
+          {
+            name: 'Verre classique',
+            amount: 0,
+            uprice: 8.95
+          },
+          {
+            name: 'Verre à pieds',
+            amount: 0,
+            uprice: 7.5
+          },
+          {
+            name: 'Verre classique',
+            amount: 0,
+            uprice: 8.95
+          },
+          {
+            name: 'Verre à pieds',
+            amount: 0,
+            uprice: 7.5
+          },
+          {
+            name: 'Verre classique',
+            amount: 0,
+            uprice: 8.95
+          },
+          {
+            name: 'Verre à pieds',
+            amount: 0,
+            uprice: 7.5
+          },
+          {
+            name: 'Verre classique',
+            amount: 0,
+            uprice: 8.95
+          }
+        ]
+      };
+    }
   }
 </script>
 

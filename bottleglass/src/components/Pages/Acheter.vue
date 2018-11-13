@@ -75,7 +75,7 @@
             ></Article>
 
             <div class="scroll-area">
-              <Article v-for="(item, key) in ShoppingCart"
+              <Article v-for="(item, key) in $parent.ShoppingCart"
                        :name="item.name"
                        :amount="item.amount"
                        :uprice="item.uprice"
@@ -103,74 +103,13 @@
   export default {
     name: "Acheter",
     components: {Article},
-    data: function() {
-      return {
-        ShoppingCart: [
-          {
-            name: 'Bougie',
-            amount: 0,
-            uprice: 6.5
-          },
-          {
-            name: 'Verre à pieds',
-            amount: 0,
-            uprice: 7.5
-          },
-          {
-            name: 'Verre classique',
-            amount: 8,
-            uprice: 8.95
-          },
-          {
-            name: 'Verre à pieds',
-            amount: 2,
-            uprice: 7.5
-          },
-          {
-            name: 'Verre classique',
-            amount: 8,
-            uprice: 8.95
-          },
-          {
-            name: 'Verre à pieds',
-            amount: 2,
-            uprice: 7.5
-          },
-          {
-            name: 'Verre classique',
-            amount: 8,
-            uprice: 8.95
-          },
-          {
-            name: 'Verre à pieds',
-            amount: 2,
-            uprice: 7.5
-          },
-          {
-            name: 'Verre classique',
-            amount: 8,
-            uprice: 8.95
-          },
-          {
-            name: 'Verre à pieds',
-            amount: 2,
-            uprice: 7.5
-          },
-          {
-            name: 'Verre classique',
-            amount: 8,
-            uprice: 8.95
-          }
-        ]
-      };
-    },
 
     methods: {
       RemoveArticle: function(Index) {
-        this.ShoppingCart.splice(Index, 1);
+        this.$parent.ShoppingCart[Index].amount = 0;
       },
       ChangeItemNumber: function(Article) {
-        this.ShoppingCart[Article.key].amount = Article.ele.value;
+        this.$parent.ShoppingCart[Article.key].amount = Article.ele.value;
         this.$forceUpdate();
       }
     }
@@ -310,6 +249,12 @@
 
   .info {
     width: 25px;
+  }
+
+  @media (max-width: 1000px) {
+    .left-container {
+      display: none;
+    }
   }
 
 </style>
