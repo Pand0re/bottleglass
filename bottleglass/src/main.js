@@ -3,8 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VueCarousel from 'vue-carousel';
 
 Vue.config.productionTip = false;
+
+Vue.use(VueCarousel);
 
 /* eslint-disable no-new */
 new Vue({
@@ -14,7 +17,3 @@ new Vue({
   template: '<App/>'
 });
 
-import Vue from 'vue';
-import VueCarousel from 'vue-carousel';
-
-Vue.use(VueCarousel);
