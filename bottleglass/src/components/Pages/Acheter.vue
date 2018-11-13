@@ -108,12 +108,12 @@
         ShoppingCart: [
           {
             name: 'Bougie',
-            amount: 5,
+            amount: 0,
             uprice: 6.5
           },
           {
             name: 'Verre à pieds',
-            amount: 2,
+            amount: 0,
             uprice: 7.5
           },
           {

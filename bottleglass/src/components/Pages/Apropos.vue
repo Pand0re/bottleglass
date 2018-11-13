@@ -5,6 +5,12 @@
       Nous sommes un groupe d'étudiants âgés de blah blah actuellement
       en maturité blah blah projet blah blah TIP blah blah
     </p>
+    <h1>
+      Nous contacter
+    </h1>
+    <p>
+      Une question ? Une proposition ?
+    </p>
   </div>
 </template>
 
