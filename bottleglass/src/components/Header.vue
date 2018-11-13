@@ -153,5 +153,28 @@
     font-size: 0.95em;
   }
 
+  @media (max-width: 1000px) {
+    ul {
+      padding: 0 15%;
+    }
+  }
+
+  @media (max-width: 590px) {
+    ul {
+      padding: 0 5%;
+    }
+
+    li:hover::after {
+      width: 80px;
+    }
+
+  }
+
+  @media (max-width: 400px) {
+    ul {
+      padding: 0 1%;
+    }
+  }
+
 
 </style>

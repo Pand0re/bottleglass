@@ -2,10 +2,10 @@
   <div>
     <div class="head">
       <ul class="products">
-        <li><a href="#"><img src="../../assets/vectors/cocktail.svg"/>    Verres à pieds    </a></li>
-        <li><a href="#"><img src="../../assets/vectors/orange-juice.svg"/>Verres classiques </a></li>
-        <li><a href="#"><img src="../../assets/vectors/candle.svg"/>      Bougies           </a></li>
-        <li><a href="#"><img src="../../assets/vectors/growing.svg"/>     Pots de fleurs    </a></li>
+        <li><a href="#"><img src="../../assets/vectors/cocktail.svg"/>    <span>Verres à pieds    </span></a></li>
+        <li><a href="#"><img src="../../assets/vectors/orange-juice.svg"/><span>Verres classiques </span></a></li>
+        <li><a href="#"><img src="../../assets/vectors/candle.svg"/>      <span>Bougies           </span></a></li>
+        <li><a href="#"><img src="../../assets/vectors/growing.svg"/>     <span>Pots de fleurs    </span></a></li>
       </ul>
     </div>
   </div>
@@ -56,10 +56,39 @@
   ul.products li a {
     color: black;
     text-decoration: none;
+    min-width: 130px;
   }
 
   ul.products li:hover {
-    filter: invert(35%);
+    filter: invert(40%);
+  }
+
+  @media (max-width: 730px) {
+    ul.products li {
+      display: inline-block;
+      width: 45%;
+      margin-bottom: 5px;
+    }
+
+    ul.products {
+      padding: 15px;
+      display: block;
+    }
+  }
+
+  @media (max-width: 399px) {
+    ul.products li a {
+      min-width: 50px;
+    }
+
+    ul.products li {
+      min-width: 50px;
+      width: 24%;
+    }
+
+    ul.products li a span {
+      display: none;
+    }
   }
 
 </style>

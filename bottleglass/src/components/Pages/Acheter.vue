@@ -17,6 +17,7 @@
       <form method="#">
         <h2>Commande</h2>
         <div class="command">
+
           <div class="customer-infos">
             <div class="input-container">
               <label for="mail">Titre</label>
@@ -39,7 +40,8 @@
               <input type="email" id="mail" name="mail"/>
             </div>
           </div>
-          <div>
+
+          <div class="customer-infos">
             <div class="input-container">
               <label for="country">Pays</label>
               <select id="country" name="country">
@@ -61,6 +63,7 @@
               <input type="text" id="address" name="address"/>
             </div>
           </div>
+
         </div>
 
         <div class="order">
@@ -126,8 +129,10 @@
 
 <style scoped>
 
-  .main-container {
-    width: 750px;
+
+
+  .command {
+    max-width: 100%;
   }
 
   label {
@@ -180,6 +185,7 @@
     border: 1px solid black;
     position: relative;
     padding-right: 0;
+    max-width: 100%;
   }
 
   .order fieldset legend {
@@ -264,10 +270,39 @@
     text-align: right;
   }
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1400px) {
     .left-container {
       display: none;
     }
+  }
+
+  @media (max-width: 700px) {
+    .order fieldset {
+      max-width: 95%;
+    }
+  }
+
+  @media (max-width: 550px) {
+    .customer-infos {
+      width: 100%;
+    }
+
+    .command {
+      display: block;
+    }
+
+    select {
+      width: calc(60% + 12px)
+    }
+
+    input {
+      width: 60%;
+    }
+
+    form {
+      margin-left: 15px;
+    }
+
   }
 
 </style>

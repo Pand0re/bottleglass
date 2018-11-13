@@ -5,7 +5,7 @@
     </span>
     <span title="Quantité"  :style="GetCellStyle + GetFontStyle">
       <input ref="amount" v-if="!isNaN(uprice)" :value="amount" type="number"
-             @change="ChangeArticleNumber" max="99" min="1"/>
+             @change="ChangeArticleNumber" max="99" min="0"/>
       <template v-else>
         {{ amount }}
       </template>

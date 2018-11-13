@@ -94,9 +94,10 @@
   }
 
   .main-container {
-    margin: 60px 30% 30px 30%;
+    margin: 60px calc(50% - 305px) 30px calc(50% - 305px);
     max-width: 610px;
   }
+
 
   p {
     padding-left: 30px;
@@ -128,4 +129,27 @@
     -ms-user-select: none;
     user-select: none;
   }
+
+  @media (max-width: 750px) {
+    h1 {
+      font-size: 2.5em;
+    }
+  }
+
+  @media (max-width: 615px) {
+    .main-container {
+      margin: 60px 1% 30px 1%;
+      max-width: 97%;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    h2 {
+      font-size: 1.5em;
+    }
+  }
+
+
 </style>
