@@ -17,58 +17,31 @@
         ShoppingCart: [
           {
             name: 'Bougie',
+            desc: 'Une bougie ...',
             amount: 0,
-            uprice: 6.5
+            uprice: 6.5,
+            img: './static/carousel/verres-pied.jpg'
           },
           {
             name: 'Verre à pieds',
+            desc: 'Un verre à pieds qui convient parfaitement pour un cocktail. Réalisé avec un haut de bouteil blah blah',
             amount: 0,
-            uprice: 7.5
+            uprice: 7.5,
+            img: './static/carousel/verres-pied.jpg'
           },
           {
             name: 'Verre classique',
+            desc: 'Un verre classique ...',
             amount: 0,
-            uprice: 8.95
+            uprice: 8.95,
+            img: './static/carousel/verres-pied.jpg'
           },
           {
             name: 'Pot de fleurs',
+            desc: 'Un pot de fleur ...',
             amount: 0,
-            uprice: 7.5
-          },
-          {
-            name: 'Verre classique',
-            amount: 0,
-            uprice: 8.95
-          },
-          {
-            name: 'Verre à pieds',
-            amount: 0,
-            uprice: 7.5
-          },
-          {
-            name: 'Verre classique',
-            amount: 0,
-            uprice: 8.95
-          },
-          {
-            name: 'Verre à pieds',
-            amount: 0,
-            uprice: 7.5
-          },
-          {
-            name: 'Verre classique',
-            amount: 0,
-            uprice: 8.95
-          },
-          {
-            name: 'Verre à pieds',
-            amount: 0,
-            uprice: 7.5
-          },
-          {
-            name: 'Verre classique',
-            amount: 0,
-            uprice: 8.95
+            uprice: 7.5,
+            img: './static/carousel/verres-pied.jpg'
           }
         ]
       };
@@ -85,6 +58,10 @@
     top: 0;
     width: 100%;
     height: 100%;
+  }
+
+  button, a {
+    cursor: pointer;
   }
 
   #app {
@@ -104,6 +81,7 @@
     text-align: justify;
     padding-right: 15px;
     line-height: 1.2;
+    font-size: 1.2em;
   }
 
   h1 {
@@ -149,6 +127,11 @@
     h2 {
       font-size: 1.5em;
     }
+
+    p {
+      font-size: 1em;
+    }
+
   }
 
 

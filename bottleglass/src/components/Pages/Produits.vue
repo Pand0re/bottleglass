@@ -1,23 +1,44 @@
 <template>
-  <div>
+  <div class="container">
     <div class="head">
       <ul class="products">
-        <li><a href="#"><img src="../../assets/vectors/cocktail.svg"/>    <span>Verres à pieds    </span></a></li>
-        <li><a href="#"><img src="../../assets/vectors/orange-juice.svg"/><span>Verres classiques </span></a></li>
-        <li><a href="#"><img src="../../assets/vectors/candle.svg"/>      <span>Bougies           </span></a></li>
-        <li><a href="#"><img src="../../assets/vectors/growing.svg"/>     <span>Pots de fleurs    </span></a></li>
+        <li><a href="#i1"><img src="../../assets/vectors/cocktail.svg"/>    <span>Verres à pieds    </span></a></li>
+        <li><a href="#i2"><img src="../../assets/vectors/orange-juice.svg"/><span>Verres classiques </span></a></li>
+        <li><a href="#i0"><img src="../../assets/vectors/candle.svg"/>      <span>Bougies           </span></a></li>
+        <li><a href="#i3"><img src="../../assets/vectors/growing.svg"/>     <span>Pots de fleurs    </span></a></li>
       </ul>
     </div>
+
+
+    <Product v-for="(item, key) in $parent.ShoppingCart"
+      :name="item.name"
+      :description="item.desc"
+      :price="item.uprice"
+      :img="item.img"
+      :index="key"
+      :key="key"
+    ></Product>
+
   </div>
 </template>
 
 <script>
+  import Product from "../custom/Product";
   export default {
-    name: "Produits"
+    name: "Produits",
+    components: {Product},
+    methods: {
+
+    }
   }
 </script>
 
 <style scoped>
+
+  .container {
+    padding-top: 80px;
+  }
+
   ul.products li {
     list-style: none;
     display: inline-block;
@@ -40,6 +61,7 @@
     display: block;
     position: fixed;
     top: 40px;
+    z-index: 99;
   }
 
   ul.products li a {

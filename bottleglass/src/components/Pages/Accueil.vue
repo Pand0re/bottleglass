@@ -1,12 +1,18 @@
 <template>
   <div class="main-container">
     <h1>BottleGlass</h1>
+
+    <br/>
+    <p>
+      Découvrez nos produits fabriqués à la main depuis des bouteilles en verres recyclées.
+    </p>
+
     <carousel
       :per-page="1"
       :mouse-drag="true"
       :autoplay="true"
       :navigationEnabled="false"
-      :autoplayTimeout="2000"
+      :autoplayTimeout="2200"
       :loop="true"
     >
 
@@ -25,7 +31,7 @@
             Verres à pieds
           </span>
         </div>
-        <img src="/static/carousel/verres-pied.jpg" style="width: 100%">
+        <img src="/static/carousel/verres-classiques.jpeg" style="width: 100%">
       </slide>
 
       <slide>
@@ -47,6 +53,15 @@
       </slide>
 
     </carousel>
+
+    <p>
+      Commandez en ligne tous nos produits dès maintenant. Profitez de frais de ports
+      gratuits sur certaines commandes.
+    </p>
+
+    <br/>
+    <br/>
+
   </div>
 </template>
 

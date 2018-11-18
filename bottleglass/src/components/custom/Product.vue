@@ -1,0 +1,273 @@
+<template>
+  <div class="container">
+    <div class="anchor" :id="'i' + index"></div>
+    <div class="wrapper" >
+      <img :src="img" alt="Produit"/>
+    </div>
+    <div class="wrapper">
+      <h2>{{ name }}</h2>
+      <p>
+        {{ description }}
+      </p>
+    </div>
+    <div class="cost">
+        <span>
+          {{ parseFloat(price).toFixed(2) }} CHF / unité
+        </span>
+      <button @click="AddItemToCart">Ajouter au panier</button>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: "Product",
+    props: [
+      'name',
+      'description',
+      'img',
+      'price',
+      'index'
+    ],
+
+    methods: {
+      AddItemToCart: function() {
+        this.$parent.$parent.ShoppingCart[this.index].amount++;
+      }
+    }
+
+  }
+</script>
+
+<style scoped>
+
+  .container {
+    background-color: #f5f5f6;
+    margin: 100px 10% 10% 10%;
+    padding: 50px 60px;
+    border-radius: 5px;
+    position: relative;
+    height: 450px;
+    z-index: 1;
+  }
+
+  .anchor {
+    position: relative;
+    top: -130px;
+    height: 0;
+  }
+
+  img {
+    width: 600px;
+    border-radius: 5px;
+  }
+
+  .wrapper:nth-child(3) {
+    position: absolute;
+    left: 710px;
+    top: 20px;
+  }
+
+  h2 {
+    border-bottom: 1px solid #777;
+    width: 300px;
+  }
+
+  p {
+    width: 80%;
+  }
+
+  .cost {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+
+  }
+
+  .cost span {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 1.1em;
+  }
+
+  .cost button {
+    padding: 5px 10px;
+    border: 2px solid black;
+    border-radius: 3px;
+    margin-left: 40px;
+    font-size: 1.3em;
+    transition: 0.41s;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cost button:hover {
+    color: white;
+  }
+
+  .cost button::before,
+  .cost button:after {
+    content: '';
+    height: 100%;
+    background-color: black;
+    width: 0;
+    display: block;
+    position: absolute;
+    top: 0;
+    transition: 0.4s ease-in-out;
+    left: 50%;
+    z-index: -1;
+  }
+
+  .cost button:hover::after {
+    width: 100%;
+    left: 0;
+    z-index: -1;
+  }
+
+  .cost button::before {
+    background-color: white;
+    width: 100%;
+    left: 0;
+  }
+
+  .cost button:hover::before {
+    z-index: -2;
+  }
+
+  @media (max-width: 1400px) {
+    .cost span,
+    .cost button {
+      text-align: center;
+      display: block;
+      width: 100%;
+      margin: 20px 50px 0 0
+    }
+
+    .cost span {
+      width: 91%;
+    }
+
+    .container {
+      margin: 50px 10% 10% 10%;
+    }
+  }
+
+  @media (max-width: 1300px) {
+    .container {
+      margin: 50px 5%;
+    }
+  }
+
+  @media (max-width: 1150px) {
+    .container {
+      margin: 30px 2%;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    .container {
+      margin: 30px 1%;
+    }
+
+    img {
+      width: 500px;
+      margin-top: 50px;
+    }
+
+    div.wrapper:nth-child(3) {
+      width: 40%;
+      left: 600px;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .container {
+      margin: 40px 10% 60px 10%;
+      height: 700px;
+      width: 60%;
+    }
+
+    img {
+      position: absolute;
+      top: 200px;
+      left: calc(50% - 250px);
+    }
+
+    div.wrapper:nth-child(3) {
+      width: 70%;
+      left: calc(50% - 250px);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .container {
+      margin: 50px 2% 60px 2%;
+      height: 700px;
+      width: 80%;
+    }
+
+  }
+
+  @media (max-width: 600px) {
+    .container {
+      margin: 70px 0 60px 5px;
+      height: 800px;
+      width: calc( 97% - 5px );
+
+      padding: 0;
+    }
+
+    div.wrapper:nth-child(2) {
+      left: 10px;
+      width: 98%;
+    }
+
+    div.wrapper:nth-child(3) {
+      padding: 20px;
+      width: 98%;
+      left: 5%;
+    }
+
+    img {
+      top: 150px;
+      width: 95%;
+      left: 0;
+    }
+
+    .cost {
+      left: 15%;
+      width: 70%;
+    }
+
+  }
+
+  @media (max-width: 400px) {
+    .container {
+      margin: 5px 0 60px 5px;
+      height: 700px;
+      width: calc(100% - 5px);
+
+      padding: 0;
+    }
+
+    div.wrapper:nth-child(3) {
+      width: calc(100% - 50px);
+      left: 0;
+      padding-top: 0;
+      margin: 0;
+    }
+
+    div.wrapper:nth-child(2) {
+      padding: 5px;
+      width: calc(90% - 10px);
+    }
+
+    img {
+      width: 99%;
+    }
+
+  }
+
+</style>
