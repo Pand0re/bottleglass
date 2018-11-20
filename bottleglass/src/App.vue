@@ -34,7 +34,7 @@
             desc: 'Un verre classique ...',
             amount: 0,
             uprice: 8.95,
-            img: './static/carousel/verres-pied.jpg'
+            img: './static/carousel/verres-classiques.jpeg'
           },
           {
             name: 'Pot de fleurs',

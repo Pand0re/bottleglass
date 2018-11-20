@@ -53,7 +53,7 @@
 
   .anchor {
     position: relative;
-    top: -130px;
+    top: -180px;
     height: 0;
   }
 
@@ -266,6 +266,10 @@
 
     img {
       width: 99%;
+    }
+
+    .anchor {
+      top: -130px;
     }
 
   }

@@ -4,6 +4,7 @@ import Accueil  from '@/components/Pages/Accueil';
 import Acheter  from '@/components/Pages/Acheter';
 import Apropos  from '@/components/Pages/Apropos';
 import Produits from '@/components/Pages/Produits';
+import Admin    from '@/components/Admin/Admin';
 
 Vue.use(Router);
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/Produits',
       name: 'Produits',
       component: Produits
+    },
+    {
+      path: '/Admin',
+      name: 'Admin',
+      component: Admin
     },
     {
       /* Redirect invalid paths to `Accueil` */

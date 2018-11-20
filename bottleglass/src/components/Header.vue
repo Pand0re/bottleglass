@@ -21,14 +21,19 @@
           À propos
         </router-link>
       </li>
+      <li title="Panier" v-on:click="ToggleCart">
+        <img src="../assets/vectors/cart.svg"/>
+      </li>
     </ul>
+    <Cart ref="cart" v-if="false"></Cart>
   </div>
 </template>
 
 <script>
+  import Cart from "./custom/Cart";
   export default {
     name: "Header",
-
+    components: {Cart},
     /**
      * Component's data
      **/
@@ -53,6 +58,11 @@
        */
       GetNavigationClass: function(RouteName) {
         return this.currentRoute === RouteName ? 'currentNav' : 'nav';
+      },
+
+      ToggleCart: function() {
+        console.log(this.$refs)
+        this.$refs.cart.IsOpen = this.cartIsOpen;
       }
     },
 
@@ -84,8 +94,12 @@
     color: white;
     transition: 0.5s;
   }
+  
+  li {
+    cursor: pointer;
+  }
 
-  li::after {
+  li:not(last-child)::after {
     content: '';
     height: 2px;
     width: 0;
@@ -98,7 +112,7 @@
     transition: 0.3s linear;
   }
 
-  li:hover::after {
+  li:not(last-child):hover::after {
     content: '';
     height: 2px;
     width: 80px;
@@ -133,6 +147,20 @@
     width: 100%;
     text-align: center;
     position: relative;
+  }
+
+  li:last-child img {
+    margin-left: auto;
+    filter: invert(100%);
+    vertical-align: middle;
+  }
+
+  li:last-child:after {
+    height: 0;
+  }
+
+  li:last-child:hover:after {
+    height: 0;
   }
 
   ul {

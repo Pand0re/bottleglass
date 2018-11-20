@@ -29,6 +29,7 @@
             </div>
             <div class="input-container">
               <label for="name">Nom</label>
+              <span></span>
               <input type="text" id="name" name="name"/>
             </div>
             <div class="input-container">
@@ -43,14 +44,6 @@
 
           <div class="customer-infos">
             <div class="input-container">
-              <label for="country">Pays</label>
-              <select id="country" name="country">
-                <option selected disabled>-- Pays --</option>
-                <option value="swiss" >Suisse</option>
-                <option value="france">France</option>
-              </select>
-            </div>
-            <div class="input-container">
               <label for="locality">Localité</label>
               <input type="text" id="locality" name="locality"/>
             </div>
@@ -61,6 +54,15 @@
             <div class="input-container">
               <label for="address">Adresse</label>
               <input type="text" id="address" name="address"/>
+            </div>
+
+            <div class="input-container">
+              <label for="country">Pays</label>
+              <select id="country" name="country">
+                <option selected disabled>-- Pays --</option>
+                <option value="swiss" >Suisse</option>
+                <option value="france">France</option>
+              </select>
             </div>
           </div>
 
