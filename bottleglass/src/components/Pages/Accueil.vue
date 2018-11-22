@@ -4,7 +4,7 @@
 
     <br/>
     <p>
-      Découvrez nos produits fabriqués à la main depuis des bouteilles en verres recyclées.
+      Découvrez nos produits fabriqués entièrement à la main depuis des bouteilles en verres recyclées.
     </p>
 
     <carousel
@@ -12,7 +12,7 @@
       :mouse-drag="true"
       :autoplay="true"
       :navigationEnabled="false"
-      :autoplayTimeout="2200"
+      :autoplayTimeout="3200"
       :loop="true"
     >
 
@@ -31,7 +31,7 @@
             Verres à pieds
           </span>
         </div>
-        <img src="/static/carousel/verres-classiques.jpeg" style="width: 100%">
+        <img src="/static/carousel/verres-pied.jpg" style="width: 100%">
       </slide>
 
       <slide>
@@ -40,7 +40,7 @@
             Verres classiques
           </span>
         </div>
-        <img src="/static/carousel/verres-pied.jpg" style="width: 100%">
+        <img src="/static/carousel/verres-classiques.jpeg" style="width: 100%">
       </slide>
 
       <slide>

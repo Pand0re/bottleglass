@@ -25,7 +25,9 @@
         <img src="../assets/vectors/cart.svg"/>
       </li>
     </ul>
-    <Cart ref="cart" v-if="false"></Cart>
+    <div ref="cart">
+      <Cart v-if="IsCartOpen"></Cart>
+    </div>
   </div>
 </template>
 
@@ -42,7 +44,9 @@
         // The current route
         // We use this to allow Vue.js properties auto update
         // instead of using $route
-        currentRoute: 'Accueil'
+        currentRoute: 'Accueil',
+
+        IsCartOpen: false
       }
     },
 
@@ -61,8 +65,7 @@
       },
 
       ToggleCart: function() {
-        console.log(this.$refs)
-        this.$refs.cart.IsOpen = this.cartIsOpen;
+        this.IsCartOpen = !this.IsCartOpen;
       }
     },
 
@@ -94,7 +97,7 @@
     color: white;
     transition: 0.5s;
   }
-  
+
   li {
     cursor: pointer;
   }
@@ -107,7 +110,7 @@
     display: block;
     position: relative;
     top: -11px;
-    left: calc(50%);
+    left: 50%;
     border: 0;
     transition: 0.3s linear;
   }
@@ -195,6 +198,10 @@
 
     li:hover::after {
       width: 80px;
+    }
+
+    li:last-child {
+      max-width: 50px;
     }
 
   }

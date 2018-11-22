@@ -19,6 +19,7 @@
       :key="key"
     ></Product>
 
+    <div ref="alert" class="alert"></div>
   </div>
 </template>
 
@@ -28,7 +29,22 @@
     name: "Produits",
     components: {Product},
     methods: {
+      ShowAlert: function(itemName) {
+        this.$refs.alert.innerHTML = "Le produit &laquo; " + itemName + " &raquo; a été ajouté au panier.";
+        this.$refs.alert.classList += " show";
 
+        let Self = this;
+
+        setTimeout(function() {
+          Self.$refs.alert.classList.remove('show');
+          Self.$refs.alert.classList += " hide";
+
+          setTimeout(function() {
+            Self.$refs.alert.classList.remove('hide');
+          }, 500);
+        }, 2500);
+
+      }
     }
   }
 </script>
@@ -84,6 +100,42 @@
   ul.products li:hover {
     filter: invert(40%);
   }
+
+
+
+  .alert {
+    position: fixed;
+    right: 10px;
+    bottom: -100px;
+    z-index: 99;
+    padding: 20px;
+    font-size: 1.3em;
+    border-radius: 5px;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+  }
+
+  .alert.show {
+    animation: alert-appear 0.5s ease-in-out;
+    bottom: 10px;
+  }
+
+  .alert.hide {
+    animation: alert-disappear 0.5s ease-in-out;
+    bottom: -100px;
+  }
+
+  @keyframes alert-appear {
+    0% {bottom: -100px;}
+    100% {bottom: 10px;}
+  }
+
+  @keyframes alert-disappear {
+    0% {bottom:   10px;}
+    100% {bottom: -100px;}
+  }
+
 
   @media (max-width: 730px) {
     ul.products li {

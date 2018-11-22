@@ -133,6 +133,7 @@
     padding-bottom: 5px;
     margin-bottom: 0;
     border-bottom: 2px solid #ddd;
+    font-weight: 400;
   }
 
   h2 {

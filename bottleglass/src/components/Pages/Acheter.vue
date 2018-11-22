@@ -1,104 +1,103 @@
 <template>
-  <div>
-    <div class="left-container">
-      <h2>
-        <img class="info" src="../../assets/vectors/info.svg" alt="help"/>
-        Procédure
-      </h2>
+  <div class="container">
+    <div v-if="State === 'default'">
+      <h1>Commander</h1>
+
+      <label for="name" hidden>Nom</label>
+      <div class="input-group">
+        <span class="input-group-text"><img src="../../assets/vectors/user.svg"/></span>
+        <input class="form-control" id="name" placeholder="Nom" />
+      </div>
+
+      <label for="forname" hidden>Nom</label>
+      <div class="input-group">
+        <span class="input-group-text"><img src="../../assets/vectors/user.svg"/></span>
+        <input class="form-control" id="forname" placeholder="Prénom" />
+      </div>
+
+      <label for="mail" hidden>E-Mail</label>
+      <div class="input-group">
+        <span class="input-group-text"><img src="../../assets/vectors/mail.svg"/></span>
+        <input class="form-control" id="mail" placeholder="E-Mail" />
+      </div>
+
+      <label for="gender" hidden>Sexxe</label>
+      <div class="input-group">
+        <span class="input-group-text"><img src="../../assets/vectors/gender.svg"/></span>
+        <select class="form-control" id="gender" placeholder="Titre">
+          <option selected disabled>-- Sélectionner un sexe --</option>
+          <option value="man">Homme</option>
+          <option value="woman">Femme</option>
+        </select>
+      </div>
+
+      <label for="npa" hidden>NPA</label>
+      <div class="input-group">
+        <span class="input-group-text"><img src="../../assets/vectors/hashtag.svg"/></span>
+        <input class="form-control" id="npa" placeholder="NPA" />
+      </div>
+
+      <label for="locality" hidden>Localité</label>
+      <div class="input-group">
+        <span class="input-group-text"><img src="../../assets/vectors/home.svg"/></span>
+        <input class="form-control" id="locality" placeholder="Localité" />
+      </div>
+
+      <label for="address" hidden>Adresse</label>
+      <div class="input-group">
+        <span class="input-group-text"><img src="../../assets/vectors/home.svg"/></span>
+        <input class="form-control" id="address" placeholder="Adresse" />
+      </div>
+
+      <label for="country" hidden>Pays</label>
+      <div class="input-group">
+        <span class="input-group-text"><img src="../../assets/vectors/flag.svg"/></span>
+        <select class="form-control" id="country" placeholder="Pays">
+          <option disabled selected>-- Sélectionner un pays --</option>
+          <option value="swiss">Suisse</option>
+          <option value="france">France</option>
+        </select>
+      </div>
+
+
+      <h2>Panier</h2>
+
+      <div class="cart">
+        <template v-for="item in $parent.ShoppingCart">
+          <div class="item">
+          <span>
+            {{ item.name }}
+          </span>
+            <span>
+            <input v-model="item.amount" type="number" min="0" max="999" class="amount"/>
+          </span>
+            <span>
+            {{ parseFloat(item.uprice).toFixed(2) }} CHF
+          </span>
+            <span>
+            {{ parseFloat(item.uprice * item.amount).toFixed(2) }} CHF
+          </span>
+          </div>
+        </template>
+        <div class="total">
+          Total : {{ GetTotalCost }} CHF
+        </div>
+        <div class="center">
+          <button class="buy" @click="buy">
+            Acheter
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div v-else-if="State === 'bought'">
+      <h1>Commande réussie</h1>
       <p>
-        Pour acheter nos produits, veuillez remplir le formulaire ci-contre.
-        À la suite de son envoi, vous receverez par e-mail le compte IBAN
-        où devra être versé le montant de la commande. La commande partira
-        dès la réception du montant.
+        La commande s'est effectuée avec succès. Un mail a été envoyé
+        sur votre adresse électronique afin de compléter l'achat.
       </p>
     </div>
-    <div class="main-container">
-      <h1>Acheter nos produits</h1>
-      <form method="#">
-        <h2>Commande</h2>
-        <div class="command">
 
-          <div class="customer-infos">
-            <div class="input-container">
-              <label for="mail">Titre</label>
-              <select id="country" name="country">
-                <option selected disabled>-- Titre --</option>
-                <option value="swiss" >Monsieur</option>
-                <option value="france">Madame</option>
-              </select>
-            </div>
-            <div class="input-container">
-              <label for="name">Nom</label>
-              <span></span>
-              <input type="text" id="name" name="name"/>
-            </div>
-            <div class="input-container">
-              <label for="firstname">Prénom</label>
-              <input type="text" id="firstname" name="firstname"/>
-            </div>
-            <div class="input-container">
-              <label for="mail">Adresse E-Mail</label>
-              <input type="email" id="mail" name="mail"/>
-            </div>
-          </div>
-
-          <div class="customer-infos">
-            <div class="input-container">
-              <label for="locality">Localité</label>
-              <input type="text" id="locality" name="locality"/>
-            </div>
-            <div class="input-container">
-              <label for="npa">NPA</label>
-              <input type="text" id="npa" name="npa"/>
-            </div>
-            <div class="input-container">
-              <label for="address">Adresse</label>
-              <input type="text" id="address" name="address"/>
-            </div>
-
-            <div class="input-container">
-              <label for="country">Pays</label>
-              <select id="country" name="country">
-                <option selected disabled>-- Pays --</option>
-                <option value="swiss" >Suisse</option>
-                <option value="france">France</option>
-              </select>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="order">
-          <fieldset>
-            <legend>Articles</legend>
-
-            <Article
-              name="Nom"
-              amount="Quantité"
-              uprice="Prix unitaire"
-              tprice="Prix total"
-            ></Article>
-
-            <div class="scroll-area">
-              <Article v-for="(item, key) in $parent.ShoppingCart"
-                       :name="item.name"
-                       :amount="item.amount"
-                       :uprice="item.uprice"
-                       :odd="key % 2"
-                       :key="key"
-                       @remove="RemoveArticle(key)"
-                       @change="ChangeItemNumber"
-              ></Article>
-            </div>
-
-            <div class="total">
-              Total : {{ GetTotalCost }} CHF
-            </div>
-          </fieldset>
-        </div>
-        <button id="order" name="buttonorder">Commander</button>
-      </form>
-    </div>
   </div>
 </template>
 
@@ -107,6 +106,12 @@
   export default {
     name: "Acheter",
     components: {Article},
+
+    data: function() {
+      return {
+        State: 'default'
+      };
+    },
 
     computed: {
       GetTotalCost: function() {
@@ -118,12 +123,18 @@
       }
     },
     methods: {
-      RemoveArticle: function(Index) {
-        this.$parent.ShoppingCart[Index].amount = 0;
+      buy: function() {
+        // TODO: Send an ajax request and handle failed request
+
+        this.State = 'bought';
+
+        this.ResetCart();
       },
-      ChangeItemNumber: function(Article) {
-        this.$parent.ShoppingCart[Article.key].amount = Article.ele.value;
-        this.$forceUpdate();
+
+      ResetCart: function() {
+        for (let item of this.$parent.ShoppingCart) {
+          item.amount = 0;
+        }
       }
     }
   }
@@ -131,180 +142,179 @@
 
 <style scoped>
 
-
-
-  .command {
-    max-width: 100%;
+  .container {
+    margin: 60px 20%;
   }
 
-  label {
-    display: block;
-    font-size: 1.1em;
-    padding-left: 5px;
-  }
-
-  select,
-  input[type="text"],
-  input[type="email"] {
-    border: 1px solid black;
-    border-radius: 3px;
-    display: block;
-    font-size: 1.1em;
-    padding: 5px;
-    background-color: #fafafa;
-  }
-
-  select {
-    width: 230px;
-  }
-
-  .input-container {
-    padding-left: 20px;
-    margin-bottom: 15px;
-  }
-
-  .customer-infos {
-    display: inline-block;
-    width: 50%;
-  }
-
-  .command {
-    display: flex;
-    justify-content: stretch;
-  }
-
-  .order {
-    display: inline-block;
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .order fieldset {
-    display: block;
-    height: 94%;
-    width: 100%;
-    border-radius: 3px;
-    border: 1px solid black;
-    position: relative;
-    padding-right: 0;
-    max-width: 100%;
-  }
-
-  .order fieldset legend {
-    font-size: 1.1em;
-  }
-
-  #order {
-    cursor: pointer;
+  .title {
+    font-size: 3em;
     margin-top: 20px;
-    width: 50%;
-    margin-left: 25%;
-    padding: 15px 25px;
-    font-size: 1.5em;
-    color: #fff;
-    background-color: #007bff;
-    border: 1px solid #007bff;
-    border-radius: 3px;
   }
 
-  #order:hover {
-    color: #fff;
-    background-color: #0069d9;
-    border-color: #0062cc;
-  }
-
-  .add-article-container {
-    border-top: 1px solid black;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 46px;
+  .form-control {
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     display: flex;
-    justify-content: flex-start;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    flex-grow: 1;
   }
 
-  input.add-article {
-    flex-grow: 2;
-    padding: 8px;
-    padding-right: 0;
-    font-size: 1em;
-    border: 0;
-    height: 30px;
-    border-right: 1px solid black;
-    display: inline-block;
+  .input-group {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    width: 100%;
+    justify-content: stretch;
+    margin-top: 20px;
   }
 
-  button.add-article {
-    padding-top: 5px;
-    font-size: 2em;
-    height: 100%;
-    border: 0;
-    display: inline-block;
+  .input-group-text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: .375rem .75rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-right: -1px;
   }
 
-  .scroll-area {
-    overflow: auto;
-    max-height: 500px;
-  }
-
-  .left-container {
-    left: 5%;
-    top: 200px;
-    position: absolute;
-    width: 20%;
-    border-radius: 3px;
-    background-color: #e0e0e0;
-    padding: 0 15px 15px 15px;
-  }
-
-  .left-container h2 {
-    border-bottom: 1px solid #bbb;
-  }
-
-  .info {
+  .input-group-text img {
     width: 25px;
   }
 
+  .item span:nth-child(1) {
+    width: 50%;
+    display: inline-block;
+  }
+
+  .item {
+    padding: 10px;
+  }
+
+  .item:nth-child(even) {
+    background-color: #eee;
+  }
+
+  .item:nth-child(odd) {
+    background-color: #f6f6f6;
+  }
+
+  .item span:nth-child(3),
+  .item span:nth-child(4) {
+    width: 18%;
+    text-align: right;
+    display: inline-block;
+  }
+
+  input.amount {
+    text-align: right;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    width: 40px;
+  }
+
   .total {
-    margin-top: 15px;
-    padding-right: 11%;
+    padding: 15px;
     text-align: right;
   }
 
-  @media (max-width: 1400px) {
-    .left-container {
-      display: none;
+  .buy {
+    padding: 10px 85px;
+    font-size: 1.3em;
+    border-radius: 5px;
+    border: 2px solid #0077ff;
+    color: #0077ff;
+    background-color: white;
+    position: relative;
+    z-index: 2;
+    transition: 0.4s ease-in-out;
+  }
+
+  .buy:hover {
+    color: white;
+  }
+
+  .buy::after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background-color: #0077ff;
+    top: 0;
+    left: 50%;
+    z-index: -1;
+    transition: 0.4s ease-in-out;
+  }
+
+  .buy:hover::after {
+    width: 100%;
+    left: 0;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    opacity: 1;
+    margin-left: 3px;
+  }
+
+  @media (min-width: 1000px) {
+    .container {
+      max-width: 500px;
+      margin-left: calc(50% - 250px);
     }
   }
 
-  @media (max-width: 700px) {
-    .order fieldset {
-      max-width: 95%;
+  @media (max-width: 670px) {
+    .container {
+      margin: 60px 10%;
     }
   }
 
-  @media (max-width: 550px) {
-    .customer-infos {
-      width: 100%;
+  @media (max-width: 400px) {
+    .container {
+      margin: 20px 2%;
     }
 
-    .command {
-      display: block;
+    .item span:nth-child(1) {
+      width: 40%;
+      display: inline-block;
     }
 
-    select {
-      width: calc(60% + 12px)
+    input.amount {
+      padding: 5px 0;
     }
-
-    input {
-      width: 60%;
-    }
-
-    form {
-      margin-left: 15px;
-    }
-
   }
 
 </style>

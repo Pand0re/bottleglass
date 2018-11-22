@@ -33,6 +33,7 @@
     methods: {
       AddItemToCart: function() {
         this.$parent.$parent.ShoppingCart[this.index].amount++;
+        this.$parent.ShowAlert(this.name);
       }
     }
 
@@ -135,6 +136,10 @@
   .cost button:hover::before {
     z-index: -2;
   }
+
+  /***********************************************************************
+   * Responsive
+   ***********************************************************************/
 
   @media (max-width: 1400px) {
     .cost span,
