@@ -6,57 +6,81 @@
       <label for="name" hidden>Nom</label>
       <div class="input-group">
         <span class="input-group-text"><img src="../../assets/vectors/user.svg"/></span>
-        <input class="form-control" id="name" placeholder="Nom" />
+        <input ref="name" class="form-control" id="name" placeholder="Nom" />
+        <p class="error" v-if="bInvalidName">
+          Veuillez sélectionner un nom valide.
+        </p>
       </div>
 
-      <label for="forname" hidden>Nom</label>
+      <label for="forname" hidden>Prénom</label>
       <div class="input-group">
         <span class="input-group-text"><img src="../../assets/vectors/user.svg"/></span>
-        <input class="form-control" id="forname" placeholder="Prénom" />
+        <input ref="forname" class="form-control" id="forname" placeholder="Prénom" />
+        <p class="error" v-if="bInvalidForname">
+          Veuillez entrer un prénom valide.
+        </p>
       </div>
 
       <label for="mail" hidden>E-Mail</label>
       <div class="input-group">
         <span class="input-group-text"><img src="../../assets/vectors/mail.svg"/></span>
-        <input class="form-control" id="mail" placeholder="E-Mail" />
+        <input ref="mail" class="form-control" id="mail" placeholder="E-Mail" type="email"/>
+        <p class="error" v-if="bInvalidMail">
+          Veuillez entrer une adresse E-Mail valide.
+        </p>
       </div>
 
-      <label for="gender" hidden>Sexxe</label>
+      <label for="gender" hidden>Sexe</label>
       <div class="input-group">
         <span class="input-group-text"><img src="../../assets/vectors/gender.svg"/></span>
-        <select class="form-control" id="gender" placeholder="Titre">
+        <select ref="gender" class="form-control" id="gender" placeholder="Titre">
           <option selected disabled>-- Sélectionner un sexe --</option>
           <option value="man">Homme</option>
           <option value="woman">Femme</option>
         </select>
+        <p class="error" v-if="bInvalidGender">
+          Veuillez sélectionner un genre.
+        </p>
       </div>
 
       <label for="npa" hidden>NPA</label>
       <div class="input-group">
         <span class="input-group-text"><img src="../../assets/vectors/hashtag.svg"/></span>
-        <input class="form-control" id="npa" placeholder="NPA" />
+        <input ref="npa" class="form-control" id="npa" placeholder="NPA" type="number" />
+        <p class="error" v-if="bInvalidNPA">
+          Veuillez entrer un NPA valide.
+        </p>
       </div>
 
       <label for="locality" hidden>Localité</label>
       <div class="input-group">
         <span class="input-group-text"><img src="../../assets/vectors/home.svg"/></span>
-        <input class="form-control" id="locality" placeholder="Localité" />
+        <input ref="locality" class="form-control" id="locality" placeholder="Localité" />
+        <p class="error" v-if="bInvalidLocality">
+          Veuillez entrer une localité valide.
+        </p>
       </div>
 
       <label for="address" hidden>Adresse</label>
       <div class="input-group">
         <span class="input-group-text"><img src="../../assets/vectors/home.svg"/></span>
-        <input class="form-control" id="address" placeholder="Adresse" />
+        <input ref="address" class="form-control" id="address" placeholder="Adresse" />
+        <p class="error" v-if="bInvalidAddress">
+          Veuillez entrer une adresse valide.
+        </p>
       </div>
 
       <label for="country" hidden>Pays</label>
       <div class="input-group">
         <span class="input-group-text"><img src="../../assets/vectors/flag.svg"/></span>
-        <select class="form-control" id="country" placeholder="Pays">
+        <select ref="country" class="form-control" id="country" placeholder="Pays">
           <option disabled selected>-- Sélectionner un pays --</option>
           <option value="swiss">Suisse</option>
           <option value="france">France</option>
         </select>
+        <p class="error" v-if="bInvalidCountry">
+          Veuillez sélectionner un pays.
+        </p>
       </div>
 
 
@@ -109,7 +133,15 @@
 
     data: function() {
       return {
-        State: 'default'
+        State: 'default',
+        bInvalidName:     false,
+        bInvalidForname:  false,
+        bInvalidMail:     false,
+        bInvalidGender:   false,
+        bInvalidNPA:      false,
+        bInvalidLocality: false,
+        bInvalidAddress:  false,
+        bInvalidCountry:  false
       };
     },
 
@@ -123,7 +155,48 @@
       }
     },
     methods: {
+      /**
+       * Check provided informations
+       * @returns {boolean} If infos are correct
+       */
+      CheckInfos: function() {
+
+        const Name      = this.$refs.name     .value;
+        const Forname   = this.$refs.forname  .value;
+        const Mail      = this.$refs.mail     .value;
+        const NPA       = this.$refs.npa      .value;
+        const Locality  = this.$refs.locality .value;
+        const Address   = this.$refs.address  .value;
+        const Gender    = this.$refs.gender   .value;
+        const Country   = this.$refs.country  .value;
+
+        this.bInvalidName     = Name    .length < 2;
+        this.bInvalidForname  = Forname .length < 2;
+        this.bInvalidAddress  = Address .length < 4;
+        this.bInvalidLocality = Locality.length < 2;
+        this.bInvalidMail     = !Mail.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+        this.bInvalidGender   = Gender  !== 'man'   && Gender  !== 'woman' ;
+        this.bInvalidCountry  = Country !== 'swiss' && Country !== 'france';
+        this.bInvalidNPA      = !NPA;
+
+        return !(
+          this.bInvalidName     ||
+          this.bInvalidForname  ||
+          this.bInvalidMail     ||
+          this.bInvalidGender   ||
+          this.bInvalidNPA      ||
+          this.bInvalidLocality ||
+          this.bInvalidAddress  ||
+          this.bInvalidCountry
+        );
+
+      },
       buy: function() {
+
+        if (!this.CheckInfos()) {
+          return;
+        }
+
         // TODO: Send an ajax request and handle failed request
 
         this.State = 'bought';
@@ -287,6 +360,13 @@
   input[type=number]::-webkit-outer-spin-button {
     opacity: 1;
     margin-left: 3px;
+  }
+
+  .error {
+    color: #c72367;
+    margin-top: 5px;
+    margin-left: 25px;
+    margin-bottom: 0;
   }
 
   @media (min-width: 1000px) {

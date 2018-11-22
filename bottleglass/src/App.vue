@@ -17,30 +17,30 @@
         ShoppingCart: [
           {
             name: 'Bougie',
-            desc: 'Une bougie ...',
+            desc: 'Une bougie réalisée à partir d\'un fond de bouteille.',
             amount: 0,
-            uprice: 6.5,
+            uprice: 8,
             img: './static/carousel/verres-pied.jpg'
           },
           {
             name: 'Verre à pieds',
             desc: 'Un verre à pieds qui convient parfaitement pour un cocktail. Réalisé avec un haut de bouteil blah blah',
             amount: 0,
-            uprice: 7.5,
+            uprice: 7,
             img: './static/carousel/verres-pied.jpg'
           },
           {
             name: 'Verre classique',
-            desc: 'Un verre classique ...',
+            desc: 'Un verre classique ',
             amount: 0,
-            uprice: 8.95,
+            uprice: 5,
             img: './static/carousel/verres-classiques.jpeg'
           },
           {
             name: 'Pot de fleurs',
             desc: 'Un pot de fleur ...',
             amount: 0,
-            uprice: 7.5,
+            uprice: 10,
             img: './static/carousel/verres-pied.jpg'
           }
         ]

@@ -72,8 +72,23 @@
 
       HideCart: function() {
 
-        this.$refs.container.classList += " close";
-        this.$refs.container.parentNode.classList += " close-overlay";
+        let ua = window.navigator.userAgent;
+        let msie = ua.indexOf("MSIE ");
+
+        // Internet Explorer
+        if (msie > 0  ||
+          !!navigator.userAgent.match(/Trident.*rv\:11\./) ||
+          /Edge/.test(navigator.userAgent))
+        {
+          this.$refs.container.className += " close";
+          this.$refs.container.parentNode.className += " close-overlay";
+        }
+
+        // Other browser
+        else {
+          this.$refs.container.classList += " close";
+          this.$refs.container.parentNode.classList += " close-overlay";
+        }
 
         let Self = this;
 
