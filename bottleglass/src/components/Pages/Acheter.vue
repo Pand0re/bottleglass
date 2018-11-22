@@ -367,6 +367,7 @@
     margin-top: 5px;
     margin-left: 25px;
     margin-bottom: 0;
+    font-size: 0.9em;
   }
 
   @media (min-width: 1000px) {

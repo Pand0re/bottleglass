@@ -150,6 +150,37 @@
     }
   }
 
+
+  @media (max-width: 450px) {
+
+    .alert {
+      width: 90%;
+      bottom: -100px;
+      right: 0;
+    }
+
+    .alert.show {
+      animation: alert-appear-sm 0.5s ease-in-out;
+      bottom: 0;
+    }
+
+    .alert.hide {
+      animation: alert-disappear-sm 0.5s ease-in-out;
+      bottom: -100px;
+    }
+
+    @keyframes alert-appear-sm {
+      0% {bottom: -100px;}
+      100% {bottom:  0;}
+    }
+
+    @keyframes alert-disappear-sm {
+      0% {bottom:      0;}
+      100% {bottom: -100px;}
+    }
+
+  }
+
   @media (max-width: 399px) {
     ul.products li a {
       min-width: 50px;

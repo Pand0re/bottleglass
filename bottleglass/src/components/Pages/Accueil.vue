@@ -19,7 +19,7 @@
       <slide data-name="Recyclage de bouteilles">
         <div class="carousel-content">
           <span>
-            Recyclage de bouteilles en verres
+            Recyclage de bouteilles en verre
           </span>
         </div>
         <img src="/static/carousel/verres-pied.jpg" style="width: 100%">
