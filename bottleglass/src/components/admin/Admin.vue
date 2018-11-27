@@ -26,7 +26,7 @@
   </div>
 
   <div v-else-if="Stat === 'invalidcreds'" class="container-loggin" >
-    <h1>Mot de passe éroné</h1>
+    <h1>Mot de passe erroné</h1>
     <div class="button-group">
       <button @click="Stat = 'login'">
         Réessayer
