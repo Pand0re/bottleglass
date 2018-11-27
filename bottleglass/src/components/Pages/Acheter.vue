@@ -211,7 +211,6 @@
           'POST',
           'email=' + Mail,
           function(xhr) {
-            const Response = JSON.parse(xhr.response);
             console.log(xhr)
 
           }
