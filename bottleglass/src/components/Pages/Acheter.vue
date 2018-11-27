@@ -197,7 +197,25 @@
           return;
         }
 
-        // TODO: Send an ajax request and handle failed request
+        const Name      = this.$refs.name     .value;
+        const Forname   = this.$refs.forname  .value;
+        const Mail      = this.$refs.mail     .value;
+        const NPA       = this.$refs.npa      .value;
+        const Locality  = this.$refs.locality .value;
+        const Address   = this.$refs.address  .value;
+        const Gender    = this.$refs.gender   .value;
+        const Country   = this.$refs.country  .value;
+
+        this.$ajax(
+          'https://bottleglass.ch/api/buy.php',
+          'POST',
+          'email=' + Mail,
+          function(xhr) {
+            const Response = JSON.parse(xhr.response);
+            console.log(xhr)
+
+          }
+        );
 
         this.State = 'bought';
 
