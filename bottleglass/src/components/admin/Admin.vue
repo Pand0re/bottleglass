@@ -25,13 +25,17 @@
 
   </div>
 
-  <div v-else-if="Stat === 'invalidcreds'" class="container-loggin" >
+  <div v-else-if="Stat === 'logged'" class="container-loggin" >
     <h1>Mot de passe erroné</h1>
     <div class="button-group">
       <button @click="Stat = 'login'">
         Réessayer
       </button>
     </div>
+  </div>
+
+  <div v-else-if="Stat === 'invalidcreds'">
+
   </div>
 
   <div v-else  class="container-loggin" >
@@ -47,6 +51,7 @@
       </button>
     </div>
   </div>
+
 </template>
 
 <script>
