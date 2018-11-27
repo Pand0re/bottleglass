@@ -75,7 +75,7 @@
           function(xhr) {
           const Response = JSON.parse(xhr.response);
 
-          switch(Response.code) {
+          switch(parseInt(Response.code)) {
             // Success
             case 0: {
               Self.token = Response.token;
