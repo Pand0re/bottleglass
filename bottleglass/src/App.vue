@@ -16,13 +16,6 @@
       return {
         ShoppingCart: [
           {
-            name: 'Verre à pieds',
-            desc: 'Un verre à pieds qui convient parfaitement pour un cocktail. Réalisé avec un haut de bouteil blah blah',
-            amount: 0,
-            uprice: 5.5,
-            img: './static/carousel/verres-pied.jpg'
-          },
-          {
             name: 'Verre classique',
             desc: 'Un verre classique ',
             amount: 0,
@@ -30,19 +23,33 @@
             img: './static/carousel/verres-classiques.jpeg'
           },
           {
+              name: 'Verre à pieds',
+              desc: 'Un verre à pieds qui convient parfaitement pour un cocktail. Réalisé avec un haut de bouteil blah blah',
+              amount: 0,
+              uprice: 5.5,
+              img: './static/carousel/verres-pied.jpg'
+          },  
+          {
             name: 'Bougie',
             desc: 'Une bougie réalisée à partir d\'un fond de bouteille.',
             amount: 0,
             uprice: 6.5,
-            img: './static/carousel/verres-pied.jpg'
+            img: './static/produits/bougie1.jpg'
           },
+          {
+              name: 'Pack "starter"',
+              desc: '2 verres classiques et un verre à vin ! Ce pack peut légèrement varier selon notre stock de verre.',
+              amount: 0,
+              uprice: 10,
+              img: './static/produits/Pack-2VC-1VP.jpg'
+          }/*,
           {
             name: 'Pot de fleurs',
             desc: 'Un pot de fleur ...',
             amount: 0,
             uprice: 10,
             img: './static/carousel/verres-pied.jpg'
-          }
+          }*/
         ]
       };
     }
