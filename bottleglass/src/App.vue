@@ -19,21 +19,21 @@
             name: 'Verre à pieds',
             desc: 'Un verre à pieds qui convient parfaitement pour un cocktail. Réalisé avec un haut de bouteil blah blah',
             amount: 0,
-            uprice: 7,
+            uprice: 5.5,
             img: './static/carousel/verres-pied.jpg'
           },
           {
             name: 'Verre classique',
             desc: 'Un verre classique ',
             amount: 0,
-            uprice: 5,
+            uprice: 4.5,
             img: './static/carousel/verres-classiques.jpeg'
           },
           {
             name: 'Bougie',
             desc: 'Une bougie réalisée à partir d\'un fond de bouteille.',
             amount: 0,
-            uprice: 8,
+            uprice: 6.5,
             img: './static/carousel/verres-pied.jpg'
           },
           {

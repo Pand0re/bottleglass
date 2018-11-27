@@ -35,7 +35,36 @@
   </div>
 
   <div v-else-if="Stat === 'logged'">
+    <!--
+    Tableau liste commandes reçues (plus vieilles à plus récentes)
+    Champ (textarea) pour remarque sur la commande par production
+    Btn pour valider le paiement de la commande (par administration)
+    Puis btn pour valider l'envoi de la commande (par prod)
+    -->
 
+    <h1>Liste des commandes en cours</h1>
+    <table>
+      <thead>
+        <tr>
+          <td width="10%">Numéro</td>
+          <td>Date</td>
+          <td>Client</td>
+          <td>Commande</td>
+          <td>Remarque</td>
+          <td>#</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>27.11.2018</td>
+          <td>Michel Dupont - 2800 Delémont</td>
+          <td>6x verre classique</td>
+          <td><textarea></textarea></td>
+          <td><a><img src="../../../static/admin/vu.png" style="width:20px"></a></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
   <div v-else  class="container-loggin" >
@@ -161,5 +190,31 @@
   .container {
 
   }
+
+  /* TABLEAU COMMANDES */
+  table {
+    text-align:center;
+    margin: 20px auto;
+
+  }
+
+  table, td {
+    border: 1px solid #000;
+    border-collapse: collapse;
+  }
+
+  table td {
+    padding: 5px;
+  }
+
+
+
+  table thead td {
+    font-weight: bold;
+    padding:10px;
+  }
+
+
+
 
 </style>
