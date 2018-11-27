@@ -368,6 +368,8 @@
     margin-left: 25px;
     margin-bottom: 0;
     font-size: 0.9em;
+    display: block;
+    width: 100%;
   }
 
   @media (min-width: 1000px) {
