@@ -17,7 +17,8 @@
       Nous contacter
     </h1>
     <p>
-      Une question ? Une proposition ? Vous avez une demande particulière ? <br/>
+      Une question ? Une proposition ?
+      Vous souhaitez un produit fait sur mesure ?<br/><br/>
       Alors contactez-nous par mail à <a href="mailto:contact@bottleglass.ch">
       contact@bottleglass.ch</a>
     </p>
