@@ -1,173 +1,84 @@
-<html>
-	<style>
-		html {
-			font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica";
-		}
-		
-		body {
-			margin: 0;
-		}
-		
-		h2 {
-			font-size: 2em;
-		}
-		
-		p {
-			font-size: 1.3em;
-		}
-		
-		a {
-			color: #666;
-			transition: 0.5s;
-		}
-		
-		a:hover {
-			color: black;
-		}
-		
-		.head {
-			text-align: center;
-			color: white;
-			background-color: #444;
-			height: 100px;
-			line-height: 100px;
-		}
-		
-		.container {
-			width: 100%;
-		}
-		
-		.content {
-			max-width: 550px;
-			margin-left: 10%;
-		}
-		
-		.products {
-			margin-top: 40px;
-		}
-		
-		.products div {
-			display: inline-block;			
-		}
-		
-		.products .header {
-			font-weight: 600;
-			font-size: 1.1em;
-			color: #555;
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+	<body style="margin: 0;">
+		<style>
+			.content {
+				margin-left: 10%;
+			}
 			
-		}
-		
-		.align-right {
-			text-align: right;
-		}
-		
-		.r0 {
-			width: 35%;
-		}
-		
-		.r1 {
-			width: 14%;
-		}
-		
-		.r2, .r3 {
-			width: 20%;
-			padding-left: 20px;
-		}
-		
-		.pheader {
-			border-bottom: 1px solid black;
-			width: 100%;
-			padding: 0 5px 5px;
-		}
-		
-		.pbody {
-			padding: 10px 5px;
-			width: 100%;
-		}
-		
-		.pbody:nth-child(even) {
-			background-color: #eee;
-		}
-		
-	</style>
-	<body>
-		<div class="container">
-			<div class="head">
-				<h1>
-					bottleglass.ch
+			@media (max-width: 500px) {
+				.content {
+					margin-left: 3px;
+				}
+			}
+		</style>
+		<div class="container" style="width: 100%;font-family: 'SF Pro Display','SF Pro Icons','Helvetica Neue','Helvetica';">
+			<div class="head" style="text-align: center;color: white;background-color: #444;height: 100px;line-height: 100px;">
+				<h1 style="color: white;">
+					BOTTLEGLASS
 				</h1>
 			</div>
 			
-			<div class="content">
-				<h2>
+			<h1>
+				Le site n'est pas encore terminé, nous sommes heureux de vous compter parmis nos clients.
+				Cependant, les commandes ne sont pas encore fonctionnelles.
+				Aucune commande n'a encore réellement été faite. Veuillez réessayer plus tard.
+			</h1>
+			
+			<div class="content" style="max-width: 550px;">
+				<h2 style="font-size: 2em;">
 					Validation de commande
 				</h2>
 					
-				<p>
-					Cher monsieur Valjean, <br/><br/>
+				<p style="font-size: 1.3em;">
+					Cher / Chère %%FORNAME%% %%NAME%%, <br><br>
 					Voici la confirmation de votre commande sur le site 
-					<a href="https://bottleglass.ch">bottleglass.ch</a>. <br/>
+					<a href="https://bottleglass.ch" style="color: #666;transition: 0.5s;">bottleglass.ch</a>. <br>
 				</p>
 				
-				<div class="products">
-					<div class="pheader">
-						<div class="header r0">
-							Produit
-						</div>
-						<div class="header r1">
-							QuantitÃ©
-						</div>
-						<div class="header r2">
-							Prix unitaire
-						</div>
-						<div class="header r3">
-							Prix total
-						</div>
-					</div>
-					
-					<div class="pbody">
-						<div class="product r0">
-							Verre classique
-						</div>
-						<div class="product align-right r1">
-							x2
-						</div>
-						<div class="product align-right r2">
-							5.50 CHF
-						</div>
-						<div class="product align-right r3">
-							11.00 CHF
-						</div>
-					</div>
-					<div class="pbody">
-						<div class="product r0">
-							Verre classique
-						</div>
-						<div class="product align-right r1">
-							x2
-						</div>
-						<div class="product align-right r2">
-							5.50 CHF
-						</div>
-						<div class="product align-right r3">
-							11.00 CHF
-						</div>
-					</div>
-					<div class="pbody">
-						<div class="product r0">
-							Verre classique
-						</div>
-						<div class="product align-right r1">
-							x2
-						</div>
-						<div class="product align-right r2">
-							5.50 CHF
-						</div>
-						<div class="product align-right r3">
-							11.00 CHF
-						</div>
-					</div>
+				<div class="products" style="margin-top: 40px; max-width: 100%; width: 600px;">
+					<table style="font-size: 1.1em;">
+						<tr style="width:100%;">
+							<th style="width:40%; text-align: left; border-bottom: 1px solid #666; padding-bottom: 0;">
+								Produit
+							</th>
+							<th style="width:17%; text-align: left; border-bottom: 1px solid #666; padding-bottom: 0;">
+								Quant.
+							</th>
+							<th style="width:20%; text-align: left; border-bottom: 1px solid #666; padding-bottom: 0;">
+								Prix uni.
+							</th>
+							<th style="width:21%; text-align: left; border-bottom: 1px solid #666; padding-bottom: 0;">
+								Prix tot.
+							</th>
+						</tr>
+						
+						<tr>
+							<td style="text-align: left;">
+								Verre à pieds
+							</td>
+							<td style="text-align: right;">
+								12x
+							</td>
+							<td style="text-align: right;">
+								6.50 CHF
+							</td>
+							<td style="text-align: right;"	>
+								100.00 CHF
+							</td>
+						</tr>
+						
+						<tr>
+							<td colspan="4" style="text-align: right;">
+								Total : 100.00 CHF
+							</td>
+						</tr>
+					</table>
 				</div>
+				
+				<p>
+					Veuillez faire une virement bancaire au compte IBAN %%IBANACCOUNT%%. 
+					Nous enverrons la marchandise dès la réception de l'argent.
+				</p>
 				
 			</div>
 		</div>
