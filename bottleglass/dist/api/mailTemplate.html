@@ -1,0 +1,176 @@
+<html>
+	<style>
+		html {
+			font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica";
+		}
+		
+		body {
+			margin: 0;
+		}
+		
+		h2 {
+			font-size: 2em;
+		}
+		
+		p {
+			font-size: 1.3em;
+		}
+		
+		a {
+			color: #666;
+			transition: 0.5s;
+		}
+		
+		a:hover {
+			color: black;
+		}
+		
+		.head {
+			text-align: center;
+			color: white;
+			background-color: #444;
+			height: 100px;
+			line-height: 100px;
+		}
+		
+		.container {
+			width: 100%;
+		}
+		
+		.content {
+			max-width: 550px;
+			margin-left: 10%;
+		}
+		
+		.products {
+			margin-top: 40px;
+		}
+		
+		.products div {
+			display: inline-block;			
+		}
+		
+		.products .header {
+			font-weight: 600;
+			font-size: 1.1em;
+			color: #555;
+			
+		}
+		
+		.align-right {
+			text-align: right;
+		}
+		
+		.r0 {
+			width: 35%;
+		}
+		
+		.r1 {
+			width: 14%;
+		}
+		
+		.r2, .r3 {
+			width: 20%;
+			padding-left: 20px;
+		}
+		
+		.pheader {
+			border-bottom: 1px solid black;
+			width: 100%;
+			padding: 0 5px 5px;
+		}
+		
+		.pbody {
+			padding: 10px 5px;
+			width: 100%;
+		}
+		
+		.pbody:nth-child(even) {
+			background-color: #eee;
+		}
+		
+	</style>
+	<body>
+		<div class="container">
+			<div class="head">
+				<h1>
+					bottleglass.ch
+				</h1>
+			</div>
+			
+			<div class="content">
+				<h2>
+					Validation de commande
+				</h2>
+					
+				<p>
+					Cher monsieur Valjean, <br/><br/>
+					Voici la confirmation de votre commande sur le site 
+					<a href="https://bottleglass.ch">bottleglass.ch</a>. <br/>
+				</p>
+				
+				<div class="products">
+					<div class="pheader">
+						<div class="header r0">
+							Produit
+						</div>
+						<div class="header r1">
+							Quantité
+						</div>
+						<div class="header r2">
+							Prix unitaire
+						</div>
+						<div class="header r3">
+							Prix total
+						</div>
+					</div>
+					
+					<div class="pbody">
+						<div class="product r0">
+							Verre classique
+						</div>
+						<div class="product align-right r1">
+							x2
+						</div>
+						<div class="product align-right r2">
+							5.50 CHF
+						</div>
+						<div class="product align-right r3">
+							11.00 CHF
+						</div>
+					</div>
+					<div class="pbody">
+						<div class="product r0">
+							Verre classique
+						</div>
+						<div class="product align-right r1">
+							x2
+						</div>
+						<div class="product align-right r2">
+							5.50 CHF
+						</div>
+						<div class="product align-right r3">
+							11.00 CHF
+						</div>
+					</div>
+					<div class="pbody">
+						<div class="product r0">
+							Verre classique
+						</div>
+						<div class="product align-right r1">
+							x2
+						</div>
+						<div class="product align-right r2">
+							5.50 CHF
+						</div>
+						<div class="product align-right r3">
+							11.00 CHF
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+	</body>
+</html>
