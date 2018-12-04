@@ -48,8 +48,16 @@
     },
 
     mounted: function() {
-      this.$ajax(
 
+      let Self = this;
+
+      this.$ajax(
+        'https://bottleglass.ch/api/getProducts.php',
+        'GET',
+        '',
+        function(xhr) {
+          
+        }
       );
     }
   }
