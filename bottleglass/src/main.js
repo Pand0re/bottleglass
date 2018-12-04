@@ -5,28 +5,17 @@ import App from './App'
 import router from './router'
 import VueCarousel from 'vue-carousel';
 
-Vue.config.productionTip = false;
-
-Vue.use(VueCarousel);
-
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
-});
 
 Vue.prototype.$ajax = function(url, type, data, callback) {
   let xhr;
 
   if(typeof XMLHttpRequest !== 'undefined') xhr = new XMLHttpRequest();
   else {
-    var versions = ["MSXML2.XmlHttp.5.0",
+    let versions = ["MSXML2.XmlHttp.5.0",
       "MSXML2.XmlHttp.4.0",
       "MSXML2.XmlHttp.3.0",
       "MSXML2.XmlHttp.2.0",
-      "Microsoft.XmlHttp"]
+      "Microsoft.XmlHttp"];
 
     for(let i = 0, len = versions.length; i < len; i++) {
       try {
@@ -60,3 +49,16 @@ Vue.prototype.$ajax = function(url, type, data, callback) {
   xhr.send(data);
 };
 
+
+
+Vue.config.productionTip = false;
+
+Vue.use(VueCarousel);
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  router,
+  components: { App },
+  template: '<App/>'
+});

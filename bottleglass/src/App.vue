@@ -56,7 +56,7 @@
         'GET',
         '',
         function(xhr) {
-          
+          console.log(xhr);
         }
       );
     }
