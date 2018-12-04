@@ -42,16 +42,15 @@
               amount: 0,
               uprice: 10,
               img: './static/produits/Pack-2VC-1VP.jpg'
-          }/*,
-          {
-            name: 'Pot de fleurs',
-            desc: 'Un pot de fleur ...',
-            amount: 0,
-            uprice: 10,
-            img: './static/carousel/verres-pied.jpg'
-          }*/
+          }
         ]
       };
+    },
+
+    mounted: function() {
+      this.$ajax(
+
+      );
     }
   }
 

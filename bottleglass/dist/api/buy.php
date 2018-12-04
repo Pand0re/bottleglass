@@ -31,10 +31,20 @@
 	$headers .= 'content-type: text/plain; charset="UTF-8"';
 	$headers .= 'Mime-Version: 1.0';
 	
-	$mail = file_get_contents("./mailTemplate.html");
+	$mail  = file_get_contents("./mailTemplate.html");
+	$order = file_get_contents("./rowTemplate.html");
+	
+	$rows = "";
+	
+	for($i = 0; $i < 99; ++$i) {
+		$currentRow = $order;
+		$currentRow = str_replace("%%NAME%%", "Verre à pieds", $currentRow);
+		$rows .= $currentRow;
+	}
 	
 	$mail = str_replace('%%NAME%%'	 	, $name		, $mail);
 	$mail = str_replace('%%FORNAME%%'	, $forname	, $mail);
+	$mail = str_replace('%%ORDERS%%'	, $rows		, $mail);
 	
 	$content = $mail;	
 	
