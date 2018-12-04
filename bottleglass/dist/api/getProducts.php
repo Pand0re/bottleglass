@@ -16,6 +16,6 @@ try {
 
 $stmt = $db->query("SELECT * FROM tb_produits");
 
-echo json_encode($stmt);
+echo json_encode($stmt->fetchAll());
 
 
