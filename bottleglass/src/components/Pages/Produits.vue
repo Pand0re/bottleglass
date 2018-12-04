@@ -11,10 +11,10 @@
 
 
     <Product v-for="(item, key) in $parent.ShoppingCart"
-      :name="item.name"
-      :description="item.desc"
-      :price="item.uprice"
-      :img="item.img"
+      :name="item.nom_pro"
+      :description="item.desc_pro"
+      :price="item.prix_pro"
+      :img="item.img_pro"
       :index="key"
       :key="key"
     ></Product>
