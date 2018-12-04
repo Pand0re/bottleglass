@@ -14,7 +14,7 @@ try {
     die();
 }
 
-$stmt = $db->query("SELECT * FROM tb_produits",PDO::FETCH_ASSOC);
+$stmt = $db->query("SELECT * FROM tb_produits WHERE dispo_pro = 1",PDO::FETCH_ASSOC);
 
 echo json_encode($stmt->fetchAll());
 
