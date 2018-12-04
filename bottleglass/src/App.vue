@@ -28,7 +28,7 @@
               amount: 0,
               uprice: 5.5,
               img: './static/carousel/verres-pied.jpg'
-          },  
+          },
           {
             name: 'Bougie',
             desc: 'Une bougie réalisée à partir d\'un fond de bouteille.',
