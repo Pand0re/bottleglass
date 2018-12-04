@@ -37,7 +37,7 @@
             img: './static/produits/bougie1.jpg'
           },
           {
-              name: 'Pack "starter"',
+              name: 'Pack « starter »',
               desc: '2 verres classiques et un verre à vin ! Ce pack peut légèrement varier selon notre stock de verre.',
               amount: 0,
               uprice: 10,

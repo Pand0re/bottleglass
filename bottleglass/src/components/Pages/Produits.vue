@@ -5,7 +5,7 @@
         <li><a href="#i1"><img src="../../assets/vectors/cocktail.svg"/>    <span>Verres à pieds    </span></a></li>
         <li><a href="#i2"><img src="../../assets/vectors/orange-juice.svg"/><span>Verres classiques </span></a></li>
         <li><a href="#i0"><img src="../../assets/vectors/candle.svg"/>      <span>Bougies           </span></a></li>
-        <li><a href="#i3"><img src="../../assets/vectors/growing.svg"/>     <span>Pots de fleurs    </span></a></li>
+        <li><a href="#i3"><img src="../../assets/vectors/package.svg"/>     <span>Packs             </span></a></li>
       </ul>
     </div>
 

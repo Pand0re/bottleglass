@@ -209,9 +209,17 @@
         this.$ajax(
           'https://bottleglass.ch/api/buy.php',
           'POST',
-          'email=' + Mail,
+          'email='     + Mail +
+          '&name='     + Name +
+          '&npa='      + NPA +
+          '&locality=' + Locality +
+          '&address='  + Address +
+          '&gender='   + Gender +
+          '&country='  + Country +
+          '&forname='  + Forname
+          ,
           function(xhr) {
-            console.log(xhr)
+            console.log(xhr);
 
           }
         );
