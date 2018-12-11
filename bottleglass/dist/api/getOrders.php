@@ -1,35 +1,33 @@
 <?php
-	
-	header('Access-Control-Allow-Origin: *');
-	header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-	header('Content-type: text/html; charset=UTF-8'); 
-	header('Access-Control-Allow-Headers: X-Requested-With');
+
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+    header('Content-type: text/html; charset=UTF-8');
+    header('Access-Control-Allow-Headers: X-Requested-With');
+    require_once './bdd.php';
 
 	session_start();
 	
 	// What we gonna tell it back
 	$response = array(
 		'code' => -1,
-		'orders' => array();
+		'orders' => array()
 	);
 	
-	if (isset($_POST['token']) {
+	if (isset($_POST['token'])) {
 		$token = $_POST['token'];
 		
 		if ($token == $_POST['token']) {
 
-            require_once './bdd.php';
-
             $stmt = $db->query("SELECT * FROM tb_commandes ORDER BY id_com",PDO::FETCH_ASSOC);
 
-            $response = $stmt->fetchAll();
+            $response['orders'] = $stmt->fetchAll();
 
 		}
 		
 		else {
 			$response['code'] = 2;
 		}
-	
 	}
 	
 	else {
