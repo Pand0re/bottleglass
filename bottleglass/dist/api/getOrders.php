@@ -17,17 +17,19 @@
 		$token = $_POST['token'];
 		
 		if ($token == $_POST['token']) {
-			
-			// For testing purpose
-			array_push($response['orders'], array(
-				'Jean',
-				'Valjean',
-				'1',
-				'Suisse',
-				'2732',
-				'Les Emiboix',
-				'Rue des étoiles 4'
-			));
+
+            try {
+                $db = new PDO('mysql:host=xy1fd.myd.infomaniak.com;dbname=xy1fd_bottleglass', 'xy1fd_admin','XUxtMTgfTqcx');
+
+            } catch (PDOException $e) {
+                print "Erreur !: " . $e->getMessage() . "<br/>";
+                die();
+            }
+
+            $stmt = $db->query("SELECT * FROM tb_commandes ORDER BY id_com",PDO::FETCH_ASSOC);
+
+            $response = $stmt->fetchAll();
+
 		}
 		
 		else {
