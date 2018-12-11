@@ -56,15 +56,18 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>27.11.2018</td>
-          <td>Michel Dupont - 2800 Delémont</td>
+
+
+      <tr v-for="order in orders">
+          <td>{{order.id_com}}</td>
+          <td>{{order.date_com}}</td>
+          <td>{{order.nom_cli_com + order.prenom_cli_com}}</td>
           <td>6x verre classique</td>
           <td><textarea></textarea></td>
           <td><a><img src="../../../static/admin/save.png" style="width:20px"></a></td>
           <td><a><img src="../../../static/admin/vu.png" style="width:24px"></a></td>
         </tr>
+
       </tbody>
     </table>
   </div>
@@ -93,7 +96,7 @@
         Stat: 'login',
         token: undefined,
         errorcode: undefined,
-        orders: []
+        orders: [],
       };
     },
 
@@ -116,6 +119,7 @@
             case 0: {
               Self.token = Response.token;
               Self.Stat = 'logged';
+              Self.UpdateData();
               break;
             }
 
@@ -137,7 +141,17 @@
       },
 
       UpdateData: function() {
-        this.$ajax('')
+          let Self = this;
+          this.$ajax(
+              'https://bottleglass.ch/api/getOrders.php',
+              'GET',
+              '',
+              function(xhr) {
+                  console.log(xhr);
+                  Self.orders = JSON.parse(xhr.response);
+
+              }
+          );
       }
     }
   }
