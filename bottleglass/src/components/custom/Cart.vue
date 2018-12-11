@@ -6,9 +6,9 @@
       <div class="cart">
         <template v-for="item in GetCart">
           <div class="cart-item">
-            <span>{{ item.name }}</span>
+            <span>{{ item.nom_pro }}</span>
             <span>x{{ item.amount }}</span>
-            <span>{{ parseFloat(item.amount * item.uprice).toFixed(2) }} CHF</span>
+            <span>{{ parseFloat(item.amount * item.prix_pro).toFixed(2) }} CHF</span>
           </div>
         </template>
       </div>
@@ -57,7 +57,7 @@
         let Total = 0;
 
         for (let item of this.GetCart) {
-          Total += item.amount * item.uprice;
+          Total += item.amount * item.prix_pro;
         }
 
         return Total;

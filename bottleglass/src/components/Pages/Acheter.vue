@@ -90,21 +90,21 @@
         <template v-for="item in $parent.ShoppingCart">
           <div class="item">
           <span>
-            {{ item.name }}
+            {{ item.nom_pro }}
           </span>
             <span>
-            <input v-model="item.amount" type="number" min="0" max="999" class="amount"/>
+            <input v-model="item.amount" type="number" min="0" max="999" class="amount" @input="$forceUpdate()"/>
           </span>
             <span>
-            {{ parseFloat(item.uprice).toFixed(2) }} CHF
+            {{ parseFloat(item.prix_pro).toFixed(2) }} CHF
           </span>
             <span>
-            {{ parseFloat(item.uprice * item.amount).toFixed(2) }} CHF
+            {{ parseFloat(item.prix_pro * item.amount).toFixed(2) }} CHF
           </span>
           </div>
         </template>
         <div class="total">
-          Total : {{ GetTotalCost }} CHF
+          Total : {{ GetTotalCost() }} CHF
         </div>
         <div class="center">
           <button class="buy" @click="buy">
@@ -145,15 +145,7 @@
       };
     },
 
-    computed: {
-      GetTotalCost: function() {
-        let Total = 0.;
-        for (let item of this.$parent.ShoppingCart) {
-          Total += item.amount * item.uprice;
-        }
-        return Total.toFixed(2);
-      }
-    },
+    computed: {},
     methods: {
       /**
        * Check provided informations
@@ -233,6 +225,14 @@
         for (let item of this.$parent.ShoppingCart) {
           item.amount = 0;
         }
+      },
+
+      GetTotalCost: function() {
+        let Total = 0.;
+        for (let item of this.$parent.ShoppingCart) {
+          Total += parseFloat(item.amount * item.prix_pro);
+        }
+        return Total.toFixed(2);
       }
     }
   }

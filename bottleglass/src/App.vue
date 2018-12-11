@@ -14,7 +14,13 @@
     components: {Footer, Header},
     data: function() {
       return {
-        ShoppingCart: []
+        ShoppingCart: [
+          {
+            nom_pro:'',
+            amoun:0,
+            prix_pro:0
+          }
+        ]
       };
     },
 
@@ -28,6 +34,10 @@
         '',
         function(xhr) {
           Self.ShoppingCart = JSON.parse(xhr.response);
+
+          for (let Item of Self.ShoppingCart) {
+            Item.amount = 0;
+          }
         }
       );
     }

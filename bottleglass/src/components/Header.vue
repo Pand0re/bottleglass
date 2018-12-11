@@ -44,7 +44,7 @@
         // The current route
         // We use this to allow Vue.js properties auto update
         // instead of using $route
-        currentRoute: 'Accueil',
+        currentRoute: '',
 
         IsCartOpen: false
       }
@@ -61,6 +61,7 @@
        * @returns {string} The navigation's class
        */
       GetNavigationClass: function(RouteName) {
+        this.currentRoute = this.currentRoute == '' ? this.$router.history.current.name : this.currentRoute;
         return this.currentRoute === RouteName ? 'currentNav' : 'nav';
       },
 

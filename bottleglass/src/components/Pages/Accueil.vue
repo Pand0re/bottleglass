@@ -22,7 +22,7 @@
             Recyclage de bouteilles en verre
           </span>
         </div>
-        <img src="/static/carousel/verres-pied.jpg" style="width: 100%">
+        <img src="/static/produits/Pack-2VC-1VP.jpg" style="width: 100%">
       </slide>
 
       <slide>
@@ -46,10 +46,10 @@
       <slide>
         <div class="carousel-content">
           <span>
-            Pots de fleurs
+            Bougies
           </span>
         </div>
-        <img src="/static/carousel/verres-pied.jpg" style="width: 100%">
+        <img src="/static/produits/bougie1.jpg" style="width: 100%">
       </slide>
 
     </carousel>

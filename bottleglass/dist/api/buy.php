@@ -4,7 +4,7 @@
 	header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 	header('Content-type: text/html; charset=UTF-8'); 
 	header('Access-Control-Allow-Headers: X-Requested-With');
-	/*
+	
 	$name		= $_POST['name'];
 	$forname 	= $_POST['forname'];
 	$gender		= $_POST['gender'];
@@ -13,7 +13,7 @@
 	$address 	= $_POST['address'];
 	$country 	= $_POST['country'];
 	$email 		= $_POST['email'];
-	*/
+	/*
 	$name		= $_GET['name'];
 	$forname 	= $_GET['forname'];
 	$gender		= $_GET['gender'];
@@ -22,7 +22,7 @@
 	$address 	= $_GET['address'];
 	$country 	= $_GET['country'];
 	$email 		= $_GET['email'];
-	
+	*/
 	$title = "Bottleglass - Commande";
 	
 	$headers  = "MIME-Version: 1.0\r\n";
