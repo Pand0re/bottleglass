@@ -4,25 +4,29 @@
 	header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 	header('Content-type: text/html; charset=UTF-8'); 
 	header('Access-Control-Allow-Headers: X-Requested-With');
-	
-	$name		= $_POST['name'];
+	/*
+	$name		  = $_POST['name'];
 	$forname 	= $_POST['forname'];
 	$gender		= $_POST['gender'];
-	$npa 		= $_POST['npa'];
-	$locality 	= $_POST['locality'];
+	$npa 		  = $_POST['npa'];
+	$locality = $_POST['locality'];
 	$address 	= $_POST['address'];
 	$country 	= $_POST['country'];
 	$email 		= $_POST['email'];
-	/*
-	$name		= $_GET['name'];
+	$order    = $_POST['order'];
+*/
+
+	$name		  = $_GET['name'];
 	$forname 	= $_GET['forname'];
 	$gender		= $_GET['gender'];
-	$npa 		= $_GET['npa'];
-	$locality 	= $_GET['locality'];
+	$npa 		  = $_GET['npa'];
+	$locality = $_GET['locality'];
 	$address 	= $_GET['address'];
 	$country 	= $_GET['country'];
 	$email 		= $_GET['email'];
-	*/
+	$order    = $_GET['order'];
+
+
 	$title = "Bottleglass - Commande";
 	
 	$headers  = "MIME-Version: 1.0\r\n";
@@ -36,9 +40,9 @@
 	
 	$rows = "";
 	
-	for($i = 0; $i < 99; ++$i) {
+	for($i = 0; $i < 1; ++$i) {
 		$currentRow = $order;
-		$currentRow = str_replace("%%NAME%%", "Verre Ã  pieds", $currentRow);
+		$currentRow = str_replace("%%NAME%%", "Verre à  pieds", $currentRow);
 		$rows .= $currentRow;
 	}
 	
@@ -49,6 +53,7 @@
 	$content = $mail;	
 	
 	if (mail($email, $title, $content, $headers)) {
+	  mail("contact@bottleglass.ch", "Bottleglass - Commande", "Une commande a été passée sur le site internet.", $header);
 		echo $content;
 	}
 	
