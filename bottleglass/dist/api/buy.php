@@ -16,7 +16,7 @@
 	$address 	= $_POST['address'];
 	$country 	= $_POST['country'];
 	$email 		= $_POST['email'];
-	$order    = $_POST['order'];
+	$orders    = json_decode($_POST['order']);
 */
 
 	$name		  = $_GET['name'];
@@ -27,7 +27,7 @@
 	$address 	= $_GET['address'];
 	$country 	= $_GET['country'];
 	$email 		= $_GET['email'];
-	$order    = $_GET['order'];
+	$orders     = json_decode($_GET['order']);
 
 
 	$title = "Bottleglass - Commande";
@@ -43,9 +43,19 @@
 	
 	$rows = "";
 	
-	foreach($order => $item) {
+	var_dump($orders);
+	
+	foreach($orders as $item) {
 		
-		
+		$stmt = $db->prepare("SELECT * FROM tb_produits WHERE id_pro = :id AND dispo_pro = 1 AND quant_pro >= :amount;");
+
+		$sth->execute(array(':id' => $item.id, ':amount' => $item.amount));
+
+		$res = $sth->fetch(PDO::FETCH_ASSOC);
+
+		$name   = $res['nom_pro'];
+		$amount = $item.amount;
+		$price  = $res['prix_pro'];
 		
 		$currentRow = $order;
 		$currentRow = str_replace("%%NAME%%", "Verre � pieds", $name);

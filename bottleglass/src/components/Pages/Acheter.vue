@@ -198,9 +198,11 @@
         const Gender    = this.$refs.gender   .value;
         const Country   = this.$refs.country  .value;
 
+        let Self = this;
+
         this.$ajax(
           'https://bottleglass.ch/api/buy.php',
-          'POST',
+          'GET',
           'email='     + Mail +
           '&name='     + Name +
           '&npa='      + NPA +
@@ -209,10 +211,10 @@
           '&gender='   + Gender +
           '&country='  + Country +
           '&forname='  + Forname +
-          '&order='    + this.GetCart()
+          '&order='    + Self.GetCart()
           ,
           function(xhr) {
-            console.log(xhr);
+            console.log(Self.GetCart());
 
           }
         );
@@ -246,6 +248,7 @@
               amount: item.amount
             });
           }
+          console.log(item);
         }
         return JSON.stringify(order);
       }
