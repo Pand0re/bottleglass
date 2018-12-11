@@ -208,7 +208,8 @@
           '&address='  + Address +
           '&gender='   + Gender +
           '&country='  + Country +
-          '&forname='  + Forname
+          '&forname='  + Forname +
+          '&order='    + this.GetCart()
           ,
           function(xhr) {
             console.log(xhr);
@@ -233,6 +234,20 @@
           Total += parseFloat(item.amount * item.prix_pro);
         }
         return Total.toFixed(2);
+      },
+
+      GetCart: function() {
+        let order = [];
+
+        for (let item of this.$parent.ShoppingCart) {
+          if (item.amount > 0) {
+            order.push({
+              id: item.id_pro,
+              amount: item.amount
+            });
+          }
+        }
+        return JSON.stringify(order);
       }
     }
   }

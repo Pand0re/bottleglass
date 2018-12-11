@@ -4,6 +4,9 @@
 	header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 	header('Content-type: text/html; charset=UTF-8'); 
 	header('Access-Control-Allow-Headers: X-Requested-With');
+
+	require_once './bdd.php';
+
 	/*
 	$name		  = $_POST['name'];
 	$forname 	= $_POST['forname'];
@@ -40,9 +43,15 @@
 	
 	$rows = "";
 	
-	for($i = 0; $i < 1; ++$i) {
+	foreach($order => $item) {
+		
+		
+		
 		$currentRow = $order;
-		$currentRow = str_replace("%%NAME%%", "Verre à  pieds", $currentRow);
+		$currentRow = str_replace("%%NAME%%", "Verre ï¿½ pieds", $name);
+		$currentRow = str_replace("%%AMOUNT%%", "Verre ï¿½ pieds", $amount);
+		$currentRow = str_replace("%%PRICE%%", "Verre ï¿½ pieds", $price);
+		$currentRow = str_replace("%%TOTALPRICE%%", "Verre ï¿½ pieds", $price*$amount);
 		$rows .= $currentRow;
 	}
 	
@@ -53,7 +62,12 @@
 	$content = $mail;	
 	
 	if (mail($email, $title, $content, $headers)) {
-	  mail("contact@bottleglass.ch", "Bottleglass - Commande", "Une commande a été passée sur le site internet.", $header);
+		mail(
+			"contact@bottleglass.ch", 
+			"Bottleglass - Commande",
+			"Une commande a ï¿½tï¿½ passï¿½ sur le site internet.", 
+			$headers
+		);
 		echo $content;
 	}
 	
