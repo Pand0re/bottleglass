@@ -38,8 +38,24 @@
           for (let Item of Self.ShoppingCart) {
             Item.amount = 0;
           }
+
+          Self.ShoppingCart.sort(function(a, b) {
+            return Self.GetProductWeight(a.cat_pro) - Self.GetProductWeight(b.cat_pro);
+          });
+
         }
       );
+    },
+
+    methods: {
+      GetProductWeight: function(cat) {
+        switch(cat) {
+          case 'VP' : return 1;
+          case 'VC' : return 2;
+          case 'BO' : return 3;
+          default :   return 4;
+        }
+      }
     }
   }
 

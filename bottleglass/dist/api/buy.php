@@ -7,29 +7,16 @@
 
 	require_once './bdd.php';
 
-	/*
-	$name		  = $_POST['name'];
+	$name		= $_POST['name'];
 	$forname 	= $_POST['forname'];
 	$gender		= $_POST['gender'];
-	$npa 		  = $_POST['npa'];
-	$locality = $_POST['locality'];
+	$npa 		= $_POST['npa'];
+	$locality 	= $_POST['locality'];
 	$address 	= $_POST['address'];
 	$country 	= $_POST['country'];
 	$email 		= $_POST['email'];
-	$orders    = json_decode($_POST['order']);
-*/
-
-	$name		  = $_GET['name'];
-	$forname 	= $_GET['forname'];
-	$gender		= $_GET['gender'];
-	$npa 		  = $_GET['npa'];
-	$locality = $_GET['locality'];
-	$address 	= $_GET['address'];
-	$country 	= $_GET['country'];
-	$email 		= $_GET['email'];
-	$orders     = json_decode($_GET['order']);
-
-
+	$orders     = json_decode(utf8_decode(urldecode($_POST['order'])), true);
+		
 	$title = "Bottleglass - Commande";
 	
 	$headers  = "MIME-Version: 1.0\r\n";
@@ -42,47 +29,86 @@
 	$order = file_get_contents("./rowTemplate.html");
 	
 	$rows = "";
+	$totalCost = 0;
 	
-	var_dump($orders);
+	$stmt = $db->prepare('INSERT INTO tb_commandes VALUES(NULL, :date, :name, :forname, :mail, :sexe, :npa, :loca, :address, :country);');
+	$stmt->execute(array(
+		':date' 	=> date('Y-m-d H:i:s'),
+		':name' 	=> $name,
+		':forname'	=> $forname,
+		':mail'		=> $email,
+		':sexe'		=> $gender == 'man' ? 'H' : 'F',
+		':npa'		=> $npa,
+		':loca'		=> $locality,
+		':address'	=> $address,
+		':country'	=> $country
+	));
 	
-	foreach($orders as $item) {
-		
+	define('PK_COMM', $db->lastInsertId());
+	
+	// Build mail
+	foreach($orders["data"] as $item) {		
 		$stmt = $db->prepare("SELECT * FROM tb_produits WHERE id_pro = :id AND dispo_pro = 1 AND quant_pro >= :amount;");
 
-		$sth->execute(array(':id' => $item.id, ':amount' => $item.amount));
+		$stmt->execute(array(':id' => intval($item['id']), ':amount' => intval($item['amount'])));
 
-		$res = $sth->fetch(PDO::FETCH_ASSOC);
+		$res = $stmt->fetch(PDO::FETCH_ASSOC);
+		
+		// Invalid product
+		if (!isset($res['nom_pro'])) {
+			continue;
+		}
 
-		$name   = $res['nom_pro'];
-		$amount = $item.amount;
+		$iname   = $res['nom_pro'];
+		$amount = $item['amount'];
 		$price  = $res['prix_pro'];
 		
+		$totalCost += $price * $amount;
+		
 		$currentRow = $order;
-		$currentRow = str_replace("%%NAME%%", "Verre � pieds", $name);
-		$currentRow = str_replace("%%AMOUNT%%", "Verre � pieds", $amount);
-		$currentRow = str_replace("%%PRICE%%", "Verre � pieds", $price);
-		$currentRow = str_replace("%%TOTALPRICE%%", "Verre � pieds", $price*$amount);
-		$rows .= $currentRow;
+		$currentRow = str_replace("%%NAME%%", 		$iname, 			$currentRow);
+		$currentRow = str_replace("%%AMOUNT%%", 	$amount, 		$currentRow);
+		$currentRow = str_replace("%%PRICE%%", 		number_format($price, 2, '.', "'"),			$currentRow);
+		$currentRow = str_replace("%%TOTALPRICE%%", number_format($price*$amount, 2, '.', "'"), $currentRow);
+		
+		$rows .= iconv("UTF-8", "Windows-1252", $currentRow);
+		
+		// Insert this item as a part of the order
+		$stmt = $db->prepare("INSERT INTO tb_panier VALUES(:pk_prod, :pk_comm, :amount);");
+		
+		$stmt->execute(array(
+			'pk_prod' => $item['id'],
+			'pk_comm' => PK_COMM,
+			'amount'  => $item['amount']
+		));
+		
+		// Update amount of available stock
+		$stmt = $db->prepare("UPDATE tb_produits SET quant_pro = :newamount WHERE id_pro = :id;");
+		$stmt->execute(array(
+			':newamount' 	=> $res['quant_pro'] - $item['amount'],
+			':id' 			=> $item['id']
+		));
+		
 	}
 	
-	$mail = str_replace('%%NAME%%'	 	, $name		, $mail);
-	$mail = str_replace('%%FORNAME%%'	, $forname	, $mail);
-	$mail = str_replace('%%ORDERS%%'	, $rows		, $mail);
+	$mail = str_replace('%%TOTAL_PRICE%%', number_format($totalCost, 2, '.', "'")	, $mail);
+	$mail = str_replace('%%NAME%%'	 	 , $name		, $mail);
+	$mail = str_replace('%%FORNAME%%'	 , $forname	 	, $mail);
+	$mail = str_replace('%%ORDERS%%'	 , $rows		, $mail);
 	
-	$content = $mail;	
+	$content = $mail;
 	
+	// Send mail
 	if (mail($email, $title, $content, $headers)) {
-		mail(
+		/*mail(
 			"contact@bottleglass.ch", 
 			"Bottleglass - Commande",
-			"Une commande a �t� pass� sur le site internet.", 
+			"Une commande a �t� pass�e sur le site internet pour un total de ". $totalCost . " CHF.", 
 			$headers
-		);
-		echo $content;
+		);*/
+		echo 0;
 	}
 	
 	else {
-		echo "Error sending mail.";
+		echo 1;
 	}
-
-

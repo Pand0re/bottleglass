@@ -5,6 +5,15 @@
 				margin-left: 10%;
 			}
 			
+			.ord {
+				background-color: #eee;
+				font-size: 0.9em;
+			}
+			
+			.ord:nth-child(even) {
+				background-color: #ddd;
+			}
+			
 			@media (max-width: 500px) {
 				.content {
 					margin-left: 3px;
@@ -30,7 +39,7 @@
 				</h2>
 					
 				<p style="font-size: 1.3em;">
-					Cher / Chère %%FORNAME%% %%NAME%%, <br><br>
+					 %%FORNAME%% %%NAME%%, <br><br>
 					Voici la confirmation de votre commande sur le site 
 					<a href="https://bottleglass.ch" style="color: #666;transition: 0.5s;">bottleglass.ch</a>. <br>
 				</p>
@@ -56,14 +65,15 @@
 						
 						<tr>
 							<td colspan="4" style="text-align: right;">
-								Total : 100.00 CHF
+								Total : %%TOTAL_PRICE%% CHF
 							</td>
 						</tr>
 					</table>
 				</div>
 				
 				<p>
-					Veuillez faire une virement bancaire au compte IBAN %%IBANACCOUNT%%. 
+					Veuillez faire une virement bancaire au compte IBAN %%IBANACCOUNT%% pour 
+					un montant de %%TOTAL_PRICE%% CHF. 
 					Nous enverrons la marchandise dès la réception de l'argent.
 				</p>
 				

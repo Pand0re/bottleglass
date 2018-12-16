@@ -1,5 +1,9 @@
 <template>
   <div class="container">
+    <div class="loader-container" v-if="isLoading">
+      <div class="loader"></div>
+    </div>
+
     <div v-if="State === 'default'">
       <h1>Commander</h1>
 
@@ -35,8 +39,8 @@
         <span class="input-group-text"><img src="../../assets/vectors/gender.svg"/></span>
         <select ref="gender" class="form-control" id="gender" placeholder="Titre">
           <option selected disabled>-- Sélectionner un sexe --</option>
-          <option value="man">Homme</option>
-          <option value="woman">Femme</option>
+          <option value="H">Homme</option>
+          <option value="F">Femme</option>
         </select>
         <p class="error" v-if="bInvalidGender">
           Veuillez sélectionner un genre.
@@ -75,8 +79,8 @@
         <span class="input-group-text"><img src="../../assets/vectors/flag.svg"/></span>
         <select ref="country" class="form-control" id="country" placeholder="Pays">
           <option disabled selected>-- Sélectionner un pays --</option>
-          <option value="swiss">Suisse</option>
-          <option value="france">France</option>
+          <option value="CH">Suisse</option>
+          <option value="FR">France</option>
         </select>
         <p class="error" v-if="bInvalidCountry">
           Veuillez sélectionner un pays.
@@ -122,6 +126,16 @@
       </p>
     </div>
 
+    <div v-else>
+      <h1>Commande échouée</h1>
+      <p>
+        Un problème est survenu lors de la commande. Cette dernière n'a donc pas été
+        effectuée. Si le problème persiste, veuillez nous contacter à l'adresse
+        <a href="mailto:contact@bottleglass.ch">contact@bottleglass.ch</a> si le
+        problème persiste.
+      </p>
+    </div>
+
   </div>
 </template>
 
@@ -141,7 +155,9 @@
         bInvalidNPA:      false,
         bInvalidLocality: false,
         bInvalidAddress:  false,
-        bInvalidCountry:  false
+        bInvalidCountry:  false,
+
+        isLoading: false
       };
     },
 
@@ -167,8 +183,8 @@
         this.bInvalidAddress  = Address .length < 4;
         this.bInvalidLocality = Locality.length < 2;
         this.bInvalidMail     = !Mail.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-        this.bInvalidGender   = Gender  !== 'man'   && Gender  !== 'woman' ;
-        this.bInvalidCountry  = Country !== 'swiss' && Country !== 'france';
+        this.bInvalidGender   = Gender  !== 'H'   && Gender  !== 'F' ;
+        this.bInvalidCountry  = Country !== 'CH' && Country !== 'FR';
         this.bInvalidNPA      = !NPA;
 
         return !(
@@ -185,7 +201,7 @@
       },
       buy: function() {
 
-        if (!this.CheckInfos()) {
+        if (false&&!this.CheckInfos()) {
           return;
         }
 
@@ -202,7 +218,7 @@
 
         this.$ajax(
           'https://bottleglass.ch/api/buy.php',
-          'GET',
+          'POST',
           'email='     + Mail +
           '&name='     + Name +
           '&npa='      + NPA +
@@ -214,14 +230,23 @@
           '&order='    + Self.GetCart()
           ,
           function(xhr) {
-            console.log(Self.GetCart());
+            // Error
+            if (xhr.response !== "0") {
+              Self.State = 'somethingfuckedup';
+            }
 
+            // Success
+            else {
+              Self.State = 'bought';
+              Self.ResetCart();
+            }
+
+            Self.isLoading = false;
           }
         );
 
-        this.State = 'bought';
+        this.isLoading = true;
 
-        this.ResetCart();
       },
 
       ResetCart: function() {
@@ -248,15 +273,93 @@
               amount: item.amount
             });
           }
-          console.log(item);
         }
-        return JSON.stringify(order);
+        return encodeURIComponent(JSON.stringify({data:order}));
       }
     }
   }
 </script>
 
 <style scoped>
+
+  .loader-container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    background-color: black;
+  }
+
+  .loader,
+  .loader:before,
+  .loader:after {
+    border-radius: 50%;
+  }
+  .loader {
+    color: #ffffff;
+    font-size: 11px;
+    text-indent: -99999em;
+    margin: 255px auto;
+    position: relative;
+    width: 10em;
+    height: 10em;
+    box-shadow: inset 0 0 0 1em;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  .loader:before,
+  .loader:after {
+    position: absolute;
+    content: '';
+  }
+  .loader:before {
+    width: 5.2em;
+    height: 10.2em;
+    background: #000000;
+    border-radius: 10.2em 0 0 10.2em;
+    top: -0.1em;
+    left: -0.1em;
+    -webkit-transform-origin: 5.2em 5.1em;
+    transform-origin: 5.2em 5.1em;
+    -webkit-animation: load2 2s infinite ease 1.5s;
+    animation: load2 2s infinite ease 1.5s;
+  }
+  .loader:after {
+    width: 5.2em;
+    height: 10.2em;
+    background: #000000;
+    border-radius: 0 10.2em 10.2em 0;
+    top: -0.1em;
+    left: 5.1em;
+    -webkit-transform-origin: 0px 5.1em;
+    transform-origin: 0px 5.1em;
+    -webkit-animation: load2 2s infinite ease;
+    animation: load2 2s infinite ease;
+  }
+  @-webkit-keyframes load2 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes load2 {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
 
   .container {
     margin: 60px 20%;
