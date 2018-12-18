@@ -147,9 +147,7 @@
               'GET',
               '',
               function(xhr) {
-                  console.log(xhr);
                   Self.orders = JSON.parse(xhr.response);
-
               }
           );
       }
@@ -160,9 +158,9 @@
 <style scoped>
 
   .container-loggin {
-    max-width: 600px;
+    max-width: 500px;
     width: 70%;
-    margin-left: 20%;
+    margin-left: 30%;
   }
 
   input {
