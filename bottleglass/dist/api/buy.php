@@ -95,7 +95,8 @@
 	$mail = str_replace('%%NAME%%'	 	 , $name		, $mail);
 	$mail = str_replace('%%FORNAME%%'	 , $forname	 	, $mail);
 	$mail = str_replace('%%ORDERS%%'	 , $rows		, $mail);
-	
+	$mail = str_replace('%%IBANACCOUNT%%'	, 'CH14 8080 8001 6709 7491 1' 		, $mail);
+
 	$content = $mail;
 	
 	// Send mail

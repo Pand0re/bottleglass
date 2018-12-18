@@ -17,6 +17,7 @@
       :img="item.img_pro"
       :index="key"
       :key="key"
+      :stock="item.quant_pro"
     ></Product>
 
     <div ref="alert" class="alert"></div>

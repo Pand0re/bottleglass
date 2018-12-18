@@ -97,7 +97,7 @@
             {{ item.nom_pro }}
           </span>
             <span>
-            <input v-model="item.amount" type="number" min="0" max="999" class="amount" @input="$forceUpdate()"/>
+            <input :disabled="item.quant_pro <= 0" v-model="item.amount" type="number" min="0" :max="item.quant_pro" class="amount" @input="$forceUpdate()"/>
           </span>
             <span>
             {{ parseFloat(item.prix_pro).toFixed(2) }} CHF

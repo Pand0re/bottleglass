@@ -5,7 +5,11 @@
       <img :src="img" alt="Produit"/>
     </div>
     <div class="wrapper">
-      <h2>{{ name }}</h2>
+      <h2>
+        {{ name }}
+        <span class="stock rupture" v-if="stock <= 0">Rupture de stock</span>
+        <span class="stock" v-else>En stock</span>
+      </h2>
       <p>
         {{ description }}
       </p>
@@ -14,7 +18,7 @@
         <span>
           {{ parseFloat(price).toFixed(2) }} CHF / unité
         </span>
-      <button @click="AddItemToCart">Ajouter au panier</button>
+      <button :style="GetButtonStyle()" :disabled="stock <= 0" @click="AddItemToCart">Ajouter au panier</button>
     </div>
   </div>
 </template>
@@ -27,13 +31,17 @@
       'description',
       'img',
       'price',
-      'index'
+      'index',
+      'stock'
     ],
 
     methods: {
       AddItemToCart: function() {
         this.$parent.$parent.ShoppingCart[this.index].amount++;
         this.$parent.ShowAlert(this.name);
+      },
+      GetButtonStyle: function() {
+        return this.stock <= 0 ? 'cursor: not-allowed!important;' : '';
       }
     }
 
@@ -41,6 +49,19 @@
 </script>
 
 <style scoped>
+
+  .stock {
+    padding: 5px 8px;
+    border: 1px solid black;
+    font-size: 0.5em;
+    border-radius: 5px;
+    vertical-align: middle;
+    background-color: #ddffdd;
+  }
+
+  .rupture {
+    background-color: #ffdddd;
+  }
 
   .container {
     background-color: #f5f5f6;
@@ -71,7 +92,7 @@
 
   h2 {
     border-bottom: 1px solid #777;
-    width: 300px;
+    width: 100%;
   }
 
   p {
@@ -103,12 +124,12 @@
     z-index: 2;
   }
 
-  .cost button:hover {
+  .cost button:not(:disabled):hover {
     color: white;
   }
 
-  .cost button::before,
-  .cost button:after {
+  .cost button:not(:disabled)::before,
+  .cost button:not(:disabled):after {
     content: '';
     height: 100%;
     background-color: black;
