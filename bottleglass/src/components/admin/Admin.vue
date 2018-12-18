@@ -59,9 +59,15 @@
 
 
       <tr v-for="order in orders">
-          <td>{{order.id_com}}</td>
-          <td>{{order.date_com}}</td>
-          <td>{{order.nom_cli_com && order.prenom_cli_com}}</td>
+          <td>#{{order.id_com}}</td>
+          <td>{{FormatDate(order.date_com)}}</td>
+          <td>{{order.nom_cli_com }} {{ order.prenom_cli_com}} ({{order.sexe_cli_com}})
+            <br/>
+            {{order.npa_cli_com}}
+            {{order.localite_cli_con}},
+            {{order.adresse_cli_com}}
+
+          </td>
           <td>6x verre classique</td>
           <td><textarea></textarea></td>
           <td><a><img src="../../../static/admin/save.png" style="width:20px"></a></td>
@@ -101,6 +107,16 @@
     },
 
     methods: {
+      FormatDate: function(date) {
+        var date = new Date(date);
+
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        minutes = minutes < 10 ? '0'+minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ';
+
+        return date.getDate() +"."+ (date.getMonth()+1) +"."+ date.getFullYear() +" - "+strTime;
+      },
       Login: function() {
         let Self = this;
 
@@ -147,7 +163,8 @@
               'POST',
               'token='+Self.token,
               function(xhr) {
-                  Self.orders = JSON.parse(xhr.response);
+
+                  Self.orders = JSON.parse(xhr.response).orders;
               }
           );
       }
