@@ -107,6 +107,14 @@
           </span>
           </div>
         </template>
+        <div class="item shipping">
+          <span>
+            Frais de port
+          </span>
+          <span>
+            6.00 CHF*
+          </span>
+        </div>
         <div class="total">
           Total : {{ GetTotalCost() }} CHF
         </div>
@@ -260,6 +268,11 @@
         for (let item of this.$parent.ShoppingCart) {
           Total += parseFloat(item.amount * item.prix_pro);
         }
+
+        if (Total > 0) {
+          Total += 6.;
+        }
+
         return Total.toFixed(2);
       },
 
@@ -281,6 +294,20 @@
 </script>
 
 <style scoped>
+
+  .shipping {
+    font-size: 0.8em;
+    margin: 5px 0;
+    border-radius: 5px;
+  }
+  .shipping span {
+    width: 49%;
+    display: inline-block;
+  }
+
+  .shipping span:nth-child(2) {
+    text-align: right;
+  }
 
   .loader-container {
     width: 100%;
