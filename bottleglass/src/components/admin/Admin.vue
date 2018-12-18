@@ -8,13 +8,13 @@
 
     <div class="input-group">
       <label for="user">Utilisateur</label>
-      <input ref="user" type="text" id="user" @submit="Login"/>
+      <input ref="user" type="text" id="user" v-on:keyup.enter="Login"/>
     </div>
 
 
     <div class="input-group">
       <label for="password">Mot de passe</label>
-      <input ref="password" type="password" id="password" @submit="Login"/>
+      <input ref="password" type="password" id="password" v-on:keyup.enter="Login"/>
     </div>
 
     <div class="button-group">
