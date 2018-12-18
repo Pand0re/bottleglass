@@ -149,8 +149,6 @@
               function(xhr) {
                   console.log(xhr);
                   Self.orders = JSON.parse(xhr.response);
-                  console.log(Self.orders);
-                  console.log(Self.orders.code);
 
               }
           );
