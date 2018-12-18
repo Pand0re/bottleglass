@@ -51,7 +51,7 @@
           <td>Client</td>
           <td>Commande</td>
           <td>Remarque</td>
-          <td>Save</td>
+          <td>Enreg.</td>
           <td>Valider</td>
         </tr>
       </thead>
@@ -61,7 +61,7 @@
       <tr v-for="order in orders">
           <td>{{order.id_com}}</td>
           <td>{{order.date_com}}</td>
-          <td>{{order.nom_cli_com + order.prenom_cli_com}}</td>
+          <td>{{order.nom_cli_com && order.prenom_cli_com}}</td>
           <td>6x verre classique</td>
           <td><textarea></textarea></td>
           <td><a><img src="../../../static/admin/save.png" style="width:20px"></a></td>
@@ -144,11 +144,13 @@
           let Self = this;
           this.$ajax(
               'https://bottleglass.ch/api/getOrders.php',
-              'GET',
-              '',
+              'POST',
+              'token='+Self.token,
               function(xhr) {
                   console.log(xhr);
                   Self.orders = JSON.parse(xhr.response);
+                  console.log(Self.orders);
+                  console.log(Self.orders.code);
 
               }
           );

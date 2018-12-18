@@ -8,5 +8,3 @@ require_once './bdd.php';
 $stmt = $db->query("SELECT * FROM tb_produits WHERE dispo_pro = 1",PDO::FETCH_ASSOC);
 
 echo json_encode($stmt->fetchAll());
-
-

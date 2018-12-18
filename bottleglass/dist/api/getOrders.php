@@ -13,15 +13,23 @@
 		'code' => -1,
 		'orders' => array()
 	);
+
+	$response['code'] = 123;
 	
 	if (isset($_POST['token'])) {
 		$token = $_POST['token'];
+
+        $response['code'] = "YO";
 		
 		if ($token == $_POST['token']) {
 
             $stmt = $db->query("SELECT * FROM tb_commandes ORDER BY id_com",PDO::FETCH_ASSOC);
 
             $response['orders'] = $stmt->fetchAll();
+
+            $response['code'] = "LO";
+
+
 
 		}
 		
@@ -33,6 +41,9 @@
 	else {
 		$response['code'] = 1;
 	}
+
+    $response['code'] = 456;
+
 	
 	// Send our response
 	echo json_encode($response);
