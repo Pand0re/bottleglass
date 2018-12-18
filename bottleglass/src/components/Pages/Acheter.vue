@@ -201,7 +201,7 @@
       },
       buy: function() {
 
-        if (false&&!this.CheckInfos()) {
+        if (!this.CheckInfos()) {
           return;
         }
 

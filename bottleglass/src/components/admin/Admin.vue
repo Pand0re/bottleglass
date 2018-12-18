@@ -8,13 +8,13 @@
 
     <div class="input-group">
       <label for="user">Utilisateur</label>
-      <input ref="user" type="text" id="user"/>
+      <input ref="user" type="text" id="user" @submit="Login"/>
     </div>
 
 
     <div class="input-group">
       <label for="password">Mot de passe</label>
-      <input ref="password" type="password" id="password" />
+      <input ref="password" type="password" id="password" @submit="Login"/>
     </div>
 
     <div class="button-group">

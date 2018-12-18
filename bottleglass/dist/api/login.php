@@ -29,7 +29,7 @@
 		$password = $_POST['password'];
 		
 		// Invalid creds
-		if ($user != 'Admin' || $password != 'Admlocal1') {
+		if ($user != '123' || $password != '123') {
 			$response['code'] = 1;
 		}
 		
