@@ -36,7 +36,7 @@
 		// Valid creds
 		else {
 			$response['code']  = 0;		
-			$response['token'] = bin2hex(random_bytes(TOKEN_SIZE));		
+			$response['token'] = bin2hex(random_bytes(TOKEN_SIZE));
 			$_SESSION['token'] = $response['token'];
 		}
 	}

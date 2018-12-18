@@ -23,6 +23,7 @@
 
             $response['orders'] = $stmt->fetchAll();
 
+            $response['code'] = 0;
 		}
 		
 		else {
@@ -33,6 +34,7 @@
 	else {
 		$response['code'] = 1;
 	}
+
 	
 	// Send our response
 	echo json_encode($response);
