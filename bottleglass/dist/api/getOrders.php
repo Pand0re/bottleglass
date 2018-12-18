@@ -13,13 +13,9 @@
 		'code' => -1,
 		'orders' => array()
 	);
-
-	$response['code'] = 123;
 	
 	if (isset($_POST['token'])) {
 		$token = $_POST['token'];
-
-        $response['code'] = "YO";
 		
 		if ($token == $_POST['token']) {
 
@@ -27,10 +23,7 @@
 
             $response['orders'] = $stmt->fetchAll();
 
-            $response['code'] = "LO";
-
-
-
+            $response['code'] = 0;
 		}
 		
 		else {
@@ -41,8 +34,6 @@
 	else {
 		$response['code'] = 1;
 	}
-
-    $response['code'] = 456;
 
 	
 	// Send our response
