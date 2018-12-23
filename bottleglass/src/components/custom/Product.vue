@@ -57,6 +57,7 @@
     border-radius: 5px;
     vertical-align: middle;
     background-color: #ddffdd;
+    text-align: right;
   }
 
   .rupture {
