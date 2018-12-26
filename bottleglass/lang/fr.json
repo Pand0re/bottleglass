@@ -4,7 +4,10 @@
 			"Candles": "Bougies",
 			"ClassicGlasses": "Verres classiques",
 			"Goblets": "Verres à pied",
-			"Packs": "Packs"
+			"Packs": "Packs",
+			"Available": "Disponible",
+			"SoldOut": "Rupture de stock",
+			"unit":"unité"
 		},
 		"home": {
 			"sentence1": "Découvrez nos produits fabriqués entièrement à la main depuis des bouteilles en verres recyclées.",
@@ -39,6 +42,12 @@
 			"Shipping":"Frais de port",
 			"Total":"Total",
 			"Buy":"Acheter"
+		},
+		"about" : {
+			"OurEnterprise":"Notre entreprise",
+			"OurEnterpriseText":"Nous sommes un groupe d'étudiants actuellement en maturité professionnelle technique ou économique.  <br/>Nous avons créé cette entreprise dans le cadre de notre cours de TIP, qui nous permet de découvrir le monde du travail dans des conditions réelles.<br/><br/>Notre objectif est de donner une deuxième vie aux bouteilles en verre en tout genre. À partir de bouteilles récupérées dans de commerces locaux, nous produisons des verres, des bougies ou encore des pots de fleurs, qui vous permettrons d'embellir votre intérieur, avec une petite touche écologique.",
+			"ContactUs":"Nous contacter",
+			"ContactUsText": "Une question ? Une proposition ? Vous souhaitez un produit fait sur mesure ?<br/><br/>Alors contactez-nous par mail à <a href='mailto:contact@bottleglass.ch'>contact@bottleglass.ch</a>."
 		}
 	}
 }

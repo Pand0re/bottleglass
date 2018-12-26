@@ -1,27 +1,12 @@
 <template>
   <div class="main-container">
-    <h1>Notre entreprise</h1>
-    <p>
-      Nous sommes un groupe d'étudiants actuellement en maturité professionnelle
-      technique ou économique.  <br/>
-      Nous avons créé cette entreprise dans le cadre de notre cours de TIP, qui
-      nous permet de découvrir le monde du travail dans des conditions réelles.
-      <br/>
-      <br/>
-      Notre objectif est de donner une deuxième vie aux bouteilles en verre en
-      tout genre. A partir de bouteilles récupérées dans de commerces locaux,
-      nous produisons des verres, des bougies ou encore des pots de fleurs, qui
-      vous permettrons d'embellir votre intérieur, avec une petite touche écologique.
+    <h1>{{ $t('t.about.OurEnterprise') }}</h1>
+    <p v-html="$t('t.about.OurEnterpriseText')">
     </p>
     <h1>
-      Nous contacter
+      {{ $t('t.about.ContactUs') }}
     </h1>
-    <p>
-      Une question ? Une proposition ?
-      Vous souhaitez un produit fait sur mesure ?<br/><br/>
-      Alors contactez-nous par mail à <a href="mailto:contact@bottleglass.ch">
-      contact@bottleglass.ch</a>
-    </p>
+    <p v-html="$t('t.about.ContactUsText') "></p>
   </div>
 </template>
 
@@ -32,5 +17,4 @@
 </script>
 
 <style scoped>
-
 </style>

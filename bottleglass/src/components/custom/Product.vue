@@ -7,8 +7,8 @@
     <div class="wrapper">
       <h2>
         {{ name }}
-        <span class="stock rupture" v-if="stock <= 0">Rupture de stock</span>
-        <span class="stock" v-else>En stock</span>
+        <span class="stock rupture" v-if="stock <= 0">{{ $t('t.products.SoldOut') }}</span>
+        <span class="stock" v-else>{{ $t('t.products.Available') }}</span>
       </h2>
       <p>
         {{ description }}
@@ -16,7 +16,7 @@
     </div>
     <div class="cost">
         <span>
-          {{ parseFloat(price).toFixed(2) }} CHF / unité
+          {{ parseFloat(price).toFixed(2) }} CHF / {{ $t('t.products.unit') }}
         </span>
       <button :style="GetButtonStyle()" :disabled="stock <= 0" @click="AddItemToCart">Ajouter au panier</button>
     </div>
