@@ -4,7 +4,7 @@
 
     <br/>
     <p>
-      Découvrez nos produits fabriqués entièrement à la main depuis des bouteilles en verres recyclées.
+      {{ $t('t.home.sentence1') }}
     </p>
 
     <carousel
@@ -19,7 +19,7 @@
       <slide data-name="Recyclage de bouteilles">
         <div class="carousel-content">
           <span>
-            Recyclage de bouteilles en verre
+            {{ $t('t.home.carousel') }}
           </span>
         </div>
         <img src="/static/produits/Pack-2VC-1VP.jpg" style="width: 100%">
@@ -28,7 +28,7 @@
       <slide>
         <div class="carousel-content">
           <span>
-            Verres à pieds
+            {{ $t('t.products.Goblets') }}
           </span>
         </div>
         <img src="/static/carousel/verres-pied.jpg" style="width: 100%">
@@ -37,7 +37,7 @@
       <slide>
         <div class="carousel-content">
           <span>
-            Verres classiques
+            {{ $t('t.products.ClassicGlasses') }}
           </span>
         </div>
         <img src="/static/carousel/verres-classiques.jpeg" style="width: 100%">
@@ -46,7 +46,7 @@
       <slide>
         <div class="carousel-content">
           <span>
-            Bougies
+            {{ $t('t.products.Candles') }}
           </span>
         </div>
         <img src="/static/produits/bougie1.jpg" style="width: 100%">
@@ -55,8 +55,7 @@
     </carousel>
 
     <p>
-      Commandez en ligne tous nos produits dès maintenant. Profitez de frais de ports
-      gratuits sur certaines commandes.
+      {{ $t('t.home.sentence2') }}
     </p>
 
     <br/>
@@ -75,28 +74,31 @@
 <style scoped>
   .carousel-content {
     width: 100%;
-    bottom: 15px;
+    display: block;
+    bottom: 0;
     text-align: center;
     position: absolute;
     font-size: 2em;
     left: auto;
     color: white;
-    border-radius: 3px;
+    height: 50px;
   }
 
   .carousel-content span {
+    width: 100%;
+    height: 100%;
+    display: block;
     transition: 1s;
-    border: 1px solid white;
+    line-height: 50px;
     font-weight: 100;
-    padding: 3px 10px;
-    background-color: #111;
-    border-radius: 3px;
+    font-size: 1.5em;
+    background-color: rgba(0,0,0,0.7);
   }
 
   @media (max-width: 600px) {
     .carousel-content {
       font-size: 1em;
-      bottom: 20px;
+      bottom: 0;
     }
 
   }

@@ -5,54 +5,54 @@
     </div>
 
     <div v-if="State === 'default'">
-      <h1>Commander</h1>
+      <h1>{{ $t('t.buy.Order') }}</h1>
 
-      <label for="name" hidden>Nom</label>
+      <label for="name" hidden>{{ $t('t.buy.Name') }}</label>
       <div class="input-group">
         <span class="input-group-text"><img src="../../assets/vectors/user.svg"/></span>
         <input ref="name" class="form-control" id="name" placeholder="Nom" />
         <p class="error" v-if="bInvalidName">
-          Veuillez sélectionner un nom valide.
+          {{ $t('t.buy.InvalidName') }}
         </p>
       </div>
 
-      <label for="forname" hidden>Prénom</label>
+      <label for="forname" hidden>{{ $t('t.buy.Forname') }}</label>
       <div class="input-group">
         <span class="input-group-text"><img src="../../assets/vectors/user.svg"/></span>
-        <input ref="forname" class="form-control" id="forname" placeholder="Prénom" />
+        <input ref="forname" class="form-control" id="forname" :placeholder="$t('t.buy.Forname')" />
         <p class="error" v-if="bInvalidForname">
-          Veuillez entrer un prénom valide.
+          {{ $t('t.buy.InvalidForname') }}
         </p>
       </div>
 
-      <label for="mail" hidden>E-Mail</label>
+      <label for="mail" hidden>{{ $t('t.buy.Mail') }}</label>
       <div class="input-group">
         <span class="input-group-text"><img src="../../assets/vectors/mail.svg"/></span>
-        <input ref="mail" class="form-control" id="mail" placeholder="E-Mail" type="email"/>
+        <input ref="mail" class="form-control" id="mail" :placeholder="$t('t.buy.Mail')" type="email"/>
         <p class="error" v-if="bInvalidMail">
-          Veuillez entrer une adresse E-Mail valide.
+          {{ $t('t.buy.InvalidMail') }}
         </p>
       </div>
 
-      <label for="gender" hidden>Sexe</label>
+      <label for="gender" hidden>{{ $t('t.buy.Gender') }}</label>
       <div class="input-group">
         <span class="input-group-text"><img src="../../assets/vectors/gender.svg"/></span>
-        <select ref="gender" class="form-control" id="gender" placeholder="Titre">
-          <option selected disabled>-- Sélectionner un sexe --</option>
-          <option value="H">Homme</option>
-          <option value="F">Femme</option>
+        <select ref="gender" class="form-control" id="gender" :placeholder="$t('t.buy.Gender')">
+          <option selected disabled>{{ $t('t.buy.SelectGender') }}</option>
+          <option value="H">{{ $t('t.buy.Man') }}</option>
+          <option value="F">{{ $t('t.buy.Woman') }}</option>
         </select>
         <p class="error" v-if="bInvalidGender">
-          Veuillez sélectionner un genre.
+          {{ $t('t.buy.InvalidGender') }}
         </p>
       </div>
 
-      <label for="npa" hidden>NPA</label>
+      <label for="npa" hidden>{{ $t('t.buy.ZIP') }}</label>
       <div class="input-group">
         <span class="input-group-text"><img src="../../assets/vectors/hashtag.svg"/></span>
-        <input ref="npa" class="form-control" id="npa" placeholder="NPA" type="number" />
+        <input ref="npa" class="form-control" id="npa" :placeholder="$t('t.buy.ZIP')" type="number" />
         <p class="error" v-if="bInvalidNPA">
-          Veuillez entrer un NPA valide.
+          {{ $t('t.buy.InvalidZIP') }}
         </p>
       </div>
 

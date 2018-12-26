@@ -8,6 +8,7 @@ import Admin    from '@/components/Admin/Admin';
 
 Vue.use(Router);
 
+
 export default new Router({
   routes: [
     {

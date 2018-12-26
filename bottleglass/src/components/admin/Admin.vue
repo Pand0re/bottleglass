@@ -163,7 +163,6 @@
               'POST',
               'token='+Self.token,
               function(xhr) {
-
                   Self.orders = JSON.parse(xhr.response).orders;
               }
           );

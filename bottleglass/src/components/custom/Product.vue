@@ -40,6 +40,11 @@
         this.$parent.$parent.ShoppingCart[this.index].amount++;
         this.$parent.ShowAlert(this.name);
       },
+
+      /**
+       * @returns {string} The button's style
+       * @constructor
+       */
       GetButtonStyle: function() {
         return this.stock <= 0 ? 'cursor: not-allowed!important;' : '';
       }

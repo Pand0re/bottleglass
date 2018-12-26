@@ -1,0 +1,31 @@
+{
+	"t": {
+		"products": {
+			"Candles": "Bougies",
+			"ClassicGlasses": "Verres classiques",
+			"Goblets": "Verres à pied",
+			"Packs": "Packs"
+		},
+		"home": {
+			"sentence1": "Découvrez nos produits fabriqués entièrement à la main depuis des bouteilles en verres recyclées.",
+			"sentence2": "Commandez en ligne tous nos produits dès maintenant. Profitez de frais de ports gratuits sur certaines commandes.",
+			"carousel" : "Recyclage de bouteilles en verre"
+		},
+		"buy" : {
+			"Order":"Commander",
+			"Name":"Nom",
+			"InvalidName": "Veuillez sélectionner un nom valide.",
+			"Forname": "Prénom",
+			"InvalidForname":"Veuillez entrer un prénom valide.",
+			"Mail":"E-Mail",
+			"InvalidMail": "Veuillez entrer une adresse E-Mail valide.",
+			"Gender": "Titre",
+			"SelectGender": "-- Sélectionner un sexe --",
+			"Man": "Homme",
+			"Woman": "Femme",
+			"InvalidGender": "Veuillez sélectionner un genre.",
+			"ZIP":"NPA",
+			"InvalidZIP":"Veuillez entrer un NPA valide."
+		}
+	}
+}

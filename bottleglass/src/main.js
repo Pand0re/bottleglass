@@ -4,61 +4,31 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VueCarousel from 'vue-carousel';
+import VueI18n from 'vue-i18n';
+import ajax from './ajax';
 
+import fr from '../lang/fr.json';
 
-Vue.prototype.$ajax = function(url, type, data, callback) {
-  let xhr;
-
-  if(typeof XMLHttpRequest !== 'undefined') xhr = new XMLHttpRequest();
-  else {
-    let versions = ["MSXML2.XmlHttp.5.0",
-      "MSXML2.XmlHttp.4.0",
-      "MSXML2.XmlHttp.3.0",
-      "MSXML2.XmlHttp.2.0",
-      "Microsoft.XmlHttp"];
-
-    for(let i = 0, len = versions.length; i < len; i++) {
-      try {
-        xhr = new ActiveXObject(versions[i]);
-        break;
-      }
-      catch(e){}
-    }
-  }
-
-  xhr.onreadystatechange = ensureReadiness;
-
-  function ensureReadiness() {
-    if(xhr.readyState < 4) {
-      return;
-    }
-
-    if(xhr.status !== 200) {
-      return;
-    }
-
-    if(xhr.readyState === 4) {
-      callback(xhr);
-    }
-  }
-
-  xhr.open(type, url, true);
-
-  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-  xhr.send(data);
-};
-
-
+Vue.prototype.$ajax = ajax;
 
 Vue.config.productionTip = false;
 
 Vue.use(VueCarousel);
+Vue.use(VueI18n);
+
+const i18n = new VueI18n({
+  locale: 'fr',
+  messages: {
+    fr
+  }
+});
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  i18n,
   components: { App },
   template: '<App/>'
 });
+
