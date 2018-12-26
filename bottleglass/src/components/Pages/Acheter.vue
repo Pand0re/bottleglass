@@ -56,39 +56,42 @@
         </p>
       </div>
 
-      <label for="locality" hidden>Localité</label>
+      <label for="locality" hidden>{{ $t('t.buy.InvalidLocality') }}</label>
       <div class="input-group">
         <span class="input-group-text"><img src="../../assets/vectors/home.svg"/></span>
-        <input ref="locality" class="form-control" id="locality" placeholder="Localité" />
+        <input ref="locality" class="form-control" id="locality"
+               :placeholder="$t('t.buy.Locality')" />
         <p class="error" v-if="bInvalidLocality">
-          Veuillez entrer une localité valide.
+          {{ $t('t.buy.InvalidLocality') }}
         </p>
       </div>
 
-      <label for="address" hidden>Adresse</label>
+      <label for="address" hidden>{{ $t('t.buy.Address') }}</label>
       <div class="input-group">
         <span class="input-group-text"><img src="../../assets/vectors/home.svg"/></span>
-        <input ref="address" class="form-control" id="address" placeholder="Adresse" />
+        <input ref="address" class="form-control" id="address"
+               :placeholder="$t('t.buy.Address')" />
         <p class="error" v-if="bInvalidAddress">
-          Veuillez entrer une adresse valide.
+          {{ $t('t.buy.InvalidAddress') }}
         </p>
       </div>
 
-      <label for="country" hidden>Pays</label>
+      <label for="country" hidden>{{ $t('t.buy.Country') }}</label>
       <div class="input-group">
         <span class="input-group-text"><img src="../../assets/vectors/flag.svg"/></span>
-        <select ref="country" class="form-control" id="country" placeholder="Pays">
-          <option disabled selected>-- Sélectionner un pays --</option>
-          <option value="CH">Suisse</option>
-          <option value="FR">France</option>
+        <select ref="country" class="form-control" id="country"
+                :placeholder="$t('t.buy.Country')">
+          <option disabled selected>{{ $t('t.buy.SelectCountry') }}</option>
+          <option value="CH">{{ $t('t.buy.Switzerland') }}</option>
+          <option value="FR">{{ $t('t.buy.France') }}</option>
         </select>
         <p class="error" v-if="bInvalidCountry">
-          Veuillez sélectionner un pays.
+          {{ $t('t.buy.InvalidCountry') }}
         </p>
       </div>
 
 
-      <h2>Panier</h2>
+      <h2>{{ $t('t.buy.Cart') }}</h2>
 
       <div class="cart">
         <template v-for="item in $parent.ShoppingCart">
@@ -109,18 +112,18 @@
         </template>
         <div class="item shipping">
           <span>
-            Frais de port
+            {{ $t('t.buy.Shipping') }}
           </span>
           <span>
             6.00 CHF*
           </span>
         </div>
         <div class="total">
-          Total : {{ GetTotalCost() }} CHF
+          {{ $t('t.buy.Total') }} : {{ GetTotalCost() }} CHF
         </div>
         <div class="center">
           <button class="buy" @click="buy">
-            Acheter
+            {{ $t('t.buy.Buy') }}
           </button>
         </div>
       </div>

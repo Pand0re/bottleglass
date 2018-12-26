@@ -91,7 +91,7 @@
     transition: 1s;
     line-height: 50px;
     font-weight: 100;
-    font-size: 1.5em;
+    font-size: 1.1em;
     background-color: rgba(0,0,0,0.7);
   }
 

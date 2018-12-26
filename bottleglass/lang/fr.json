@@ -25,7 +25,20 @@
 			"Woman": "Femme",
 			"InvalidGender": "Veuillez sélectionner un genre.",
 			"ZIP":"NPA",
-			"InvalidZIP":"Veuillez entrer un NPA valide."
+			"InvalidZIP":"Veuillez entrer un NPA valide.",
+			"Locality":"Localité",
+			"InvalidLocality": "Veuillez entrer une localité valide.",
+			"Address":"Adresse",
+			"InvalidAddress":"Veuillez entrer une adresse valide.",
+			"Country":"Pays",
+			"InvalidCountry":"Veuillez sélectionner un pays.",
+			"Switzerland":"Suisse",
+			"France":"France",
+			"SelectCountry":"-- Sélectionner un pays --",
+			"Cart":"Panier",
+			"Shipping":"Frais de port",
+			"Total":"Total",
+			"Buy":"Acheter"
 		}
 	}
 }
