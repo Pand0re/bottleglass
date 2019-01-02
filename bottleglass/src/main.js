@@ -8,6 +8,7 @@ import VueI18n from 'vue-i18n';
 import ajax from './ajax';
 
 import fr from '../lang/fr.json';
+import en from '../lang/en.json';
 
 Vue.prototype.$ajax = ajax;
 
@@ -19,7 +20,8 @@ Vue.use(VueI18n);
 const i18n = new VueI18n({
   locale: 'fr',
   messages: {
-    fr
+    fr,
+    en
   }
 });
 

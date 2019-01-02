@@ -130,21 +130,13 @@
     </div>
 
     <div v-else-if="State === 'bought'">
-      <h1>Commande réussie</h1>
-      <p>
-        La commande s'est effectuée avec succès. Un mail a été envoyé
-        sur votre adresse électronique afin de compléter l'achat.
-      </p>
+      <h1>{{ $t('t.buy.bought.OrderSuccess') }}</h1>
+      <p v-html="$t('t.buy.bought.OrderSuccessText')"></p>
     </div>
 
     <div v-else>
-      <h1>Commande échouée</h1>
-      <p>
-        Un problème est survenu lors de la commande. Cette dernière n'a donc pas été
-        effectuée. Si le problème persiste, veuillez nous contacter à l'adresse
-        <a href="mailto:contact@bottleglass.ch">contact@bottleglass.ch</a> si le
-        problème persiste.
-      </p>
+      <h1>{{ $t('t.buy.bought.OrderFailed') }}</h1>
+      <p v-html="$t('t.buy.bought.OrderFailedText')"></p>
     </div>
 
   </div>

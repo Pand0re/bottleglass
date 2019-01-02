@@ -18,7 +18,7 @@
         <span>
           {{ parseFloat(price).toFixed(2) }} CHF / {{ $t('t.products.unit') }}
         </span>
-      <button :style="GetButtonStyle()" :disabled="stock <= 0" @click="AddItemToCart">Ajouter au panier</button>
+      <button :style="GetButtonStyle()" :disabled="stock <= 0" @click="AddItemToCart">{{ $t('t.products.AddToCart') }}</button>
     </div>
   </div>
 </template>

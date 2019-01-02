@@ -1,14 +1,14 @@
 {
 	"t": {
 		"products": {
-			"Candles": "Bougies",
-			"ClassicGlasses": "Verres classiques",
-			"Goblets": "Verres à pied",
+			"Candles": "Candles",
+			"ClassicGlasses": "Classic glasses",
+			"Goblets": "Goblets",
 			"Packs": "Packs",
-			"Available": "Disponible",
-			"SoldOut": "Rupture de stock",
-			"unit":"unité",
-			"AddToCart": "Ajouter au panier"
+			"Available": "Available",
+			"SoldOut": "Sold out",
+			"unit":"unit",
+			"AddToCart": "Add to cart"
 		},
 		"home": {
 			"sentence1": "Découvrez nos produits fabriqués entièrement à la main depuis des bouteilles en verres recyclées.",
@@ -36,9 +36,9 @@
 			"InvalidAddress":"Veuillez entrer une adresse valide.",
 			"Country":"Pays",
 			"InvalidCountry":"Veuillez sélectionner un pays.",
-			"Switzerland":"Suisse",
+			"Switzerland":"Switzerland",
 			"France":"France",
-			"SelectCountry":"-- Sélectionner un pays --",
+			"SelectCountry":"-- Select a country --",
 			"Cart":"Panier",
 			"Shipping":"Frais de port",
 			"Total":"Total",

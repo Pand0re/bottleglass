@@ -26,6 +26,10 @@
 
     mounted: function() {
 
+      const userLang = navigator.language || navigator.userLanguage;
+
+      this.$i18n.locale = userLang.split('-')[0];
+
       let Self = this;
 
       this.$ajax(
