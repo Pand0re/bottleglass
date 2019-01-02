@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    &copy; 2018 Bottle Glass. Tous droits réservés.
+    &copy; 2019 Bottle Glass. {{ $t('t.miscellaneous.AllRightsReserved') }}
   </div>
 </template>
 

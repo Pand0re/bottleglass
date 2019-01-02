@@ -10,18 +10,18 @@
       <label for="name" hidden>{{ $t('t.buy.Name') }}</label>
       <div class="input-group">
         <span class="input-group-text"><img src="../../assets/vectors/user.svg"/></span>
-        <input ref="name" class="form-control" id="name" placeholder="Nom" />
+        <input ref="name" class="form-control" id="name" :placeholder="$t('t.buy.Name')" />
         <p class="error" v-if="bInvalidName">
           {{ $t('t.buy.InvalidName') }}
         </p>
       </div>
 
-      <label for="forname" hidden>{{ $t('t.buy.Forname') }}</label>
+      <label for="forname" hidden>{{ $t('t.buy.Forename') }}</label>
       <div class="input-group">
         <span class="input-group-text"><img src="../../assets/vectors/user.svg"/></span>
-        <input ref="forname" class="form-control" id="forname" :placeholder="$t('t.buy.Forname')" />
+        <input ref="forname" class="form-control" id="forname" :placeholder="$t('t.buy.Forename')" />
         <p class="error" v-if="bInvalidForname">
-          {{ $t('t.buy.InvalidForname') }}
+          {{ $t('t.buy.InvalidForename') }}
         </p>
       </div>
 

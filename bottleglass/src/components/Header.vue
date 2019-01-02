@@ -3,22 +3,22 @@
     <ul class="noselect">
       <li :class="GetNavigationClass('Accueil')">
         <router-link :to="{name:'Accueil'}">
-          Accueil
+          {{ $t('t.header.Home') }}
         </router-link>
       </li>
       <li :class="GetNavigationClass('Produits')">
         <router-link :to="{name:'Produits'}">
-          Produits
+          {{ $t('t.header.Products') }}
         </router-link>
       </li>
       <li :class="GetNavigationClass('Acheter')">
         <router-link :to="{name:'Acheter'}">
-          Acheter
+          {{ $t('t.header.Buy') }}
         </router-link>
       </li>
       <li :class="GetNavigationClass('Apropos')">
         <router-link :to="{name:'Apropos'}">
-          À propos
+          {{ $t('t.header.About') }}
         </router-link>
       </li>
       <li title="Panier" v-on:click="ToggleCart">
