@@ -98,7 +98,7 @@
     $mail = str_replace('%%BENEFICIAIRE%%'	, 'Bottleglass' 		, $mail);
 	$mail = str_replace('%%IBANACCOUNT%%'	, 'CH14 8080 8001 6709 7491 1' 		, $mail);
     $mail = str_replace('%%ADRESSACCOUNT%%'	, 'Adresse, NPA Localité - SUISSE' 		, $mail);
-    $mail = str_replace('%%ORDERNUMBER%%'	, 'Commande n°'.PK_COMM 		, $mail);
+    $mail = str_replace('%%ORDERNUMBER%%'	, PK_COMM 		, $mail);
 
 
 	$content = $mail;
