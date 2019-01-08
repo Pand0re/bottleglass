@@ -10,28 +10,32 @@
     name: "Footer",
 
     mounted: function() {
-
-      const Self = this;
-      const LangChange = this.$refs.lang;
-
-      const fr = LangChange.querySelector('#fr');
-      const de = LangChange.querySelector('#de');
-      const en = LangChange.querySelector('#en');
-
-      fr.addEventListener('click', function () {
-        Self.changeLang('fr');
-      });
-      de.addEventListener('click', function () {
-        Self.changeLang('de');
-      });
-      en.addEventListener('click', function () {
-        Self.changeLang('en');
-      });
+      this.bindLangChange();
     },
 
     methods: {
+      bindLangChange: function() {
+        const Self = this;
+        const LangChange = this.$refs.lang;
+
+        const fr = LangChange.querySelector('#fr');
+        const de = LangChange.querySelector('#de');
+        const en = LangChange.querySelector('#en');
+
+        fr.addEventListener('click', function () {
+          Self.changeLang('fr');
+        });
+        de.addEventListener('click', function () {
+          Self.changeLang('de');
+        });
+        en.addEventListener('click', function () {
+          Self.changeLang('en');
+        });
+
+      },
       changeLang(lang) {
         this.$i18n.locale = lang;
+        setTimeout(this.bindLangChange, 400);
       }
     }
   }
