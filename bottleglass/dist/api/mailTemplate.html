@@ -1,4 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+	<head>
+		<meta charset="UTF-8">
+	</head>
 	<body style="margin: 0;">
 		<style>
 			.content {
@@ -41,7 +44,7 @@
 				<p style="font-size: 1.3em;">
 					 Bonjour %%FORNAME%% %%NAME%%, <br><br>
 					Voici la confirmation de votre commande sur le site 
-					<a href="https://bottleglass.ch" style="color: #666;transition: 0.5s;">bottleglass.ch</a>. <br>
+					<a href="https://bottleglass.ch" style="color: #666;">bottleglass.ch</a>. <br>
 				</p>
 				
 				<div class="products" style="margin-top: 40px; max-width: 100%; width: 600px;">
@@ -70,14 +73,15 @@
 						</tr>
 					</table>
 				</div>
-				
-				<p>
+				<br/><br/>
+				<h2>Informations bancaires</h2>
+				<p style="font-size: 1.3em;">
 					Veuillez faire une virement bancaire au compte suivant : <br/>
 					IBAN : %%IBANACCOUNT%% <br/>
 					Nom du b&eacute;n&eacute;ficiaire : %%BENEFICIAIRE%% <br/>
 					Adresse : %%ADRESSACCOUNT%% <br/>
 					Montant : %%TOTAL_PRICE%% CHF <br/>
-					Objet du paiement : 'Commande n&deg;%%ORDERNUMBER%% <br>
+					Objet du paiement : Commande n&deg;%%ORDERNUMBER%% <br>
 					<b>Nous enverrons la marchandise d&egrave;s la r&eacute;ception de l'argent.</b>
 				</p>
 				
