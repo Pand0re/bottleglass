@@ -86,20 +86,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/mailTemplate.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="32" column="98" selection-start-line="32" selection-start-column="98" selection-end-line="32" selection-end-column="98" />
+            <state relative-caret-position="149">
+              <caret line="76" column="58" selection-start-line="76" selection-start-column="42" selection-end-line="76" selection-end-column="58" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/buy.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
+            <state relative-caret-position="228">
+              <caret line="100" column="72" lean-forward="true" selection-start-line="100" selection-start-column="72" selection-end-line="100" selection-end-column="72" />
             </state>
           </provider>
         </entry>
@@ -123,7 +123,9 @@
       <find>orders</find>
       <find>FormatDate</find>
       <find>ADRESSACCOUNT</find>
+      <find>BENEFICIAIRE</find>
       <find>$$BENEFICIAIRE$$</find>
+      <find>%%BENEFICIAIRE%%</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -140,8 +142,8 @@
         <option value="$PROJECT_DIR$/bottleglass/dist/api/getProducts.php" />
         <option value="$PROJECT_DIR$/bottleglass/dist/api/getOrders.php" />
         <option value="$PROJECT_DIR$/bottleglass/src/components/admin/Admin.vue" />
-        <option value="$PROJECT_DIR$/bottleglass/dist/api/buy.php" />
         <option value="$PROJECT_DIR$/bottleglass/dist/api/mailTemplate.html" />
+        <option value="$PROJECT_DIR$/bottleglass/dist/api/buy.php" />
       </list>
     </option>
   </component>
@@ -258,12 +260,12 @@
       <workItem from="1543914203490" duration="3856000" />
       <workItem from="1544519161101" duration="3768000" />
       <workItem from="1545123636833" duration="5926000" />
-      <workItem from="1546937989871" duration="1747000" />
+      <workItem from="1546937989871" duration="2180000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27648000" />
+    <option name="totallyTimeSpent" value="28081000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -385,17 +387,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/buy.php">
+    <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/mailTemplate.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
+        <state relative-caret-position="149">
+          <caret line="76" column="58" selection-start-line="76" selection-start-column="42" selection-end-line="76" selection-end-column="58" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/mailTemplate.html">
+    <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/buy.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="32" column="98" selection-start-line="32" selection-start-column="98" selection-end-line="32" selection-end-column="98" />
+        <state relative-caret-position="228">
+          <caret line="100" column="72" lean-forward="true" selection-start-line="100" selection-start-column="72" selection-end-line="100" selection-end-column="72" />
         </state>
       </provider>
     </entry>
