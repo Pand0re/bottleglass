@@ -63,7 +63,9 @@
 			"ContactUsText": "Une question ? Une proposition ? Vous souhaitez un produit fait sur mesure ?<br/><br/>Alors contactez-nous par mail à <a href='mailto:contact@bottleglass.ch'>contact@bottleglass.ch</a>."
 		},
 		"miscellaneous": {
-			"AllRightsReserved":"All rights reserved."
+			"AllRightsReserved":"All rights reserved.",
+			"lang": "Our website is available in <span id=\"fr\">french</span>, <span id=\"de\">german</span> and <span id=\"en\">english</span>."
+		
 		}
 	}
 }

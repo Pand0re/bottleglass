@@ -22,7 +22,8 @@ const i18n = new VueI18n({
   messages: {
     fr,
     en
-  }
+  },
+  fallbackLocale: 'en'
 });
 
 /* eslint-disable no-new */
