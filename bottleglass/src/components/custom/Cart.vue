@@ -1,7 +1,7 @@
 <template>
   <div class="overlay" @click="HideCart">
     <div ref="container" class="container" @click="PreventClick">
-      <div class="title">Panier</div>
+      <div class="title">{{ $t('t.cart.Cart') }}</div>
 
       <div class="cart">
         <template v-for="item in GetCart">
@@ -15,7 +15,7 @@
 
       <div class="total">
         <template v-if="GetTotalPrice <= 0">
-          Le panier est vide
+          {{ $t('t.cart.EmptyCart') }}
         </template>
         <template v-else>
           Total : {{ parseFloat(GetTotalPrice).toFixed(2) }} CHF
@@ -23,7 +23,9 @@
       </div>
 
       <div class="purchase">
-        <router-link :to="{name: 'Acheter'}" class="buy" :disabled="GetTotalPrice <= 0">Acheter</router-link>
+        <router-link :to="{name: 'Acheter'}" class="buy" :disabled="GetTotalPrice <= 0">
+          {{ $t('t.cart.Buy') }}
+        </router-link>
       </div>
 
     </div>

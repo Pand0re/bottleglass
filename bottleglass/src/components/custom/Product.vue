@@ -63,6 +63,7 @@
     vertical-align: middle;
     background-color: #ddffdd;
     text-align: right;
+    float: right;
   }
 
   .rupture {

@@ -6,6 +6,11 @@
 			"Buy":"Acheter",
 			"About":"À propos"
 		},
+		"cart" : {
+			"Cart": "Panier",
+			"EmptyCart": "Le panier est vide",
+			"Buy":"Acheter"
+		},
 		"products": {
 			"Candles": "Bougies",
 			"CandlesDesc": "Une bougie réalisée à partir d'un fond de bouteille.",
@@ -67,7 +72,7 @@
 		},
 		"miscellaneous": {
 			"AllRightsReserved":"Tous droits réservés.",
-			"lang": "Notre site est disponible en <span id=\"fr\">français</span>, <span id=\"de\">allemand</span> et en <span id=\"en\">anglais</span>."
+			"lang": "Notre site est disponible en <a href=\"javascript:void(0)\" id=\"fr\">français</a>, <a href=\"javascript:void(0)\" id=\"de\">allemand</a> et en <a href=\"javascript:void(0)\" id=\"en\">anglais</a>."
 		}
 	}
 }

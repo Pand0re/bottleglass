@@ -15,12 +15,12 @@
 
     methods: {
       bindLangChange: function() {
-        const Self = this;
-        const LangChange = this.$refs.lang;
+        let Self = this;
+        let LangChange = this.$refs.lang;
 
-        const fr = LangChange.querySelector('#fr');
-        const de = LangChange.querySelector('#de');
-        const en = LangChange.querySelector('#en');
+        let fr = LangChange.querySelector('#fr');
+        let de = LangChange.querySelector('#de');
+        let en = LangChange.querySelector('#en');
 
         fr.addEventListener('click', function () {
           Self.changeLang('fr');
@@ -55,13 +55,13 @@
     text-align: center;
   }
 
-  p >>> span {
+  p >>> a {
     color: #777;
     text-decoration: underline;
     cursor: pointer;
   }
 
-  p >>> span:hover {
+  p >>> a:hover {
     color: black;
   }
 </style>

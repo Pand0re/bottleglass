@@ -23,7 +23,7 @@
       </button>
     </div>
 
-  </div>
+  </div> <!-- end of v-if="Stat === 'login'" -->
 
   <div v-else-if="Stat === 'invalidcreds'" class="container-loggin" >
     <h1>Mot de passe erroné</h1>
@@ -34,48 +34,69 @@
     </div>
   </div>
 
-  <div v-else-if="Stat === 'logged'">
-    <!--
-    Tableau liste commandes reçues (plus vieilles à plus récentes)
-    Champ (textarea) pour remarque sur la commande par production
-    Btn pour valider le paiement de la commande (par administration)
-    Puis btn pour valider l'envoi de la commande (par prod)
-    -->
-
-    <h1>Liste des commandes en cours</h1>
-    <table>
-      <thead>
-        <tr>
-          <td width="10%">Numéro</td>
-          <td>Date</td>
-          <td>Client</td>
-          <td>Commande</td>
-          <td>Remarque</td>
-          <td>Enreg.</td>
-          <td>Valider</td>
-        </tr>
-      </thead>
-      <tbody>
+  <div class="logged-container" v-else-if="Stat === 'logged'">
 
 
-      <tr v-for="order in orders">
-          <td>#{{order.id_com}}</td>
-          <td>{{FormatDate(order.date_com)}}</td>
-          <td>{{order.nom_cli_com }} {{ order.prenom_cli_com}} ({{order.sexe_cli_com}})
-            <br/>
-            {{order.npa_cli_com}}
-            {{order.localite_cli_con}},
-            {{order.adresse_cli_com}}
+    <div class="admin-nav">
+      <div class="admin-nav-elem">
+        <a href="javascript:void(0)" @click="CurrentPage = 'commandslist'">
+          Liste des commandes
+        </a>
+      </div>
+      <div class="admin-nav-elem">
+        <a href="javascript:void(0)" @click="CurrentPage = 'stockmanager'">
+          Gestion du stock
+        </a>
+      </div>
+    </div>
 
-          </td>
-          <td>6x verre classique</td>
-          <td><textarea></textarea></td>
-          <td><a><img src="../../../static/admin/save.png" style="width:20px"></a></td>
-          <td><a><img src="../../../static/admin/vu.png" style="width:24px"></a></td>
-        </tr>
+    <StockManager v-if="CurrentPage === 'stockmanager'">
+    </StockManager>
 
-      </tbody>
-    </table>
+
+    <template v-if="CurrentPage === 'commandslist'">
+      <!--
+      Tableau liste commandes reçues (plus vieilles à plus récentes)
+      Champ (textarea) pour remarque sur la commande par production
+      Btn pour valider le paiement de la commande (par administration)
+      Puis btn pour valider l'envoi de la commande (par prod)
+      -->
+
+      <h1>Liste des commandes en cours</h1>
+      <table>
+        <thead>
+          <tr>
+            <td width="10%">Numéro</td>
+            <td>Date</td>
+            <td>Client</td>
+            <td>Commande</td>
+            <td>Remarque</td>
+            <td>Enreg.</td>
+            <td>Valider</td>
+          </tr>
+        </thead>
+        <tbody>
+
+
+        <tr v-for="order in orders">
+            <td>#{{order.id_com}}</td>
+            <td>{{FormatDate(order.date_com)}}</td>
+            <td>{{order.nom_cli_com }} {{ order.prenom_cli_com}} ({{order.sexe_cli_com}})
+              <br/>
+              {{order.npa_cli_com}}
+              {{order.localite_cli_con}},
+              {{order.adresse_cli_com}}
+
+            </td>
+            <td>6x verre classique</td>
+            <td><textarea></textarea></td>
+            <td><a><img src="../../../static/admin/save.png" style="width:20px"></a></td>
+            <td><a><img src="../../../static/admin/vu.png" style="width:24px"></a></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </template>
   </div>
 
   <div v-else  class="container-loggin" >
@@ -95,11 +116,28 @@
 </template>
 
 <script>
+  import StockManager from "./StockManager";
   export default {
     name: "Admin",
+    components: {StockManager},
     data: function() {
       return {
+        /**
+         * States list :
+         *      -login        : The user need to login
+         *      -invalidcreds : The login attempt failed
+         *      -logged       : The user is logged in
+         *      -unknow       : Something went wrong
+         */
         Stat: 'login',
+
+        /**
+         * Pages list :
+         *      -commandslist : Show the commands' list
+         *      -stockmanager : Show the stock manager
+         */
+        CurrentPage: 'commandslist',
+
         token: undefined,
         errorcode: undefined,
         orders: [],
@@ -225,7 +263,12 @@
   table {
     text-align:center;
     margin: 20px auto;
+    border-radius: 5px;
+  }
 
+  table thead {
+    background-color: #444;
+    color: white;
   }
 
   table, td {
@@ -237,14 +280,49 @@
     padding: 5px;
   }
 
-
-
-  table thead td {
-    font-weight: bold;
-    padding:10px;
+  table td:first-child {
+    font-size: 1.1em;
   }
 
+  table tbody tr:nth-child(odd) {
+    background-color: #f3f5f0;
+  }
 
+  table thead td {
+    padding:10px;
+    font-size: 1.1em;
+  }
+
+  .logged-container {
+    margin-top: 90px;
+  }
+
+  .admin-nav {
+    background-color: navajowhite;
+    position: fixed;
+    left: 0;
+    top: 40px;
+    width: 100%;
+    height: 40px;
+    z-index: 9999;
+    text-align: center;
+  }
+
+  .admin-nav-elem {
+    display: inline-block;
+    line-height: 40px;
+    padding: 0 20px;
+  }
+
+  .admin-nav-elem a {
+    color: black;
+    text-decoration: none;
+    transition: 0.5s;
+  }
+
+  .admin-nav-elem a:hover {
+    color: #bbb;
+  }
 
 
 </style>
