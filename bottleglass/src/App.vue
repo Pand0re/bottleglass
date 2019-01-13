@@ -30,30 +30,32 @@
 
       this.$i18n.locale = userLang.split('-')[0];
 
-      let Self = this;
+      this.UpdateProducts();
 
-      this.$ajax(
-        'https://bottleglass.ch/api/getProducts.php',
-        'GET',
-        '',
-        function(xhr) {
-
-          console.log(xhr)
-          Self.ShoppingCart = JSON.parse(xhr.response);
-
-          for (let Item of Self.ShoppingCart) {
-            Item.amount = 0;
-          }
-
-          Self.ShoppingCart.sort(function(a, b) {
-            return Self.GetProductWeight(a.cat_pro) - Self.GetProductWeight(b.cat_pro);
-          });
-
-        }
-      );
     },
 
     methods: {
+      UpdateProducts: function() {
+        let Self = this;
+
+        this.$ajax(
+          'https://bottleglass.ch/api/getProducts.php',
+          'GET',
+          '',
+          function(xhr) {
+            Self.ShoppingCart = JSON.parse(xhr.response);
+
+            for (let Item of Self.ShoppingCart) {
+              Item.amount = 0;
+            }
+
+            Self.ShoppingCart.sort(function(a, b) {
+              return Self.GetProductWeight(a.cat_pro) - Self.GetProductWeight(b.cat_pro);
+            });
+
+          }
+        );
+      },
       GetProductWeight: function(cat) {
         switch(cat) {
           case 'VP' : return 1;

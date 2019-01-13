@@ -5,31 +5,60 @@
 	header('Content-type: text/html; charset=UTF-8');
 	header('Access-Control-Allow-Headers: X-Requested-With');
 
-	require_once './bdd.php';
+  session_start();
 
   $response = array(
+    /**
+     *
+     **/
     'code' =>  0
   );
 
-  if (!isset($_POST["d"]) {
+
+  // If there isn't any token, we stop
+	if (!isset($_POST['token'])) {
+	  $response['code'] = 1;
+		echo json_encode($response);
+		exit();
+	}
+
+  // If the token's wrong, we stop
+	if ($_SESSION['token'] != $_POST['token']) {
+	  $response['code'] = 2;
+	  echo json_encode($response);
+	  exit();
+	}
+
+  // If no data was provided, we stop
+  if (!isset($_POST["d"])) {
+    $response['code'] = 3;
     echo json_encode($response);
     exit();
   }
 
+  // Get data
   $data = json_decode($_POST["d"]);
 
-  $sql = "UPDATE tb_product SET prix_pro=:prix,dispo_pro=:dispo,quant_pro=:quant,cat_pro=:cat WHERE id_pro=:id;";
+  // Request template
+  $sql = "UPDATE tb_produits SET " .
+       "prix_pro=:prix,dispo_pro=:dispo,quant_pro=:quant,cat_pro=:cat " .
+        "WHERE id_pro=:id;";
 
-  function CreateRequest(price, available, amount, cat, id){
-    global $sql;
-    $rqst = str_replace(':prix', price, $sql);
-    $rqst = str_replace(':dispo', available, $rqst);
-    $rqst = str_replace(':quant', amount, $rqst);
-    $rqst = str_replace(':cat', cat, $rqst);
-    $rqst = str_replace(':id', id, $rqst);
-    return $rqst;
+	require_once './bdd.php';
+
+  foreach ($data as $p) {
+    $rqst = $sql;
+    $stmt = $db->prepare($rqst);
+    $stmt->execute(array(
+      ':prix'     => $p->prix_pro,
+      ':dispo'    => $p->dispo_pro,
+      ':quant'    => $p->quant_pro,
+      ':cat'      => $p->cat_pro,
+      ':id'       => $p->id_pro
+    ));
+
+    var_dump($p->id_pro);
+
   }
 
-  foreach ($data as $product) {
-    $rqst = CreateRequest()
-  }
+	echo json_encode($response);

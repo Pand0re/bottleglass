@@ -15,9 +15,7 @@
 	);
 	
 	if (isset($_POST['token'])) {
-		$token = $_POST['token'];
-		
-		if ($token == $_POST['token']) {
+		if ($_SESSION['token'] != $_POST['token']) {
 
             $stmt = $db->query("SELECT * FROM tb_commandes ORDER BY id_com",PDO::FETCH_ASSOC);
 

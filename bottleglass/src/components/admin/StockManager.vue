@@ -40,6 +40,9 @@
     </table>
 
     <div class="savebutton-container">
+      <button class="updatebutton" @click="UpdateStock()" ref="SaveButton">
+        Actualiser
+      </button>
       <button class="savebutton" @click="SaveStock()" ref="SaveButton">
         Enregistrer
       </button>
@@ -62,13 +65,15 @@
           'POST',
           'd=' + encodeURIComponent(JSON.stringify(
             Self.$parent.$parent.ShoppingCart
-          )),
+          )) + '&token=' + Self.$parent.token,
           function(xhr) {
             Self.$refs.SaveButton.disabled = false;
             console.log(xhr.response);
           }
         );
-
+      },
+      UpdateStock: function() {
+        this.$parent.$parent.UpdateProducts();
       }
     }
   }
@@ -157,6 +162,48 @@
     background-color: black;
     color: white;
   }
+
+  .updatebutton:not(disabled) {
+    background: white;
+    border: none;
+    outline: none;
+    text-decoration: underline;
+    transition: 0.2s;
+    padding: 10px 20px;
+  }
+
+  .updatebutton:not(disabled):hover {
+    text-decoration: none;
+    color: white;
+  }
+
+  .updatebutton:not(disabled)::after {
+    content: ' ';
+    background-color: black;
+    position: relative;
+    width: 100px;
+    height: 0;
+    top: -10px;
+    left: 0;
+    display: block;
+    transition: 0.2s;
+  }
+
+
+  .updatebutton:not(disabled):hover::after {
+    height: 25px;
+    padding-top: 10px;
+    top: -25px;
+    content: 'Actualiser';
+  }
+
+  .updatebutton:not(disabled):active::after {
+     height: 29px;
+     padding-top: 10px;
+      background-color: #333;
+     top: -27px;
+     content: 'Actualiser';
+   }
 
   @media (max-width: 580px) {
     table {
