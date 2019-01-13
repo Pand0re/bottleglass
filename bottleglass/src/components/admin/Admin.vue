@@ -140,7 +140,7 @@
 
         token: undefined,
         errorcode: undefined,
-        orders: [],
+        orders: []
       };
     },
 
@@ -217,14 +217,19 @@
     margin-left: 30%;
   }
 
+  h2 {
+    margin-bottom: 30px;
+  }
+
   input {
     display: block;
     width: 100%;
+    max-width: 230px;
     border: 1px solid black;
-    padding: 5px;
+    padding: 5px 15px;
     border-radius: 5px;
     font-size: 1.1em;
-    background-color: #F3f0eB;
+    background-color: #F3f0FB;
   }
 
   label {
@@ -232,12 +237,14 @@
   }
 
   .input-group {
-    margin-top: 10px;
+    width: 100%;
+    max-width: 230px;
+    margin: 10px auto;
   }
 
   .button-group {
     text-align: center;
-    margin: 30px 0;
+    margin: 20px 0 30px 30px;
   }
 
   button {
@@ -245,6 +252,7 @@
     padding: 10px 60px;
     font-size: 1.3em;
     transition: 0.5s;
+    border-radius: 5px;
   }
 
   button:hover {
@@ -322,6 +330,30 @@
 
   .admin-nav-elem a:hover {
     color: #bbb;
+  }
+
+
+  @media (max-width: 580px) {
+    .container-loggin {
+      margin-left: 15px;
+      width: 100%;
+    }
+
+    .input-group {
+      width: 100%;
+      max-width: unset;
+    }
+
+    input {
+      width: 80%;
+      max-width: unset;
+    }
+
+    .button-group {
+      width: 100%;
+      margin-left: 0;
+    }
+
   }
 
 

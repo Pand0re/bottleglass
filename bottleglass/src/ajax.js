@@ -18,25 +18,32 @@ export default function(url, type, data, callback) {
     }
   }
 
-  xhr.onreadystatechange = ensureReadiness;
-
   function ensureReadiness() {
+
     if(xhr.readyState < 4) {
       return;
     }
-
     if(xhr.status !== 200) {
+
       return;
     }
-
     if(xhr.readyState === 4) {
+
       callback(xhr);
     }
   }
 
-  xhr.open(type, url, true);
+  xhr.onreadystatechange = ensureReadiness;
 
-  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-  xhr.send(data);
+  if (type === 'POST') {
+    xhr.open(type, url, true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.send(data);
+  }
+  else if (type === 'GET') {
+    xhr.open("GET", url + '?' + data, true);
+    xhr.send(null);
+  }
+
 };

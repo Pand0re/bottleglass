@@ -7,8 +7,12 @@
     <div class="wrapper">
       <h2>
         {{ name }}
-        <span class="stock rupture" v-if="stock <= 0">{{ $t('t.products.SoldOut') }}</span>
-        <span class="stock" v-else>{{ $t('t.products.Available') }}</span>
+        <span class="stock rupture" v-if="stock <= 0">
+          {{ $t('t.products.SoldOut') }}
+        </span>
+        <span class="stock" v-else>
+          {{ $t('t.products.Available') }}
+        </span>
       </h2>
       <p>
         {{ description }}
@@ -18,7 +22,9 @@
         <span>
           {{ parseFloat(price).toFixed(2) }} CHF / {{ $t('t.products.unit') }}
         </span>
-      <button :style="GetButtonStyle()" :disabled="stock <= 0" @click="AddItemToCart">{{ $t('t.products.AddToCart') }}</button>
+      <button :style="GetButtonStyle()" :disabled="stock <= 0" @click="AddItemToCart">
+        {{ $t('t.products.AddToCart') }}
+      </button>
     </div>
   </div>
 </template>
@@ -165,6 +171,15 @@
     z-index: -2;
   }
 
+  .stock {
+    float: right;
+  }
+
+  .wrapper {
+    width: calc(60% - 300px);
+    max-width: 740px;
+  }
+
   /***********************************************************************
    * Responsive
    ***********************************************************************/
@@ -185,11 +200,16 @@
     .container {
       margin: 50px 10% 10% 10%;
     }
+
   }
 
   @media (max-width: 1300px) {
     .container {
       margin: 50px 5%;
+    }
+
+    .wrapper {
+      width: 30%;
     }
   }
 
@@ -215,7 +235,7 @@
     }
   }
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1100px) {
     .container {
       margin: 40px 10% 60px 10%;
       height: 700px;
@@ -278,8 +298,8 @@
 
   @media (max-width: 400px) {
     .container {
-      margin: 5px 0 60px 5px;
-      height: 700px;
+      margin: 0 0 50px 5px;
+      height: 670px;
       width: calc(100% - 5px);
 
       padding: 0;

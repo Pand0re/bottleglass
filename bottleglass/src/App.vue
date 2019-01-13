@@ -37,6 +37,8 @@
         'GET',
         '',
         function(xhr) {
+
+          console.log(xhr)
           Self.ShoppingCart = JSON.parse(xhr.response);
 
           for (let Item of Self.ShoppingCart) {
