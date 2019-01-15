@@ -82,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/mailTemplate.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="83" column="41" selection-start-line="83" selection-start-column="41" selection-end-line="83" selection-end-column="41" />
+            <state relative-caret-position="520">
+              <caret line="64" column="59" lean-forward="true" selection-start-line="64" selection-start-column="59" selection-end-line="64" selection-end-column="59" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
@@ -113,11 +113,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/buy.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="112" column="12" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="12" />
+            <state relative-caret-position="282">
+              <caret line="99" column="111" selection-start-line="99" selection-start-column="111" selection-end-line="99" selection-end-column="111" />
             </state>
           </provider>
         </entry>
@@ -162,8 +162,8 @@
         <option value="$PROJECT_DIR$/bottleglass/dist/api/getProducts.php" />
         <option value="$PROJECT_DIR$/bottleglass/dist/api/getOrders.php" />
         <option value="$PROJECT_DIR$/bottleglass/src/components/admin/Admin.vue" />
-        <option value="$PROJECT_DIR$/bottleglass/dist/api/buy.php" />
         <option value="$PROJECT_DIR$/bottleglass/dist/api/mailTemplate.html" />
+        <option value="$PROJECT_DIR$/bottleglass/dist/api/buy.php" />
       </list>
     </option>
   </component>
@@ -281,12 +281,12 @@
       <workItem from="1544519161101" duration="3768000" />
       <workItem from="1545123636833" duration="5926000" />
       <workItem from="1546937989871" duration="4387000" />
-      <workItem from="1547542978711" duration="1920000" />
+      <workItem from="1547542978711" duration="2132000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32208000" />
+    <option name="totallyTimeSpent" value="32420000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -404,17 +404,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/buy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="112" column="12" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/mailTemplate.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="83" column="41" selection-start-line="83" selection-start-column="41" selection-end-line="83" selection-end-column="41" />
+        <state relative-caret-position="520">
+          <caret line="64" column="59" lean-forward="true" selection-start-line="64" selection-start-column="59" selection-end-line="64" selection-end-column="59" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
@@ -437,6 +430,13 @@
             <element signature="e#2374#2382#0" expanded="true" />
             <element signature="e#2388#2396#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/buy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="99" column="111" selection-start-line="99" selection-start-column="111" selection-end-line="99" selection-end-column="111" />
         </state>
       </provider>
     </entry>

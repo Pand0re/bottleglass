@@ -29,7 +29,7 @@
 	$order = file_get_contents("./rowTemplate.html");
 	
 	$rows = "";
-	$totalCost = 0;
+	$totalCost = 6;
 	
 	$stmt = $db->prepare('INSERT INTO tb_commandes VALUES(NULL, :date, :name, :forname, :mail, :sexe, :npa, :loca, :address, :country);');
 	$stmt->execute(array(
@@ -97,7 +97,7 @@
 	$mail = str_replace('%%ORDERS%%'	 , $rows		, $mail);
     $mail = str_replace('%%BENEFICIAIRE%%'	, 'Bottle Glass' 		, $mail);
 	$mail = str_replace('%%IBANACCOUNT%%'	, 'CH14 8080 8001 6709 7491 1' 		, $mail);
-    $mail = str_replace('%%ADRESSACCOUNT%%'	, 'Cité des Microtechniques, 2900 Porrentruy - SUISSE', $mail);
+    $mail = str_replace('%%ADRESSACCOUNT%%'	, utf8_decode('Cité des Microtechniques, 2900 Porrentruy - SUISSE 2'), $mail);
     $mail = str_replace('%%ORDERNUMBER%%'	, PK_COMM 		, $mail);
 
 
