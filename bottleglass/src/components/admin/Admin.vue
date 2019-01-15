@@ -95,7 +95,7 @@
               {{order.adresse_cli_com}}
 
             </td>
-            <td>6x verre classique</td>
+            <td>xxx</td>
             <td><textarea></textarea></td>
             <td><a><img src="../../../static/admin/save.png" style="width:20px"></a></td>
             <td><a><img src="../../../static/admin/vu.png" style="width:24px"></a></td>
