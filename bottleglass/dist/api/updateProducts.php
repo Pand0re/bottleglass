@@ -41,7 +41,7 @@
 
   // Request template
   $sql = "UPDATE tb_produits SET " .
-       "prix_pro=:prix,dispo_pro=:dispo,quant_pro=:quant,cat_pro=:cat " .
+       "nom_pro=:nom,desc_pro=:desc,img_pro=:img " .
         "WHERE id_pro=:id;";
 
 	require_once './bdd.php';
@@ -50,10 +50,9 @@
     $rqst = $sql;
     $stmt = $db->prepare($rqst);
     $stmt->execute(array(
-      ':prix'     => $p->prix_pro,
-      ':dispo'    => $p->dispo_pro,
-      ':quant'    => $p->quant_pro,
-      ':cat'      => $p->cat_pro,
+      ':nom'      => $p->nom_pro,
+      ':desc'     => $p->desc_pro,
+      ':img'      => $p->img_pro,
       ':id'       => $p->id_pro
     ));
 
