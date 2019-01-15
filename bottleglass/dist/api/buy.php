@@ -7,15 +7,15 @@
 
 	require_once './bdd.php';
 
-	$name		= $_POST['name'];
-	$forname 	= $_POST['forname'];
-	$gender		= $_POST['gender'];
-	$npa 		= $_POST['npa'];
-	$locality 	= $_POST['locality'];
-	$address 	= $_POST['address'];
-	$country 	= $_POST['country'];
-	$email 		= $_POST['email'];
-	$orders     = json_decode(utf8_decode(urldecode($_POST['order'])), true);
+	$name		  = htmlentities($_POST['name']);
+	$forname 	= htmlentities($_POST['forname']);
+	$gender		= htmlentities($_POST['gender']);
+	$npa 		  = htmlentities($_POST['npa']);
+	$locality = htmlentities($_POST['locality']);
+	$address 	= htmlentities($_POST['address']);
+	$country 	= htmlentities($_POST['country']);
+	$email 		= htmlentities($_POST['email']);
+	$orders   = json_decode(utf8_decode(urldecode($_POST['order'])), true);
 		
 	$title = "Bottleglass - Commande";
 	
@@ -59,7 +59,7 @@
 			continue;
 		}
 
-		$iname   = $res['nom_pro'];
+		$iname  = $res['nom_pro'];
 		$amount = $item['amount'];
 		$price  = $res['prix_pro'];
 		
