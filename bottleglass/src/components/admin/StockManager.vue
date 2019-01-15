@@ -23,6 +23,7 @@
             <option value="VP">Verre à pieds</option>
             <option value="VC">Verre classique</option>
             <option value="BO">Bougie</option>
+            <option value="PA">Pack</option>
           </select>
         </td>
         <td>
