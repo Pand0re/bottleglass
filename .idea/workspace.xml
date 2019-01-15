@@ -117,7 +117,7 @@
         <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/buy.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="282">
-              <caret line="99" column="111" selection-start-line="99" selection-start-column="111" selection-end-line="99" selection-end-column="111" />
+              <caret line="99" column="109" selection-start-line="99" selection-start-column="109" selection-end-line="99" selection-end-column="109" />
             </state>
           </provider>
         </entry>
@@ -281,12 +281,12 @@
       <workItem from="1544519161101" duration="3768000" />
       <workItem from="1545123636833" duration="5926000" />
       <workItem from="1546937989871" duration="4387000" />
-      <workItem from="1547542978711" duration="2132000" />
+      <workItem from="1547542978711" duration="2216000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32420000" />
+    <option name="totallyTimeSpent" value="32504000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -436,7 +436,7 @@
     <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/buy.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
-          <caret line="99" column="111" selection-start-line="99" selection-start-column="111" selection-end-line="99" selection-end-column="111" />
+          <caret line="99" column="109" selection-start-line="99" selection-start-column="109" selection-end-line="99" selection-end-column="109" />
         </state>
       </provider>
     </entry>

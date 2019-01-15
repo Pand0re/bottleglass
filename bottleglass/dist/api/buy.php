@@ -97,7 +97,7 @@
 	$mail = str_replace('%%ORDERS%%'	 , $rows		, $mail);
     $mail = str_replace('%%BENEFICIAIRE%%'	, 'Bottle Glass' 		, $mail);
 	$mail = str_replace('%%IBANACCOUNT%%'	, 'CH14 8080 8001 6709 7491 1' 		, $mail);
-    $mail = str_replace('%%ADRESSACCOUNT%%'	, utf8_decode('Cité des Microtechniques, 2900 Porrentruy - SUISSE 2'), $mail);
+    $mail = str_replace('%%ADRESSACCOUNT%%'	, utf8_decode('Cité des Microtechniques, 2900 Porrentruy - SUISSE'), $mail);
     $mail = str_replace('%%ORDERNUMBER%%'	, PK_COMM 		, $mail);
 
 
