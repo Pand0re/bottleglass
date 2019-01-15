@@ -29,7 +29,7 @@
 	$order = file_get_contents("./rowTemplate.html");
 	
 	$rows = "";
-	$totalCost = 0;
+	$totalCost = 6;
 	
 	$stmt = $db->prepare('INSERT INTO tb_commandes VALUES(NULL, :date, :name, :forname, :mail, :sexe, :npa, :loca, :address, :country);');
 	$stmt->execute(array(

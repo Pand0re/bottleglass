@@ -48,13 +48,20 @@
           Gestion du stock
         </a>
       </div>
+      <div class="admin-nav-elem">
+        <a href="javascript:void(0)" @click="CurrentPage = 'productmanager'">
+          Gestion des produits
+        </a>
+      </div>
     </div>
 
     <StockManager v-if="CurrentPage === 'stockmanager'">
     </StockManager>
 
+    <ProductManager v-else-if="CurrentPage === 'productmanager'">
+    </ProductManager>
 
-    <template v-if="CurrentPage === 'commandslist'">
+    <template v-else-if="CurrentPage === 'commandslist'">
       <!--
       Tableau liste commandes reçues (plus vieilles à plus récentes)
       Champ (textarea) pour remarque sur la commande par production
@@ -117,9 +124,10 @@
 
 <script>
   import StockManager from "./StockManager";
+  import ProductManager from "./ProductManager";
   export default {
     name: "Admin",
-    components: {StockManager},
+    components: {ProductManager, StockManager},
     data: function() {
       return {
         /**
@@ -133,8 +141,9 @@
 
         /**
          * Pages list :
-         *      -commandslist : Show the commands' list
-         *      -stockmanager : Show the stock manager
+         *      -commandslist   : Show the commands' list
+         *      -stockmanager   : Show the stock manager
+         *      -productmanager : Show the product manager
          */
         CurrentPage: 'commandslist',
 
