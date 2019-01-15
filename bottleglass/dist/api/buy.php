@@ -101,7 +101,7 @@
     $mail = str_replace('%%ORDERNUMBER%%'	, PK_COMM 		, $mail);
 
 
-	$content = htmlentities($mail);
+	$content = $mail;
 	
 	// Send mail
 	if (mail($email, $title, $content, $headers)) {
