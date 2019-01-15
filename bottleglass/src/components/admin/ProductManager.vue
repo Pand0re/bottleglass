@@ -18,13 +18,13 @@
           <input v-model="product.nom_pro"/>
         </td>
         <td>
-          <input v-model="product.desc_pro"/>
+          <textarea v-model="product.desc_pro"></textarea>
         </td>
         <td>
           <input v-model="product.img_pro"/>
         </td>
         <td>
-          <a :href="product.img_pro">Image</a>
+          <a :href="product.img_pro" target="_blank">Image</a>
         </td>
       </tr>
       </tbody>
@@ -77,13 +77,13 @@
         let Self = this;
 
         this.$ajax(
-          'https://bottleglass.ch/updateProducts.php',
+          'https://bottleglass.ch/api/updateProducts.php',
           'POST',
           'd=' + encodeURIComponent(JSON.stringify(
-            Self.$parent.$parent.ShoppingCart
+            Self.products
           )) + '&token=' + Self.$parent.token,
           function(xhr) {
-
+            console.log(xhr.response);
           }
         );
       }
@@ -120,6 +120,12 @@
 
   tbody tr:nth-child(odd) {
     background-color: #f4f4f4;
+  }
+
+  textarea {
+    border-radius: 5px;
+    border: 1px solid black;
+    width: calc(100% - 25px);
   }
 
   input {
