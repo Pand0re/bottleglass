@@ -14,8 +14,8 @@
 		'orders' => array()
 	);
 	
-	if (isset($_POST['token'])) {
-		if ($_SESSION['token'] == $_POST['token']) {
+	if (/*isset($_POST['token'])*/true) { // NE PAS OUBLIER DE VIRER TRUE AVANT PROD!!
+		if (/*$_SESSION['token'] == $_POST['token']*/true) { // NE PAS OUBLIER DE VIRER TRUE AVANT PROD!!
 
             $stmt = $db->query("SELECT * FROM tb_commandes ORDER BY id_com",PDO::FETCH_ASSOC);
             /*
