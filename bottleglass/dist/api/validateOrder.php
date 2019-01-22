@@ -44,14 +44,14 @@
   var_dump($data);
 
   // Request template
-  $sql = "UPDATE tb_commandes SET remarque_com = :com WHERE id_com = :id;";
+  $sql = "UPDATE tb_commandes SET stat_com = :stat WHERE id_com = :id;";
 
 	require_once './bdd.php';
 
   $rqst = $sql;
   $stmt = $db->prepare($rqst);
   $stmt->execute(array(
-    ':com'     => $data->remarque_com,
+    ':stat'     => $data->stat_com
     ':id'      => $data->id_com
   ));
 
