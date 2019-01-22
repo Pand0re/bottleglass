@@ -254,7 +254,7 @@
         );
       },
 
-      UpdateData: function() {
+      UpdateData: function(order) {
         let Self = this;
         this.$ajax(
           'https://bottleglass.ch/api/getOrders.php',
