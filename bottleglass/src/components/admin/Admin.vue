@@ -170,7 +170,7 @@
         const minutes = ('0' + ddate.getMinutes()).slice(-2);
         const strTime = hours + ':' + minutes + ' ';
 
-        return date.getDate() +"."+
+        return ddate.getDate() +"."+
           (ddate.getMonth()+1) +"."+
            ddate.getFullYear() +" - "+strTime;
       },
