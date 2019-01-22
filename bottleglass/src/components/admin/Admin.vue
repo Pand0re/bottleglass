@@ -76,34 +76,36 @@
       <h1>Liste des commandes en cours</h1>
       <table>
         <thead>
-          <tr>
-            <td width="10%">Numéro</td>
-            <td>Date</td>
-            <td>Client</td>
-            <td>Commande</td>
-            <td>Remarque</td>
-            <td>Enreg.</td>
-            <td>Valider</td>
-          </tr>
+        <tr>
+          <td width="10%">Numéro</td>
+          <td>Date</td>
+          <td>Client</td>
+          <td>Commande</td>
+          <td>Remarque</td>
+          <td>Enreg.</td>
+          <td>Valider</td>
+        </tr>
         </thead>
         <tbody>
 
 
         <tr v-for="order in orders">
-            <td>#{{order.id_com}}</td>
-            <td>{{FormatDate(order.date_com)}}</td>
-            <td>{{order.nom_cli_com }} {{ order.prenom_cli_com}} ({{order.sexe_cli_com}})
-              <br/>
-              {{order.npa_cli_com}}
-              {{order.localite_cli_con}},
-              {{order.adresse_cli_com}}
-
-            </td>
-            <td><button @click="displayOrder(order.id_com)" :id="'btn-'+order.id_com">Voir produits</button></td>
-            <td><textarea></textarea></td>
-            <td><a><img src="../../../static/admin/save.png" style="width:20px"></a></td>
-            <td><a><img src="../../../static/admin/vu.png" style="width:24px"></a></td>
-          </tr>
+          <td>#{{order.id_com}}</td>
+          <td>{{FormatDate(order.date_com)}}</td>
+          <td>
+            <span v-html="order.nom_cli_com"></span>
+            <span v-html="order.prenom_cli_com"></span>
+            ({{order.sexe_cli_com}})
+            <br/>
+            {{order.npa_cli_com}}
+            <span v-html="order.localite_cli_con"></span>
+            <span v-html="order.adresse_cli_com"></span>
+          </td>
+          <td><button @click="displayOrder(order.id_com)" :id="'btn-'+order.id_com">Voir produits</button></td>
+          <td><textarea v-model="order.remarque_com"></textarea></td>
+          <td><button @click="UpdateComments(order)"><img src="../../../static/admin/save.png" style="width:20px"></button></td>
+          <td><button @click="ValidateOrder(order)"><img src="../../../static/admin/vu.png" style="width:24px"></button></td>
+        </tr>
 
         </tbody>
       </table>
@@ -172,7 +174,7 @@
 
         return ddate.getDate() +"."+
           (ddate.getMonth()+1) +"."+
-           ddate.getFullYear() +" - "+strTime;
+          ddate.getFullYear() +" - "+strTime;
       },
 
       /***
@@ -198,45 +200,72 @@
           'POST',
           'user='+User+'&password='+Password,
           function(xhr) {
-          const Response = JSON.parse(xhr.response);
+            const Response = JSON.parse(xhr.response);
 
-          switch(parseInt(Response.code)) {
-            // Success
-            case 0: {
-              Self.token = Response.token;
-              Self.Stat = 'logged';
-              Self.UpdateData();
-              break;
+            switch(parseInt(Response.code)) {
+              // Success
+              case 0: {
+                Self.token = Response.token;
+                Self.Stat = 'logged';
+                Self.UpdateData();
+                break;
+              }
+
+              // Invalid creds
+              case 1: {
+                Self.Stat = 'invalidcreds';
+                break;
+              }
+
+              // Weird
+              default: {
+                Self.Stat = 'unknow';
+                Self.errorcode = Response.code;
+                break;
+              }
             }
 
-            // Invalid creds
-            case 1: {
-              Self.Stat = 'invalidcreds';
-              break;
-            }
+          });
+      },
 
-            // Weird
-            default: {
-              Self.Stat = 'unknow';
-              Self.errorcode = Response.code;
-              break;
-            }
+      ValidateOrder: function(order) {
+        let Self = this;
+        this.$ajax(
+          'https://bottleglass.ch/api/validateOrder.php',
+          'POST',
+          'd=' + encodeURIComponent(JSON.stringify(order))
+          + '&token=' + Self.$parent.token,
+          function(xhr) {
+            console.log(xhr.response);
           }
+        );
+      },
 
-        });
+      UpdateComments: function(order) {
+        let Self = this;
+        this.$ajax(
+          'https://bottleglass.ch/api/addComments.php',
+          'POST',
+          'd=' + encodeURIComponent(JSON.stringify(order))
+          + '&token=' + Self.$parent.token,
+          function(xhr) {
+            console.log(xhr.response);
+          }
+        );
       },
 
       UpdateData: function() {
-          let Self = this;
-          this.$ajax(
-              'https://bottleglass.ch/api/getOrders.php',
-              'POST',
-              'token='+Self.token,
-              function(xhr) {
-                  Self.orders = JSON.parse(xhr.response).orders;
-              }
-          );
+        let Self = this;
+        this.$ajax(
+          'https://bottleglass.ch/api/getOrders.php',
+          'POST',
+          'token='+Self.token,
+          function(xhr) {
+            Self.orders = JSON.parse(xhr.response).orders;
+          }
+        );
       },
+
 
         displayOrder: function(id) {
           let Self = this;
@@ -258,6 +287,11 @@
                 }
             );
         }
+
+      displayOrder: function(id) {
+        console.log(id);
+      }
+
     }
   }
 </script>
