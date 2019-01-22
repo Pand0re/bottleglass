@@ -273,7 +273,8 @@
             this.$ajax(
                 'https://bottleglass.ch/api/getProductsByOrderId.php',
                 'POST',
-                'id='+id,
+                'id='+id
+                + '&token=' + Self.token,
                 function(xhr) {
                     let products = JSON.parse(xhr.response).products;
                     let textProducts = "";
