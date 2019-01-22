@@ -267,9 +267,28 @@
         );
       },
 
-      displayOrder: function(id) {
-        console.log(id);
-      }
+
+        displayOrder: function(id) {
+          let Self = this;
+          console.log(id);
+            this.$ajax(
+                'https://bottleglass.ch/api/getProductsByOrderId.php',
+                'POST',
+                'id='+id,
+                function(xhr) {
+                    let products = JSON.parse(xhr.response).products;
+                    console.log(products);
+                    let textProducts = "";
+                    products.forEach(function(e) {
+                        textProducts = textProducts + e.quantite_pan + "x " + Self.$t(e.nom_pro)+ "<br/>";
+                    });
+                    document.getElementById("btn-"+id).style.display = "none";
+                    document.getElementById("btn-"+id).parentNode.innerHTML = textProducts;
+
+                }
+            );
+        }
+
     }
   }
 </script>
