@@ -97,7 +97,7 @@
         <template v-for="item in $parent.ShoppingCart">
           <div class="item">
           <span>
-            {{ item.nom_pro }}
+            {{ $t(item.nom_pro) }}
           </span>
             <span>
             <input :disabled="item.quant_pro <= 0" v-model="item.amount" type="number" min="0" :max="item.quant_pro" class="amount" @input="$forceUpdate()"/>
