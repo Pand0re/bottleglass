@@ -39,18 +39,22 @@
 
     <div class="admin-nav">
       <div class="admin-nav-elem">
-        <a href="javascript:void(0)" @click="CurrentPage = 'commandslist'">
-          Liste des commandes
+        <a href="javascript:void(0)" @click="CurrentPage = 'commandslist'"
+           :style="GetNavStyle('commandslist')"
+        >
+          Commandes
         </a>
       </div>
       <div class="admin-nav-elem">
-        <a href="javascript:void(0)" @click="CurrentPage = 'stockmanager'">
-          Gestion du stock
+        <a href="javascript:void(0)" @click="CurrentPage = 'stockmanager'"
+           :style="GetNavStyle('stockmanager')">
+          Stock
         </a>
       </div>
       <div class="admin-nav-elem">
-        <a href="javascript:void(0)" @click="CurrentPage = 'productmanager'">
-          Gestion des produits
+        <a href="javascript:void(0)" @click="CurrentPage = 'productmanager'"
+           :style="GetNavStyle('productmanager')">
+          Produits
         </a>
       </div>
     </div>
@@ -154,15 +158,34 @@
     },
 
     methods: {
+      /***
+       *
+       * @param date
+       * @returns {string}
+       * @constructor
+       */
       FormatDate: function(date) {
-        var date = new Date(date);
+        const ddate = new Date(date);
+        const hours = ddate.getHours();
+        const minutes = ('0' + ddate.getMinutes()).slice(-2);
+        const strTime = hours + ':' + minutes + ' ';
 
-        var hours = date.getHours();
-        var minutes = date.getMinutes();
-        minutes = minutes < 10 ? '0'+minutes : minutes;
-        var strTime = hours + ':' + minutes + ' ';
+        return date.getDate() +"."+
+          (ddate.getMonth()+1) +"."+
+           ddate.getFullYear() +" - "+strTime;
+      },
 
-        return date.getDate() +"."+ (date.getMonth()+1) +"."+ date.getFullYear() +" - "+strTime;
+      /***
+       *
+       * @param NavName
+       * @returns {string}
+       * @constructor
+       */
+      GetNavStyle: function(NavName) {
+        if (NavName == this.CurrentPage) {
+          return 'color: #aaa;';
+        }
+        return '';
       },
       Login: function() {
         let Self = this;

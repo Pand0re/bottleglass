@@ -135,6 +135,7 @@
 
   .savebutton-container {
     text-align: center;
+    margin-right: 20%;
   }
 
   .savebutton:disabled,
