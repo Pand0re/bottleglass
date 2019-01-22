@@ -6,7 +6,7 @@
     </div>
     <div class="wrapper">
       <h2>
-        {{ name }}
+        {{ $t(name) }}
         <span class="stock rupture" v-if="stock <= 0">
           {{ $t('t.products.SoldOut') }}
         </span>
@@ -15,7 +15,7 @@
         </span>
       </h2>
       <p>
-        {{ description }}
+        {{ $t(description) }}
       </p>
     </div>
     <div class="cost">
