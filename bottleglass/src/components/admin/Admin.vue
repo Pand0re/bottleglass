@@ -103,8 +103,8 @@
           </td>
           <td><button @click="displayOrder(order.id_com)" :id="'btn-'+order.id_com">Voir produits</button></td>
           <td><textarea v-model="order.remarque_com"></textarea></td>
-          <td><a @click="UpdateComments(order)"><img src="../../../static/admin/save.png" style="width:20px"></a></td>
-          <td><a @click="ValidateOrder(order)"><img src="../../../static/admin/vu.png" style="width:24px"></a></td>
+          <td><button @click="UpdateComments(order)"><img src="../../../static/admin/save.png" style="width:20px"></button></td>
+          <td><button @click="ValidateOrder(order)"><img src="../../../static/admin/vu.png" style="width:24px"></button></td>
         </tr>
 
         </tbody>
