@@ -99,7 +99,7 @@
               {{order.adresse_cli_com}}
 
             </td>
-            <td>xxx</td>
+            <td><button class="btn-display-order" :id="'order-'+order.id_com">Voir produits</button></td>
             <td><textarea></textarea></td>
             <td><a><img src="../../../static/admin/save.png" style="width:20px"></a></td>
             <td><a><img src="../../../static/admin/vu.png" style="width:24px"></a></td>
