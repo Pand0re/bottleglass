@@ -97,7 +97,7 @@
         <template v-for="item in $parent.ShoppingCart">
           <div class="item">
           <span>
-            {{ item.nom_pro }}
+            {{ $t(item.nom_pro) }}
           </span>
             <span>
             <input :disabled="item.quant_pro <= 0" v-model="item.amount" type="number" min="0" :max="item.quant_pro" class="amount" @input="$forceUpdate()"/>
@@ -137,6 +137,7 @@
     <div v-else>
       <h1>{{ $t('t.buy.bought.OrderFailed') }}</h1>
       <p v-html="$t('t.buy.bought.OrderFailedText')"></p>
+      <p>Error code : {{ errorCode }}</p>
     </div>
 
   </div>
@@ -159,6 +160,7 @@
         bInvalidLocality: false,
         bInvalidAddress:  false,
         bInvalidCountry:  false,
+        errorCode: 0,
 
         isLoading: false
       };
@@ -236,6 +238,7 @@
             // Error
             if (xhr.response !== "0") {
               Self.State = 'somethingfuckedup';
+              Self.errorCode = xhr.response;
             }
 
             // Success

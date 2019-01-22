@@ -21,7 +21,7 @@
           <input v-model="product.nom_pro"/>
         </td>
         <td>
-          <textarea v-model="product.desc_pro"></textarea>
+          <input v-model="product.desc_pro"/>
         </td>
         <td>
           <input v-model="product.img_pro"/>

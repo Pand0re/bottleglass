@@ -31,7 +31,7 @@
 	$rows = "";
 	$totalCost = 6;
 	
-	$stmt = $db->prepare('INSERT INTO tb_commandes VALUES(NULL, :date, :name, :forname, :mail, :sexe, :npa, :loca, :address, :country);');
+	$stmt = $db->prepare('INSERT INTO tb_commandes VALUES(NULL, :date, :name, :forname, :mail, :sexe, :npa, :loca, :address, :country, NULL);');
 	$stmt->execute(array(
 		':date' 	=> date('Y-m-d H:i:s'),
 		':name' 	=> $name,

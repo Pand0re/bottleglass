@@ -13,8 +13,11 @@
 		},
 		"products": {
 			"Candles": "Candles",
+			"CandlesDesc": "Candles made with a bottle bottom.",
 			"ClassicGlasses": "Classic glasses",
+			"ClassicGlassesDesc": "Classic glasses",
 			"Goblets": "Goblets",
+			"GobletsDesc": "A goblet for a cocktail. Made with a bottle top.",
 			"Packs": "Packs",
 			"Available": "Available",
 			"SoldOut": "Sold out",

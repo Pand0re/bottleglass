@@ -6,7 +6,7 @@
       <div class="cart">
         <template v-for="item in GetCart">
           <div class="cart-item">
-            <span>{{ item.nom_pro }}</span>
+            <span>{{ $t(item.nom_pro) }}</span>
             <span>x{{ item.amount }}</span>
             <span>{{ parseFloat(item.amount * item.prix_pro).toFixed(2) }} CHF</span>
           </div>
@@ -62,7 +62,7 @@
           Total += item.amount * item.prix_pro;
         }
 
-        return Total;
+        return Total
       }
     },
 
@@ -76,7 +76,7 @@
 
         let ua = window.navigator.userAgent;
         let msie = ua.indexOf("MSIE ");
-
+        ;
         // Internet Explorer
         if (msie > 0  ||
           !!navigator.userAgent.match(/Trident.*rv\:11\./) ||
