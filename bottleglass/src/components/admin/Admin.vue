@@ -247,7 +247,7 @@
           'https://bottleglass.ch/api/addComments.php',
           'POST',
           'd=' + encodeURIComponent(JSON.stringify(order))
-          + '&token=' + Self.$parent.token,
+          + '&token=' + Self.token,
           function(xhr) {
             console.log(xhr.response);
           }
@@ -259,9 +259,10 @@
         this.$ajax(
           'https://bottleglass.ch/api/getOrders.php',
           'POST',
-          'token='+Self.token,
+          'd=' + encodeURIComponent(JSON.stringify(order))
+          + '&token=' + Self.token,
           function(xhr) {
-            Self.orders = JSON.parse(xhr.response).orders;
+            console.log(xhr.response);
           }
         );
       },
