@@ -288,10 +288,6 @@
             );
         }
 
-      displayOrder: function(id) {
-        console.log(id);
-      }
-
     }
   }
 </script>

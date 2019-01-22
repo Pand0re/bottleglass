@@ -16,8 +16,8 @@ $response = array(
     'products' => array()
 );
 
-if (/*isset($_POST['token'])*/true) { // NE PAS OUBLIER DE VIRER TRUE AVANT PROD!!
-    if (/*$_SESSION['token'] == $_POST['token']*/true) { // NE PAS OUBLIER DE VIRER TRUE AVANT PROD!!
+if (isset($_POST['token'])) {
+    if ($_SESSION['token'] == $_POST['token']) {
 
         $stmt = $db->query("SELECT quantite_pan,nom_pro FROM tb_panier
                                     INNER JOIN tb_produits ON tb_produits.id_pro = tb_panier.id_fk_produit
