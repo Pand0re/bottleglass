@@ -62,7 +62,7 @@
           Total += item.amount * item.prix_pro;
         }
 
-        return Total;
+        return Total
       }
     },
 
@@ -76,7 +76,7 @@
 
         let ua = window.navigator.userAgent;
         let msie = ua.indexOf("MSIE ");
-
+        ;
         // Internet Explorer
         if (msie > 0  ||
           !!navigator.userAgent.match(/Trident.*rv\:11\./) ||
