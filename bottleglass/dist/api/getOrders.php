@@ -18,19 +18,6 @@
 		if ($_SESSION['token'] == $_POST['token']) {
 
             $stmt = $db->query("SELECT * FROM tb_commandes ORDER BY stat_com ASC, id_com ASC",PDO::FETCH_ASSOC);
-            /*
-
-            TERMINER CETTE REQUETE
-             * SELECT adresse_cli_com, date_com,id_com,localite_cli_con,mail_cli_com,nom_cli_com,npa_cli_com,pays_cli_com,prenom_cli_com,sexe_cli_com, nom_pro
-
-                FROM tb_commandes
-                INNER JOIN tb_panier ON id_com = id_fk_commande
-                INNER JOIN tb_produits ON id_pro = id_fk_produit
-                #GROUP BY id_com
-                ORDER BY id_com
-
-
-             */
 
             $response['orders'] = $stmt->fetchAll();
 

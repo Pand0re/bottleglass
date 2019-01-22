@@ -269,14 +269,12 @@
 
         displayOrder: function(id) {
           let Self = this;
-          console.log(id);
             this.$ajax(
                 'https://bottleglass.ch/api/getProductsByOrderId.php',
                 'POST',
                 'id='+id,
                 function(xhr) {
                     let products = JSON.parse(xhr.response).products;
-                    console.log(products);
                     let textProducts = "";
                     products.forEach(function(e) {
                         textProducts = textProducts + e.quantite_pan + "x " + Self.$t(e.nom_pro)+ "<br/>";
