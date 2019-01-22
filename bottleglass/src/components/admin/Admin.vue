@@ -92,12 +92,14 @@
         <tr v-for="order in orders">
             <td>#{{order.id_com}}</td>
             <td>{{FormatDate(order.date_com)}}</td>
-            <td>{{order.nom_cli_com }} {{ order.prenom_cli_com}} ({{order.sexe_cli_com}})
+            <td>
+              <span v-html="order.nom_cli_com"></span>
+              <span v-html="order.prenom_cli_com"></span>
+              ({{order.sexe_cli_com}})
               <br/>
               {{order.npa_cli_com}}
-              {{order.localite_cli_con}},
-              {{order.adresse_cli_com}}
-
+              <span v-html="order.localite_cli_con"></span>
+              <span v-html="order.adresse_cli_com"></span>
             </td>
             <td><button @click="displayOrder(order.id_com)" :id="'btn-'+order.id_com">Voir produits</button></td>
             <td><textarea></textarea></td>
