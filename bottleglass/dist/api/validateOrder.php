@@ -51,7 +51,7 @@
   $rqst = $sql;
   $stmt = $db->prepare($rqst);
   $stmt->execute(array(
-    ':stat'     => $data->stat_com
+    ':stat'     => $data->stat_com,
     ':id'      => $data->id_com
   ));
 
