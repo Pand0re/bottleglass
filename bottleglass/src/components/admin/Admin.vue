@@ -262,7 +262,8 @@
           'd=' + encodeURIComponent(JSON.stringify(order))
           + '&token=' + Self.token,
           function(xhr) {
-            console.log(xhr.response);
+            Self.orders = xhr.response.orders;
+            console.log(Self.orders);
           }
         );
       },
@@ -270,7 +271,6 @@
 
         displayOrder: function(id) {
           let Self = this;
-          console.log(id);
             this.$ajax(
                 'https://bottleglass.ch/api/getProductsByOrderId.php',
                 'POST',
