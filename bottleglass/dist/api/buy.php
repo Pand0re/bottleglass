@@ -16,20 +16,31 @@
 	$country 	= htmlentities($_POST['country']);
 	$email 		= htmlentities($_POST['email']);
 	$orders   = json_decode(utf8_decode(urldecode($_POST['order'])), true);
-		
-	$title = "Bottleglass - Commande";
-	
-	$headers  = "MIME-Version: 1.0\r\n";
-	$headers .= "Content-Type: text/html; charset=UTF-8-1\r\n";
-	$headers .= 'content-transfer-encoding: quoted-printable\r\n';
-	$headers .= 'content-type: text/plain; charset="UTF-8"';
-	$headers .= 'Mime-Version: 1.0';
-	
-	$mail  = file_get_contents("./mailTemplate.html");
-	$order = file_get_contents("./rowTemplate.html");
+
+	$shipping = true;
+	$admin = false;
+
+	if (isset($_POST['shipping']) {
+	  $shipping = htmlentities($_POST['shipping']);
+	  $admin = true;
+	  var_dump($shipping);
+	}
+
+	if (!$admin) {
+    $title = "Bottleglass - Commande";
+
+    $headers  = "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=UTF-8-1\r\n";
+    $headers .= 'content-transfer-encoding: quoted-printable\r\n';
+    $headers .= 'content-type: text/plain; charset="UTF-8"';
+    $headers .= 'Mime-Version: 1.0';
+
+    $mail  = file_get_contents("./mailTemplate.html");
+    $order = file_get_contents("./rowTemplate.html");
+	}
 	
 	$rows = "";
-	$totalCost = 6;
+	$totalCost = $shipping ? 6 : 0;
 	
 	$stmt = $db->prepare('INSERT INTO tb_commandes VALUES(NULL, :date, :name, :forname, :mail, :sexe, :npa, :loca, :address, :country, NULL);');
 	$stmt->execute(array(
@@ -45,7 +56,7 @@
 	));
 	
 	define('PK_COMM', $db->lastInsertId());
-	
+
 	// Build mail
 	foreach($orders["data"] as $item) {		
 		$stmt = $db->prepare("SELECT * FROM tb_produits WHERE id_pro = :id AND dispo_pro = 1 AND quant_pro >= :amount;");
@@ -64,15 +75,17 @@
 		$price  = $res['prix_pro'];
 		
 		$totalCost += $price * $amount;
-		
-		$currentRow = $order;
-		$currentRow = str_replace("%%NAME%%", 		$iname, 			$currentRow);
-		$currentRow = str_replace("%%AMOUNT%%", 	$amount, 		$currentRow);
-		$currentRow = str_replace("%%PRICE%%", 		number_format($price, 2, '.', "'"),			$currentRow);
-		$currentRow = str_replace("%%TOTALPRICE%%", number_format($price*$amount, 2, '.', "'"), $currentRow);
-		
-		$rows .= iconv("UTF-8", "Windows-1252", $currentRow);
-		
+
+		if (!$admin) {
+		  $currentRow = $order;
+      $currentRow = str_replace("%%NAME%%", 		$iname, 			$currentRow);
+      $currentRow = str_replace("%%AMOUNT%%", 	$amount, 		$currentRow);
+      $currentRow = str_replace("%%PRICE%%", 		number_format($price, 2, '.', "'"),			$currentRow);
+      $currentRow = str_replace("%%TOTALPRICE%%", number_format($price*$amount, 2, '.', "'"), $currentRow);
+
+      $rows .= iconv("UTF-8", "Windows-1252", $currentRow);
+		}
+
 		// Insert this item as a part of the order
 		$stmt = $db->prepare("INSERT INTO tb_panier VALUES(:pk_prod, :pk_comm, :amount);");
 		
@@ -90,30 +103,32 @@
 		));
 		
 	}
-	
-	$mail = str_replace('%%TOTAL_PRICE%%', number_format($totalCost, 2, '.', "'")	, $mail);
-	$mail = str_replace('%%NAME%%'	 	 , $name		, $mail);
-	$mail = str_replace('%%FORNAME%%'	 , $forname	 	, $mail);
-	$mail = str_replace('%%ORDERS%%'	 , $rows		, $mail);
+
+
+	if (!$admin) {
+    $mail = str_replace('%%TOTAL_PRICE%%', number_format($totalCost, 2, '.', "'")	, $mail);
+    $mail = str_replace('%%NAME%%'	 	 , $name		, $mail);
+    $mail = str_replace('%%FORNAME%%'	 , $forname	 	, $mail);
+    $mail = str_replace('%%ORDERS%%'	 , $rows		, $mail);
     $mail = str_replace('%%BENEFICIAIRE%%'	, 'Bottle Glass' 		, $mail);
-	$mail = str_replace('%%IBANACCOUNT%%'	, 'CH14 8080 8001 6709 7491 1' 		, $mail);
+    $mail = str_replace('%%IBANACCOUNT%%'	, 'CH14 8080 8001 6709 7491 1' 		, $mail);
     $mail = str_replace('%%ADRESSACCOUNT%%'	, utf8_decode('Cité des Microtechniques, 2900 Porrentruy - SUISSE'), $mail);
     $mail = str_replace('%%ORDERNUMBER%%'	, PK_COMM 		, $mail);
 
+	  $content = $mail;
+	
+    // Send mail
+    if (mail($email, $title, $content, $headers)) {
+      /*mail(
+        "contact@bottleglass.ch",
+        "Bottleglass - Commande",
+        "Une commande a �t� pass�e sur le site internet pour un total de ". $totalCost . " CHF.",
+        $headers
+      );*/
+      echo 0;
+    }
 
-	$content = $mail;
-	
-	// Send mail
-	if (mail($email, $title, $content, $headers)) {
-		/*mail(
-			"contact@bottleglass.ch", 
-			"Bottleglass - Commande",
-			"Une commande a �t� pass�e sur le site internet pour un total de ". $totalCost . " CHF.", 
-			$headers
-		);*/
-		echo 0;
-	}
-	
-	else {
-		echo 1;
-	}
+    else {
+      echo 1;
+    }
+   }
