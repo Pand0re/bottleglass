@@ -42,7 +42,7 @@
 	$rows = "";
 	$totalCost = $shipping ? 6 : 0;
 	
-	$stmt = $db->prepare('INSERT INTO tb_commandes VALUES(NULL, :date, :name, :forname, :mail, :sexe, :npa, :loca, :address, :country, NULL);');
+	$stmt = $db->prepare('INSERT INTO tb_commandes VALUES(NULL, :date, :name, :forname, :mail, :sexe, :npa, :loca, :address, :country, NULL, 0);');
 	$stmt->execute(array(
 		':date' 	=> date('Y-m-d H:i:s'),
 		':name' 	=> $name,
