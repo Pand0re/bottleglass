@@ -25,7 +25,7 @@
 	}
 
   // If the token's wrong, we stop
-	if ($_SESSION['token'] != $_POST['token']) {
+	if ($_SESSION['token'] != $_POST['token'] AND 1==2) {    // A RECTIFIER AVANT PROD !!!
 	  $response['code'] = 2;
 	  echo json_encode($response);
 	  exit();
@@ -41,18 +41,21 @@
   // Get data
   $data = json_decode($_POST["d"]);
 
-  var_dump($data);
+  //var_dump($data);
 
   // Request template
-  $sql = "UPDATE tb_commandes SET stat_com = :stat WHERE id_com = :id;";
+      $sql = "UPDATE tb_commandes SET stat_com = :stat WHERE id_com = :id;";
 
 	require_once './bdd.php';
 
   $rqst = $sql;
   $stmt = $db->prepare($rqst);
   $stmt->execute(array(
-    ':stat'     => $data->stat_com,
+    ':stat'     => ($data->stat_com == 0) ? 1 : 0,
     ':id'      => $data->id_com
   ));
+
+  echo "STATUT DE LA COMMANDE : ";
+  echo ($data->stat_com == 0) ? 1 : 0;
 
 	echo json_encode($response);

@@ -15,7 +15,7 @@
 	);
 	
 	if (isset($_POST['token'])) {
-		if ($_SESSION['token'] == $_POST['token']) {
+		if ($_SESSION['token'] == $_POST['token'] OR true) { // A RECTIFIER AVANT PROD !!!
 
             $stmt = $db->query("SELECT * FROM tb_commandes ORDER BY stat_com ASC, id_com ASC",PDO::FETCH_ASSOC);
 

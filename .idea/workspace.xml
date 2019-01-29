@@ -10,24 +10,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bottleglass/src/components/admin/Admin.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="275" column="24" lean-forward="true" selection-start-line="275" selection-start-column="24" selection-end-line="275" selection-end-column="24" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#button#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#template#0;n#div#2;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#button#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#template#0;n#div#2;n#template#0;n#!!top" expanded="true" />
-                <element signature="e#3814#3856#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bottleglass/src/components/admin/StockManager.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
+            <state relative-caret-position="1088">
               <caret line="64" column="36" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
             </state>
           </provider>
@@ -36,8 +22,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/getProductsByOrderId.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="21" column="37" lean-forward="true" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+            <state>
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -45,8 +31,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/getOrders.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="19" column="40" lean-forward="true" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+            <state relative-caret-position="146">
+              <caret line="17" column="90" selection-start-line="17" selection-start-column="90" selection-end-line="17" selection-end-column="90" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/validateOrder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="57" column="34" lean-forward="true" selection-start-line="57" selection-start-column="34" selection-end-line="57" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -113,7 +108,6 @@
                 <element signature="e#2309#2314#0" expanded="true" />
                 <element signature="e#2374#2382#0" expanded="true" />
                 <element signature="e#2388#2396#0" expanded="true" />
-                <element signature="e#2475#2483#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -179,8 +173,9 @@
         <option value="$PROJECT_DIR$/bottleglass/dist/api/buy.php" />
         <option value="$PROJECT_DIR$/bottleglass/dist/api/mailTemplate.html" />
         <option value="$PROJECT_DIR$/bottleglass/dist/api/getProductsByOrderId.php" />
-        <option value="$PROJECT_DIR$/bottleglass/dist/api/getOrders.php" />
         <option value="$PROJECT_DIR$/bottleglass/src/components/admin/Admin.vue" />
+        <option value="$PROJECT_DIR$/bottleglass/dist/api/getOrders.php" />
+        <option value="$PROJECT_DIR$/bottleglass/dist/api/validateOrder.php" />
       </list>
     </option>
   </component>
@@ -307,18 +302,19 @@
       <workItem from="1545123636833" duration="5926000" />
       <workItem from="1546937989871" duration="4387000" />
       <workItem from="1547542978711" duration="4874000" />
-      <workItem from="1548148335007" duration="5332000" />
+      <workItem from="1548148335007" duration="5381000" />
+      <workItem from="1548753087243" duration="2276000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40494000" />
+    <option name="totallyTimeSpent" value="42819000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24164525" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24485861" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -331,7 +327,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.30417228" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.30417228" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -391,6 +387,25 @@
     <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/updateStock.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/bottleglass/src/components/admin/Admin.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1945">
+          <caret line="276" column="41" lean-forward="true" selection-start-line="276" selection-start-column="41" selection-end-line="276" selection-end-column="41" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#button#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#template#0;n#div#2;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#button#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#template#0;n#div#2;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#3814#3856#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bottleglass/src/components/admin/StockManager.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="64" column="36" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bottleglass/src/components/Pages/Produits.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -402,6 +417,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1054">
           <caret line="63" column="31" selection-start-line="63" selection-start-column="31" selection-end-line="63" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -430,7 +452,6 @@
             <element signature="e#2309#2314#0" expanded="true" />
             <element signature="e#2374#2382#0" expanded="true" />
             <element signature="e#2388#2396#0" expanded="true" />
-            <element signature="e#2475#2483#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -442,10 +463,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/login.php">
+    <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/getProductsByOrderId.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+        <state>
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
@@ -456,36 +477,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/getProductsByOrderId.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="37" lean-forward="true" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/getOrders.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="19" column="40" lean-forward="true" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+        <state relative-caret-position="146">
+          <caret line="17" column="90" selection-start-line="17" selection-start-column="90" selection-end-line="17" selection-end-column="90" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bottleglass/src/components/admin/StockManager.vue">
+    <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/validateOrder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="64" column="36" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bottleglass/src/components/admin/Admin.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="275" column="24" lean-forward="true" selection-start-line="275" selection-start-column="24" selection-end-line="275" selection-end-column="24" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#button#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#template#0;n#div#2;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#button#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#template#0;n#div#2;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#3814#3856#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="350">
+          <caret line="57" column="34" lean-forward="true" selection-start-line="57" selection-start-column="34" selection-end-line="57" selection-end-column="34" />
         </state>
       </provider>
     </entry>
