@@ -262,8 +262,7 @@
           'd=' + encodeURIComponent(JSON.stringify(order))
           + '&token=' + Self.token,
           function(xhr) {
-            Self.orders = xhr.response.orders;
-            console.log(Self.orders);
+            Self.orders = JSON.parse(xhr.response).orders;
           }
         );
       },
