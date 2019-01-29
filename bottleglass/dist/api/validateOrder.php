@@ -41,7 +41,7 @@
   // Get data
   $data = json_decode($_POST["d"]);
 
-  //var_dump($data);
+  var_dump($data);
 
   // Request template
       $sql = "UPDATE tb_commandes SET stat_com = :stat WHERE id_com = :id;";
@@ -55,7 +55,9 @@
     ':id'      => $data->id_com
   ));
 
-  echo "STATUT DE LA COMMANDE : ";
+  echo "STATUT DE LA COMMANDE AVANT: ";
+  echo $data->stat_com;
+  echo "STATUT DE LA COMMANDE APRES: ";
   echo ($data->stat_com == 0) ? 1 : 0;
 
 	echo json_encode($response);
