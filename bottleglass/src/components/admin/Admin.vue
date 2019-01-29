@@ -248,7 +248,7 @@
           'https://bottleglass.ch/api/validateOrder.php',
           'POST',
           'd=' + encodeURIComponent(JSON.stringify(order))
-          + '&token=' + Self.$parent.token,
+          + '&token=' + Self.token,
           function(xhr) {
             console.log(xhr.response);
           }
