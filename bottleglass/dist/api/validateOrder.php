@@ -7,7 +7,7 @@
 
   session_start();
 
-  var_dump($_SESSION);
+  //var_dump($_SESSION);
 
   $response = array(
     /**
@@ -25,7 +25,7 @@
 	}
 
   // If the token's wrong, we stop
-	if ($_SESSION['token'] != $_POST['token'] AND 1==2) {    // A RECTIFIER AVANT PROD !!!
+	if ($_SESSION['token'] != $_POST['token']) {
 	  $response['code'] = 2;
 	  echo json_encode($response);
 	  exit();
@@ -40,8 +40,9 @@
 
   // Get data
   $data = json_decode($_POST["d"]);
+  $stat = ($data->stat_com == 0) ? 1 : 0;
 
-  var_dump($data);
+  //var_dump($data);
 
   // Request template
       $sql = "UPDATE tb_commandes SET stat_com = :stat WHERE id_com = :id;";
@@ -51,13 +52,10 @@
   $rqst = $sql;
   $stmt = $db->prepare($rqst);
   $stmt->execute(array(
-    ':stat'     => ($data->stat_com == 0) ? 1 : 0,
+    ':stat'     => $stat,
     ':id'      => $data->id_com
   ));
 
-  echo "STATUT DE LA COMMANDE AVANT: ";
-  echo $data->stat_com;
-  echo "STATUT DE LA COMMANDE APRES: ";
-  echo ($data->stat_com == 0) ? 1 : 0;
+    $response['stat'] = $stat;
 
 	echo json_encode($response);
