@@ -20,7 +20,7 @@
 	$shipping = true;
 	$admin = false;
 
-	if (isset($_POST['shipping']) {
+	if (isset($_POST['shipping'])) {
 	  $shipping = htmlentities($_POST['shipping']);
 	  $admin = true;
 	  var_dump($shipping);
