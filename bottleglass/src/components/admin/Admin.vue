@@ -108,11 +108,15 @@
             {{order.npa_cli_com}}
             <span v-html="order.localite_cli_con"></span>
             <span v-html="order.adresse_cli_com"></span>
+            <span v-if="order.shipping_com === 0" style="color:red; font-style:italic"><br/><b>(pas de frais de port)</b></span>
           </td>
           <td><button @click="displayOrder(order.id_com)" :id="'btn-'+order.id_com">Voir produits</button></td>
           <td><textarea v-model="order.remarque_com"></textarea></td>
           <td><button @click="UpdateComments(order)"><img src="../../../static/admin/save.png" style="width:20px"></button></td>
-          <td><button @click="ValidateOrder(order)"><img src="../../../static/admin/vu.png" style="width:24px"></button></td>
+          <td><button @click="ValidateOrder(order)">
+            <img v-if="order.stat_com === 0" src="../../../static/admin/vu.png" style="width:24px">
+            <img v-else src="../../../static/admin/croix.png" style="width:18px">
+          </button></td>
         </tr>
 
         </tbody>
