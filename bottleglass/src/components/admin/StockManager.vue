@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <h1>Gestion du stock</h1>
 
     <table>
@@ -16,7 +16,7 @@
       <tbody>
       <tr v-for="product in $parent.$parent.ShoppingCart">
         <td>
-          {{ product.nom_pro }}
+          {{ $t(product.nom_pro) }}
         </td>
         <td>
           <select v-model="product.cat_pro">
@@ -81,6 +81,10 @@
 </script>
 
 <style scoped>
+
+  .container {
+    max-width: 650px;
+  }
 
   table {
     padding: 20px 5% 20px 10%;

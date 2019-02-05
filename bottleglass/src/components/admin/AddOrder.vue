@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <h1>Ajouter une commande</h1>
 
     <label for="name" hidden>{{ $t('t.buy.Name') }}</label>
@@ -110,12 +110,9 @@
           </span>
         </div>
       </template>
-      <div class="item shipping">
+      <div class="item shipping" v-if="bShipping">
           <span>
             {{ $t('t.buy.Shipping') }}
-          </span>
-        <span>
-            6.00 CHF*
           </span>
       </div>
       <div class="total">
@@ -257,7 +254,7 @@
           Total += parseFloat(item.amount * item.prix_pro);
         }
 
-        if (Total > 0) {
+        if (Total > 0 && this.bShipping) {
           Total += 6.;
         }
 
@@ -283,6 +280,11 @@
 </script>
 
 <style scoped>
+
+  .container {
+    max-width: 600px;
+  }
+
   .shipping {
     font-size: 0.8em;
     margin: 5px 0;
