@@ -1,0 +1,78 @@
+{
+	"t": {
+		"header": {
+			"Home":"Accueil",
+			"Products":"Produits",
+			"Buy":"Acheter",
+			"About":"À propos"
+		},
+		"cart" : {
+			"Cart": "Panier",
+			"EmptyCart": "Le panier est vide",
+			"Buy":"Acheter"
+		},
+		"products": {
+			"Candles": "Bougies",
+			"CandlesDesc": "Une bougie réalisée à partir d'un fond de bouteille.",
+			"ClassicGlasses": "Verres classiques",
+			"ClassicGlassesDesc": "Verres classiques",
+			"Goblets": "Verres à pied",
+			"GobletsDesc": "Un verre à pied qui convient parfaitement pour un cocktail. Réalisé avec un haut de bouteille.",
+			"Packs": "Packs",
+			"Available": "Disponible",
+			"SoldOut": "Rupture de stock",
+			"unit":"unité",
+			"AddToCart": "Ajouter au panier"
+		},
+		"home": {
+			"sentence1": "Découvrez nos produits fabriqués entièrement à la main depuis des bouteilles en verres recyclées.",
+			"sentence2": "Commandez en ligne tous nos produits dès maintenant. Profitez de frais de ports gratuits sur certaines commandes.",
+			"carousel" : "Recyclage de bouteilles en verre"
+		},
+		"buy" : {
+			"Order":"Commander",
+			"Name":"Nom",
+			"InvalidName": "Veuillez sélectionner un nom valide.",
+			"Forename": "Prénom",
+			"InvalidForename":"Veuillez entrer un prénom valide.",
+			"Mail":"E-Mail",
+			"InvalidMail": "Veuillez entrer une adresse E-Mail valide.",
+			"Gender": "Titre",
+			"SelectGender": "-- Sélectionner un sexe --",
+			"Man": "Homme",
+			"Woman": "Femme",
+			"InvalidGender": "Veuillez sélectionner un genre.",
+			"ZIP":"NPA",
+			"InvalidZIP":"Veuillez entrer un NPA valide.",
+			"Locality":"Localité",
+			"InvalidLocality": "Veuillez entrer une localité valide.",
+			"Address":"Adresse",
+			"InvalidAddress":"Veuillez entrer une adresse valide.",
+			"Country":"Pays",
+			"InvalidCountry":"Veuillez sélectionner un pays.",
+			"Switzerland":"Suisse",
+			"France":"France",
+			"SelectCountry":"-- Sélectionner un pays --",
+			"Cart":"Panier",
+			"Shipping":"Frais de port",
+			"Total":"Total",
+			"Buy":"Acheter",
+			"bought" : {
+				"OrderFailed": "Commande échouée",
+				"OrderFailedText": "Un problème est survenu lors de la commande. Cette dernière n'a donc pas été effectuée. Si le problème persiste, veuillez nous contacter à l'adresse <a href='mailto:contact@bottleglass.ch'>contact@bottleglass.ch</a> si le problème persiste.",
+				"OrderSuccess": "Commande réussie",
+				"OrderSuccessText": "La commande s'est effectuée avec succès. Un mail a été envoyé sur votre adresse électronique afin de compléter l'achat."
+			}
+		},
+		"about" : {
+			"OurEnterprise":"Notre entreprise",
+			"OurEnterpriseText":"Nous sommes un groupe d'étudiants actuellement en maturité professionnelle technique ou économique.  <br/>Nous avons créé cette entreprise dans le cadre de notre cours de TIP, qui nous permet de découvrir le monde du travail dans des conditions réelles.<br/><br/>Notre objectif est de donner une deuxième vie aux bouteilles en verre en tout genre. À partir de bouteilles récupérées dans de commerces locaux, nous produisons des verres, des bougies ou encore des pots de fleurs, qui vous permettrons d'embellir votre intérieur, avec une petite touche écologique.",
+			"ContactUs":"Nous contacter",
+			"ContactUsText": "Une question ? Une proposition ? Vous souhaitez un produit fait sur mesure ?<br/><br/>Alors contactez-nous par mail à <a href='mailto:contact@bottleglass.ch'>contact@bottleglass.ch</a>."
+		},
+		"miscellaneous": {
+			"AllRightsReserved":"Tous droits réservés.",
+			"lang": "Notre site est disponible en <a href=\"javascript:void(0)\" id=\"fr\">français</a>, <a href=\"javascript:void(0)\" id=\"de\">allemand</a> et en <a href=\"javascript:void(0)\" id=\"en\">anglais</a>."
+		}
+	}
+}

@@ -63,6 +63,12 @@
           Ajouter commande
         </a>
       </div>
+      <div class="admin-nav-elem">
+        <a href="javascript:void(0)" @click="CurrentPage = 'translationmanager'"
+           :style="GetNavStyle('translationmanager')">
+          Traduction
+        </a>
+      </div>
     </div>
 
     <StockManager v-if="CurrentPage === 'stockmanager'">
@@ -72,6 +78,8 @@
     </ProductManager>
 
     <AddOrder v-else-if="CurrentPage === 'addorder'"></AddOrder>
+
+    <TranslationManager v-else-if="CurrentPage === 'translationmanager'"></TranslationManager>
 
     <template v-else-if="CurrentPage === 'commandslist'">
       <!--
@@ -144,9 +152,10 @@
   import StockManager from "./StockManager";
   import ProductManager from "./ProductManager";
   import AddOrder from "./AddOrder";
+  import TranslationManager from "./TranslationManager";
   export default {
     name: "Admin",
-    components: {AddOrder, ProductManager, StockManager},
+    components: {TranslationManager, AddOrder, ProductManager, StockManager},
     data: function() {
       return {
         /**
@@ -160,10 +169,11 @@
 
         /**
          * Pages list :
-         *      -commandslist   : Show the commands' list
-         *      -stockmanager   : Show the stock manager
-         *      -productmanager : Show the product manager
-         *      -addorder       : Show the add order wizard
+         *      -commandslist       : Show the commands' list
+         *      -stockmanager       : Show the stock manager
+         *      -productmanager     : Show the product manager
+         *      -addorder           : Show the add order wizard
+         *      -translationmanager : Show the translation manager
          */
         CurrentPage: 'commandslist',
 
