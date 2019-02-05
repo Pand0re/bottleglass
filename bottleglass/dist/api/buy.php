@@ -106,7 +106,7 @@
 	}
 
 
-	if (!$admin) {
+	if (!empty($email)) {
     $mail = str_replace('%%TOTAL_PRICE%%', number_format($totalCost, 2, '.', "'")	, $mail);
     $mail = str_replace('%%NAME%%'	 	 , $name		, $mail);
     $mail = str_replace('%%FORNAME%%'	 , $forname	 	, $mail);
