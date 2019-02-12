@@ -32,8 +32,10 @@
     $headers  = "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8-1\r\n";
     $headers .= 'content-transfer-encoding: quoted-printable\r\n';
-    $headers .= 'content-type: text/plain; charset="UTF-8"';
-    $headers .= 'Mime-Version: 1.0';
+    $headers .= 'content-type: text/plain; charset="UTF-8"\r\n';
+    $headers .= "Mime-Version: 1.0\r\n";
+    $headers .= "From: BottleGlass <commande@bottleglass.ch>\r\n";
+    $headers .= "Bcc: commande@bottleglass.ch";
 
     $mail  = file_get_contents("./mailTemplate.html");
     $order = file_get_contents("./rowTemplate.html");
