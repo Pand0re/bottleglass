@@ -71,7 +71,12 @@
 			continue;
 		}
 
-		$iname  = $res['nom_pro'];
+        $lang = file_get_contents("./../static/lang/fr.json");
+        $lang_array = json_decode($lang, true);
+
+        $name_array = explode(".",$res['nom_pro']);
+
+        $iname = $lang_array[$name_array[0]][$name_array[1]][$name_array[2]];
 		$amount = $item['amount'];
 		$price  = $res['prix_pro'];
 		
