@@ -23,8 +23,13 @@
 				}
 			}
 		</style>
+		<div style="display: none; font-size: 0pt;">
+			<i>Merci de votre commande sur le site BottleGlass.ch -
+				Validation et informations de paiement.</i>
+		</div>
 		<div class="container" style="width: 100%;font-family: 'SF Pro Display','SF Pro Icons','Helvetica Neue','Helvetica';">
 			<div class="head" style="text-align: center;color: white;background-color: #444;height: 100px;line-height: 100px;">
+				<img src="https://bottleglass.ch/static/logo.png" style="float:left; width: 100px;"/>
 				<h1 style="color: white;">
 					BOTTLEGLASS
 				</h1>
@@ -51,18 +56,18 @@
 								Quant.
 							</th>
 							<th style="width:20%; text-align: left; border-bottom: 1px solid #666; padding-bottom: 0;">
-								Prix uni.
+								Prix uni. (CHF)
 							</th>
 							<th style="width:21%; text-align: left; border-bottom: 1px solid #666; padding-bottom: 0;">
-								Prix tot.
+								Prix tot. (CHF)
 							</th>
 						</tr>
 						
 						%%ORDERS%%
 						
 						<tr>
-							<td colspan="4" style="text-align: right;">
-								Total : %%TOTAL_PRICE%% CHF
+							<td colspan="4" style="text-align: right;" style="padding-top:10px;">
+								<b>Total : CHF %%TOTAL_PRICE%%</b>
 							</td>
 						</tr>
 					</table>
@@ -73,8 +78,8 @@
 					Veuillez faire une virement bancaire au compte suivant : <br/>
 					IBAN : %%IBANACCOUNT%% <br/>
 					Nom du b&eacute;n&eacute;ficiaire : %%BENEFICIAIRE%% <br/>
-					Adresse : %%ADRESSACCOUNT%% <br/>
-					Montant : %%TOTAL_PRICE%% CHF <br/>
+					Adresse : Cit&eacute; des Microtechniques, 2900 Porrentruy - SUISSE <br/>
+					Montant : CHF %%TOTAL_PRICE%% <br/>
 					Objet du paiement : Commande n&deg;%%ORDERNUMBER%% <br>
 					<b>Nous enverrons la marchandise d&egrave;s la r&eacute;ception du paiement.</b>
 				</p>
