@@ -40,17 +40,6 @@
 
   // Get data
   $data = json_decode($_POST["d"]);
+  $lang = $_POST["d"];
 
-  // Request template
-  $sql = "UPDATE tb_commandes SET remarque_com = :com WHERE id_com = :id;";
 
-	require_once './bdd.php';
-
-  $rqst = $sql;
-  $stmt = $db->prepare($rqst);
-  $stmt->execute(array(
-    ':com'     => $data->remarque_com,
-    ':id'      => $data->id_com
-  ));
-
-	echo json_encode($response);
