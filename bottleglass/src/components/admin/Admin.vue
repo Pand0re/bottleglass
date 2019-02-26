@@ -439,6 +439,16 @@
     color: #bbb;
   }
 
+  @media (max-width: 630px) {
+    .admin-nav {
+      height: 80px;
+    }
+
+    .logged-container {
+      margin-top: 130px;
+    }
+  }
+
 
   @media (max-width: 580px) {
     .container-loggin {

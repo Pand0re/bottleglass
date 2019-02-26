@@ -26,10 +26,13 @@
 	
 		// Credentials
 		$user 	  = $_POST['user'];
-		$password = $_POST['password'];
-		
+		$password = $_POST['password']; //'#Get0bar'
+
+		$response['pwd'] = password_hash('#Gét0bar', PASSWORD_DEFAULT);
+		$HashedPWD =  password_hash('#Gét0bar', PASSWORD_DEFAULT);;
+
 		// Invalid creds
-		if ($user != 'bottle' || $password != '#Gét0bar') {
+		if ($user != 'bottle' || !password_verify($password,$HashedPWD)) {
 			$response['code'] = 1;
 		}
 		

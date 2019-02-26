@@ -254,5 +254,19 @@
       margin-left: 10%;
     }
   }
+  @media (max-width: 650px) {
+    .addkeypopup {
+      position: fixed;
+      border-radius: 5px;
+      background: white;
+      top: 300px;
+      height: 170px;
+      border: 1px solid black;
+      max-width: 100%;
+      width: 100%;
+      left: 0;
+      margin-left: 0;
+    }
+  }
 
 </style>
