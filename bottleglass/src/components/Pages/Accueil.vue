@@ -167,7 +167,7 @@
     top: -10px;
     position: relative;
     color: white;
-    height:600px;
+    height:500px;
   }
 
   .caption {
