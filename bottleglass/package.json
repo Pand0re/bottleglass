@@ -10,7 +10,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "vue": "^2.5.21",
+    "@chenfengyuan/vue-carousel": "^1.0.1",
+    "vue": "^2.6.7",
     "vue-carousel": "^0.16.2",
     "vue-i18n": "^8.7.0",
     "vue-router": "^3.0.2"
@@ -46,7 +47,7 @@
     "url-loader": "^0.5.8",
     "vue-loader": "^13.3.0",
     "vue-style-loader": "^3.0.1",
-    "vue-template-compiler": "^2.5.21",
+    "vue-template-compiler": "^2.6.7",
     "webpack": "^3.6.0",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-server": "^2.9.1",

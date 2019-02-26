@@ -39,7 +39,11 @@
   }
 
   // Get data
-  $data = json_decode($_POST["d"]);
-  $lang = $_POST["d"];
+  $data = $_POST["d"];
+  $lang = $_POST["l"];
+
+  file_put_contents('../static/lang/' . $lang . '.json', $data);
+
+  echo json_encode($response);
 
 

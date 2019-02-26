@@ -14,17 +14,12 @@
     'code' =>  0
   );
 
-
-  var_dump($_SESSION);
-
   // If there isn't any token, we stop
 	if (!isset($_POST['token'])) {
 	  $response['code'] = 1;
 		echo json_encode($response);
 		exit();
 	}
-
-  echo $_SESSION['token'] . " vs " . $_POST['token'];
 
   // If the token's wrong, we stop
 	if ($_SESSION['token'] != $_POST['token']) {

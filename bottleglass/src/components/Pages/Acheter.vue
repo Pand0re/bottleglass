@@ -122,7 +122,7 @@
           {{ $t('t.buy.Total') }} : {{ GetTotalCost() }} CHF
         </div>
         <div class="center">
-          <button class="buy" @click="buy">
+          <button class="buy" @click="buy" :disabled="IsCartEmpty()" :title="IsCartEmpty() ? 'Veuillez sélectionner au moins un produit à commander' : ''">
             {{ $t('t.buy.Buy') }}
           </button>
         </div>
@@ -160,6 +160,7 @@
         bInvalidLocality: false,
         bInvalidAddress:  false,
         bInvalidCountry:  false,
+        bInvalidCommand:  false,
         errorCode: 0,
 
         isLoading: false
@@ -191,6 +192,7 @@
         this.bInvalidGender   = Gender  !== 'H'   && Gender  !== 'F' ;
         this.bInvalidCountry  = Country !== 'CH' && Country !== 'FR';
         this.bInvalidNPA      = !NPA;
+        this.bInvalidCommand  = this.IsCartEmpty;
 
         return !(
           this.bInvalidName     ||
@@ -200,10 +202,12 @@
           this.bInvalidNPA      ||
           this.bInvalidLocality ||
           this.bInvalidAddress  ||
-          this.bInvalidCountry
+          this.bInvalidCountry  ||
+          this.bInvalidCommand
         );
 
       },
+
       buy: function() {
 
         if (!this.CheckInfos()) {
@@ -286,6 +290,14 @@
           }
         }
         return encodeURIComponent(JSON.stringify({data:order}));
+      },
+      IsCartEmpty: function() {
+        for (let item of this.$parent.ShoppingCart) {
+          if (item.amount > 0) {
+            return false;
+          }
+        }
+        return true;
       }
     }
   }
@@ -502,11 +514,16 @@
     transition: 0.4s ease-in-out;
   }
 
-  .buy:hover {
+  .buy:not(:disabled):hover {
     color: white;
   }
 
-  .buy::after {
+  .buy:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+  }
+
+  .buy:not(:disabled)::after {
     content: ' ';
     position: absolute;
     width: 0;

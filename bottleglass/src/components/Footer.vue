@@ -1,5 +1,15 @@
 <template>
   <div class="container">
+    <div>
+      <div class="soc-net" title="Suivez nous sur Facebook">
+        <img src="../assets/socialnetworks/facebook-logo.svg">
+      </div>
+
+      <div class="soc-net" title="Suivez nous sur Instagram">
+        <img src="../assets/socialnetworks/instagram-logo.svg">
+      </div>
+    </div>
+    
     <p ref="lang" v-html="$t('t.miscellaneous.lang')"></p>
     &copy; 2019 Bottle Glass. {{ $t('t.miscellaneous.AllRightsReserved') }}
   </div>
@@ -42,9 +52,21 @@
 </script>
 
 <style scoped>
+
+  .soc-net {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  .soc-net img {
+    margin: 15px;
+    width: 60px;
+  }
+
   .container {
+    color: #666;
     padding-bottom: 20px;
-    margin: 0;
+    margin: 0 0 25px 0;
     height: auto;
     /*background: #f3e5ab;*/
     font-size: 0.8em;
@@ -53,6 +75,8 @@
 
   p {
     text-align: center;
+    margin: 30px;
+    color: black;
   }
 
   p >>> a {

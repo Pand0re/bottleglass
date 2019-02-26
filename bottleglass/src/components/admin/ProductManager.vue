@@ -12,6 +12,7 @@
         <th>Desc.</th>
         <th>Image</th>
         <th>Aperçu</th>
+        <th></th>
       </tr>
       </thead>
 
@@ -28,6 +29,11 @@
         </td>
         <td>
           <a :href="product.img_pro" target="_blank">Image</a>
+        </td>
+        <td>
+          <button class="close-button delete-button" @click="RemoveProduct(product.id_pro)">
+            &times;
+          </button>
         </td>
       </tr>
       </tbody>
@@ -113,6 +119,18 @@
     },
 
     methods: {
+      RemoveProduct: function(id) {
+        let Self = this;
+        this.$ajax(
+          'https://bottleglass.ch/api/RemoveProduct.php',
+          'POST',
+          'id=' + id + '&token=' + Self.$parent.token,
+          function(xhr) {
+            console.log(xhr.response);
+            Self.updateProducts();
+          }
+        );
+      },
       getProducts: function() {
         let Self = this;
 
@@ -415,6 +433,14 @@
     height: 100%;
     background-color: rgba(0,0,0, 0.6);
     z-index: 88888;
+  }
+
+  .delete-button {
+    display: block;
+    position: static;
+    border: 1px solid black;
+    border-radius: 3px;
+    color: white;
   }
 
   @media (max-width: 810px) {

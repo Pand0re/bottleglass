@@ -3,9 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import VueCarousel from 'vue-carousel';
 import VueI18n from 'vue-i18n';
 import ajax from './ajax';
+import VueCarousel from '@chenfengyuan/vue-carousel';
+
+Vue.component(VueCarousel.name, VueCarousel);
 
 Vue.prototype.$ajax = ajax;
 
@@ -18,10 +20,9 @@ function loadJSON(url, callback) {
 
   var xobj = new XMLHttpRequest();
   xobj.overrideMimeType("application/json");
-  xobj.open('GET', url, true); // Replace 'my_data' with the path to your file
+  xobj.open('GET', url, true);
   xobj.onreadystatechange = function () {
     if (xobj.readyState == 4 && xobj.status == "200") {
-      // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
       try {
         callback(JSON.parse(xobj.responseText));
       } catch(Exception) {

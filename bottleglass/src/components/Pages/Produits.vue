@@ -2,22 +2,23 @@
   <div class="container">
     <div class="head">
       <ul class="products">
-        <li><a href="#i0"><img src="../../assets/vectors/cocktail.svg"/>    <span>{{ $t('t.products.Goblets') }}</span></a></li>
-        <li><a href="#i1"><img src="../../assets/vectors/orange-juice.svg"/><span>{{ $t('t.products.ClassicGlasses') }}</span></a></li>
-        <li><a href="#i2"><img src="../../assets/vectors/candle.svg"/>      <span>{{ $t('t.products.Candles') }}</span></a></li>
-        <li><a href="#i3"><img src="../../assets/vectors/package.svg"/>     <span>{{ $t('t.products.Packs') }}</span></a></li>
+        <li><a href="#VP"><img src="../../assets/vectors/cocktail.svg"/>    <span>{{ $t('t.products.Goblets') }}</span></a></li>
+        <li><a href="#VC"><img src="../../assets/vectors/orange-juice.svg"/><span>{{ $t('t.products.ClassicGlasses') }}</span></a></li>
+        <li><a href="#BO"><img src="../../assets/vectors/candle.svg"/>      <span>{{ $t('t.products.Candles') }}</span></a></li>
+        <li><a href="#PA"><img src="../../assets/vectors/package.svg"/>     <span>{{ $t('t.products.Packs') }}</span></a></li>
       </ul>
     </div>
 
 
-    <Product v-for="(item, key) in $parent.ShoppingCart"
-      :name="item.nom_pro"
-      :description="item.desc_pro"
-      :price="item.prix_pro"
-      :img="item.img_pro"
-      :index="key"
-      :key="key"
-      :stock="item.quant_pro"
+    <Product v-for="(item, key) in GetProducts"
+             :name="item.nom_pro"
+             :description="item.desc_pro"
+             :price="item.prix_pro"
+             :img="item.img_pro"
+             :index="key"
+             :key="key"
+             :stock="item.quant_pro"
+             :type="item.cat_pro"
     ></Product>
 
     <div ref="alert" class="alert"></div>
@@ -30,21 +31,31 @@
     name: "Produits",
     components: {Product},
     methods: {
-      ShowAlert: function(itemName) {
+      ShowAlert: function (itemName) {
         this.$refs.alert.innerHTML = "Le produit &laquo; " + itemName + " &raquo; a été ajouté au panier.";
         this.$refs.alert.classList += " show";
 
         let Self = this;
 
-        setTimeout(function() {
+        setTimeout(function () {
           Self.$refs.alert.classList.remove('show');
           Self.$refs.alert.classList += " hide";
 
-          setTimeout(function() {
+          setTimeout(function () {
             Self.$refs.alert.classList.remove('hide');
           }, 500);
         }, 2500);
-
+      }
+    },
+    computed: {
+      GetProducts: function() {
+        let a = [];
+        for (let item of this.$parent.ShoppingCart) {
+          if (item.dispo_pro) {
+            a.push(item);
+          }
+        }
+        return a;
       }
     }
   }

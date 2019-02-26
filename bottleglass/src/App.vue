@@ -71,6 +71,10 @@
 
 <style>
 
+  img {
+    max-width: 100%;
+  }
+
   html, body {
     min-height: 100%;
     margin: 0;

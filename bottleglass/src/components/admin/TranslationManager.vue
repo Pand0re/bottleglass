@@ -1,20 +1,43 @@
 <template>
   <div class="container">
-    <div class="lang-change-container">
-      <button @click="ChangeLang('fr')">Français</button>
-      <button @click="ChangeLang('de')">Allemand</button>
-      <button @click="ChangeLang('en')">Anglais</button>
-    </div>
 
-    <div v-for="a in GetProperties(t)">
-      <label>{{ GetKey(a) }}</label>
-      <textarea :id="GetClass(a)">{{ GetText(a)}}</textarea>
+    <div class="translation-container">
+      <div v-for="a in GetProperties">
+        <label :for="GetClass(a)">{{ GetKey(a) }}</label><button @click="RemoveKey(a)" class="remove-button">&times;</button>
+        <textarea :id="GetClass(a)" :value="GetText(a)"></textarea>
+      </div>
     </div>
 
     <div class="save-container">
+      <button :disabled="lang==='fr'" @click="ChangeLang('fr')">Français</button>
+      <button :disabled="lang==='de'" @click="ChangeLang('de')">Allemand</button>
+      <button :disabled="lang==='en'" @click="ChangeLang('en')">Anglais</button>
+      <span></span>
       <button @click="SaveData()">
         Sauvegarder
       </button>
+      <button @click="bShowAddKeyPopup=true">
+        Ajouter une clé
+      </button>
+    </div>
+
+    <div class="addkeypopup" v-if="bShowAddKeyPopup">
+      <div>
+        <label for="nkid">Nom de la clé</label>
+        <input ref="kname" id="nkid" value="t."/>
+      </div>
+      <div>
+        <label for="nkva">Valeur de la clé</label>
+        <input ref="kval" id="nkva"/>
+      </div>
+      <div class="akcontrol">
+        <button @click="AddKey()">
+          Enregistrer
+        </button>
+        <button @click="bShowAddKeyPopup=false">
+          Annuler
+        </button>
+      </div>
     </div>
 
   </div>
@@ -26,9 +49,10 @@
 
     data: function() {
       return {
-        t:undefined,
+        t:{},
         lang: 'fr',
-        props: undefined
+        props: [],
+        bShowAddKeyPopup:false
       };
     },
 
@@ -37,6 +61,24 @@
     },
 
     methods: {
+      RemoveKey: function(key) {
+        for (let i = 0; i < this.props.length; ++i) {
+          if (this.props[i] === key) {
+            this.props.splice(i, 1);
+            this.$forceUpdate();
+            return;
+          }
+        }
+      },
+      AddKey: function() {
+        const KEY = this.$refs.kname.value;
+        const VAL = this.$refs.kval.value;
+
+        this.props.push(KEY + '¬' + VAL);
+
+        this.bShowAddKeyPopup = false;
+
+      },
       SaveData: function() {
         for (let p of this.props) {
           const ID = this.GetClass(p);
@@ -47,14 +89,27 @@
           const KEYS = this.GetKey(p).split('.');
 
           for (let i = 0; i < KEYS.length - 1; ++i) {
+            if (undefined === obj[KEYS[i]]) {
+              obj[KEYS[i]] = {};
+            }
             obj = obj[KEYS[i]];
-            console.log(obj);
           }
 
           obj[KEYS[KEYS.length - 1]] = VAL;
         }
 
-        console.log(this.t);
+        let Self = this;
+
+        this.$ajax(
+          'https://bottleglass.ch/api/SaveLang.php',
+          'POST',
+          'd=' + encodeURIComponent(JSON.stringify({t:Self.t})) +
+          '&l=' + Self.lang +
+          '&token=' + Self.$parent.token,
+          function(xhr) {
+            console.log(xhr.response)
+          }
+        );
 
       },
       ChangeLang: function(l) {
@@ -66,7 +121,10 @@
 
         this.$ajax('./static/lang/' + Self.lang + '.json', 'GET', '',
           function(xhr) {
+            console.log(xhr);
             Self.t = (JSON.parse(xhr.response).t);
+            Self.props.length = 0;
+            Self.DecomposeObject(Self.t, 0, 't', Self.props);
           }
         );
       },
@@ -79,30 +137,20 @@
       GetClass: function(s) {
         return this.GetKey(s).replace('.', '-');
       },
-      GetProperties: function(o) {
-        let a = [];
-
-        if (o === undefined) {
-          return a;
-        }
-
-        this.DecomposeObject(o, 0, 't', a);
-
-        this.props = a;
-
-        return a;
-      },
-
       DecomposeObject: function(o, i, s, a) {
         if (typeof o !== "object") {
           a.push(s + "¬" + o);
           return;
         }
-
         for (let p in o) {
           this.DecomposeObject(o[p], i+1, s + '.' + p, a);
         }
-
+      }
+    },
+    computed: {
+      GetProperties: function() {
+        this.props.sort(function(a,b) {return a>b ? 1 : -1});
+        return this.props;
       }
     }
   }
@@ -126,25 +174,85 @@
     width: 98%;
   }
 
-  .lang-change-container {
-    width: 100%;
-    text-align: center;
+  .translation-container {
+    max-width: 650px;
   }
 
-  .lang-change-container button {
-    padding: 5px 10px;
+  .remove-button {
+    float: right;
+    margin-right: 6px;
+    border: 1px solid black;
+    background-color: red;
+    color: white;
+    margin-bottom: 1px;
+    border-radius: 3px;
+  }
+
+  label {
+    display: inline-block;
+  }
+
+  input {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+    width: 90%;
+  }
+
+  .akcontrol button {
+    padding: 5px 15px;
+    border: 1px solid black;
+  }
+
+  .addkeypopup {
+    position: fixed;
+    border-radius: 5px;
+    background: white;
+    top: 300px;
+    height: 170px;
+    border: 1px solid black;
+    max-width: 600px;
+    left: -300px;
+    margin-left: 50%;
   }
 
   .save-container {
+    position: fixed;
+    bottom: 0;
     width: 100%;
-    text-align: center;
+    padding: 15px 15px 15px 50px;
+    left: 0;
+    right: 0;
+    background-color: #aaa;
+  }
+
+  .save-container span {
+    border: 1px solid #666;
+    margin: 10px;
+    height: 20px;
   }
 
   .save-container button {
-    padding: 5px 10px;
+    padding: 10px 20px;
     border-radius: 5px;
+    font-size: 1.2em;
     background-color: white;
     border: 1px solid black;
+    transition: 0.3s;
+  }
+
+  .save-container button:hover {
+    background-color: #dedede;
+  }
+
+  .save-container button:active {
+    background-color: #444;
+  }
+
+  @media (min-width: 800px) {
+    .translation-container {
+      margin-left: 10%;
+    }
   }
 
 </style>

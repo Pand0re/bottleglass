@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="anchor" :id="'i' + index"></div>
+    <div class="anchor" :id="type"></div>
     <div class="wrapper" >
       <img :src="img" alt="Produit"/>
     </div>
@@ -38,7 +38,8 @@
       'img',
       'price',
       'index',
-      'stock'
+      'stock',
+      'type'
     ],
 
     methods: {
