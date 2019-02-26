@@ -2,11 +2,15 @@
   <div class="container">
     <div>
       <div class="soc-net" title="Suivez nous sur Facebook">
-        <img src="../assets/socialnetworks/facebook-logo.svg">
+        <a href="https://www.facebook.com/BottleGlass-970347176484008/">
+          <img src="../assets/socialnetworks/facebook-logo.svg">
+        </a>
       </div>
 
       <div class="soc-net" title="Suivez nous sur Instagram">
-        <img src="../assets/socialnetworks/instagram-logo.svg">
+        <a href="https://www.instagram.com/_bottleglass_/">
+          <img src="../assets/socialnetworks/instagram-logo.svg">
+        </a>
       </div>
     </div>
     
