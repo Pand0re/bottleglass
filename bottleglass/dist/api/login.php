@@ -29,7 +29,7 @@
 		$password = $_POST['password'];
 		
 		// Invalid creds
-		if ($user != '123' || $password != '123') {
+		if ($user != 'bottle' || $password != '#Gét0bar') {
 			$response['code'] = 1;
 		}
 		
