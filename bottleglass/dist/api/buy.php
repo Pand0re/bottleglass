@@ -23,7 +23,6 @@
 	if (isset($_POST['shipping'])) {
 	  $shipping = htmlentities($_POST['shipping']);
 	  $admin = true;
-	  var_dump($shipping);
 	}
 
 	if (!$admin) {
@@ -112,6 +111,10 @@
 		
 	}
 
+	if ($admin) {
+	  exit();
+	}
+
 
 	if (!empty($email)) {
     $mail = str_replace('%%TOTAL_PRICE%%', number_format($totalCost, 2, '.', "'")	, $mail);
@@ -127,12 +130,12 @@
 	
     // Send mail
     if (mail($email, $title, $content, $headers)) {
-      /*mail(
-        "contact@bottleglass.ch",
+      mail(
+        "brice.beuchat@divtec.ch",
         "Bottleglass - Commande",
-        "Une commande a �t� pass�e sur le site internet pour un total de ". $totalCost . " CHF.",
+        "Une commande a &eacut;t&eacut; pass&eacut;e sur le site internet pour un total de ". $totalCost . " CHF.",
         $headers
-      );*/
+      );
       echo 0;
     }
 

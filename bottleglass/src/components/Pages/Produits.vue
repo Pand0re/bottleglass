@@ -32,7 +32,7 @@
     components: {Product},
     methods: {
       ShowAlert: function (itemName) {
-        this.$refs.alert.innerHTML = "Le produit &laquo; " + itemName + " &raquo; a été ajouté au panier.";
+        this.$refs.alert.innerHTML = "Le produit &laquo; " + this.$t(itemName) + " &raquo; a été ajouté au panier.";
         this.$refs.alert.classList += " show";
 
         let Self = this;
@@ -207,5 +207,7 @@
       display: none;
     }
   }
+
+
 
 </style>

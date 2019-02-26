@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="anchor" :id="type"></div>
-    <div class="wrapper" >
+    <div class="wrapper img" >
       <img :src="img" alt="Produit"/>
     </div>
     <div class="wrapper">
@@ -179,6 +179,10 @@
   .wrapper {
     width: calc(60% - 300px);
     max-width: 740px;
+  }
+
+  .wrapper.img {
+    width: 60%;
   }
 
   /***********************************************************************
