@@ -80,8 +80,12 @@
             img:'https://bottleglass.ch/static/produits/IMG_9695.JPG'
           },
           {
-            text:'Verre à pied',
+            text:'Verre classique',
             img:'https://bottleglass.ch/static/produits/IMG_9697.JPG'
+          },
+          {
+            text:'Verre à pied',
+            img:'https://bottleglass.ch/static/produits/IMG_9721.JPG'
           }
         ],
         carouselStyle: 'text-align:center;position:absolute;bottom:25px;text-align:center;width:100%;color:white;font-size:1.4em;',
@@ -101,6 +105,7 @@
     }
   }
 </script>
+
 
 
 <style scoped>
@@ -209,6 +214,12 @@
   }
 
   @media (max-width: 1300px) {
+
+    .head {
+      background-size: 100%;
+      background: url("https://bottleglass.ch/static/carousel/verres-classiques.jpeg") fixed 50% 135%;
+    }
+
     .block {
       padding: 30px;
       border-radius: 5px;
@@ -300,6 +311,12 @@
       padding-bottom: 0;
       margin-left: 50%;
       left: -200px;
+    }
+
+
+    .head {
+      background: url("https://bottleglass.ch/static/carousel/verres-classiques.jpeg") fixed 50% 0;
+      background-size: 100%;
     }
 
   }
