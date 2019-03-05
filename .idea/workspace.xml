@@ -13,7 +13,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bottleglass/src/components/Footer.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
+            <state relative-caret-position="525">
               <caret line="35" column="49" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
             </state>
           </provider>
@@ -31,7 +31,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/RemoveProduct.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="390">
               <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
             </state>
           </provider>
@@ -40,7 +40,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bottleglass/src/components/custom/Product.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
+            <state relative-caret-position="2760">
               <caret line="184" column="15" selection-start-line="184" selection-start-column="15" selection-end-line="184" selection-end-column="15" />
             </state>
           </provider>
@@ -49,7 +49,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="465">
               <caret line="31" column="62" selection-start-line="31" selection-start-column="62" selection-end-line="31" selection-end-column="62" />
             </state>
           </provider>
@@ -58,7 +58,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bottleglass/src/components/admin/TranslationManager.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
+            <state relative-caret-position="3840">
               <caret line="256" column="29" selection-start-line="256" selection-start-column="29" selection-end-line="256" selection-end-column="29" />
             </state>
           </provider>
@@ -67,8 +67,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bottleglass/src/components/admin/Admin.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="457" lean-forward="true" selection-start-line="457" selection-end-line="457" />
+            <state relative-caret-position="6450">
+              <caret line="440" lean-forward="true" selection-start-line="440" selection-end-line="440" />
               <folding>
                 <element signature="n#style#0;n#span#4;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#template#0;n#div#2;n#template#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#button#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#template#0;n#div#2;n#template#0;n#!!top" expanded="true" />
@@ -83,7 +83,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bottleglass/src/components/Pages/Produits.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2528">
+            <state relative-caret-position="3150">
               <caret line="210" selection-start-line="210" selection-end-line="210" />
             </state>
           </provider>
@@ -92,7 +92,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/buy.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
+            <state relative-caret-position="1140">
               <caret line="76" selection-start-line="76" selection-end-line="76" />
             </state>
           </provider>
@@ -320,15 +320,15 @@
       <workItem from="1550995453306" duration="15561000" />
       <workItem from="1551042244415" duration="558000" />
       <workItem from="1551113677809" duration="15556000" />
+      <workItem from="1551776675034" duration="256000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101930000" />
+    <option name="totallyTimeSpent" value="102186000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="-8" width="1873" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1438692" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -522,13 +522,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bottleglass/src/components/Footer.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
+        <state relative-caret-position="525">
           <caret line="35" column="49" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="49" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/getOrderPrice.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/getProducts.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -539,50 +536,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/RemoveProduct.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="390">
           <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/buy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bottleglass/src/components/Pages/Produits.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2528">
-          <caret line="210" selection-start-line="210" selection-end-line="210" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bottleglass/src/components/custom/Product.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="2760">
           <caret line="184" column="15" selection-start-line="184" selection-start-column="15" selection-end-line="184" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="465">
           <caret line="31" column="62" selection-start-line="31" selection-start-column="62" selection-end-line="31" selection-end-column="62" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bottleglass/src/components/admin/TranslationManager.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
+        <state relative-caret-position="3840">
           <caret line="256" column="29" selection-start-line="256" selection-start-column="29" selection-end-line="256" selection-end-column="29" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bottleglass/src/components/Pages/Produits.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3150">
+          <caret line="210" selection-start-line="210" selection-end-line="210" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/buy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="76" selection-start-line="76" selection-end-line="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bottleglass/dist/api/getOrderPrice.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/bottleglass/src/components/admin/Admin.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="457" lean-forward="true" selection-start-line="457" selection-end-line="457" />
+        <state relative-caret-position="6450">
+          <caret line="440" lean-forward="true" selection-start-line="440" selection-end-line="440" />
           <folding>
             <element signature="n#style#0;n#span#4;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#template#0;n#div#2;n#template#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#button#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#template#0;n#div#2;n#template#0;n#!!top" expanded="true" />
