@@ -10,7 +10,7 @@
 
     <div class="block-container">
       <div class="block">
-        <h2>Produits</h2>
+        <h2>{{ $t('t.home.title1') }}</h2>
         <p>
           {{ $t('t.home.sentence1') }}
         </p>
@@ -20,7 +20,7 @@
       </div>
 
       <div class="block">
-        <h2>Commander</h2>
+        <h2>{{ $t('t.home.title2') }}</h2>
         <p>
           {{ $t('t.home.sentence2') }}
 
@@ -34,22 +34,19 @@
 
     <div class="block-container">
       <div class="block">
-        <h2>Produits</h2>
+        <h2>{{ $t('t.home.title3') }}</h2>
         <p>
-          {{ $t('t.home.sentence1') }}
+          {{ $t('t.home.sentence3') }}
         </p>
 
-        <carousel :data="GetCarouselData"></carousel>
+        <iframe src="https://www.youtube.com/embed/dgmPmzgKNKU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
       </div>
 
       <div class="block">
-        <h2>Notre entreprise</h2>
+        <h2>{{ $t('t.home.title4') }}</h2>
         <p>
-          Nous sommes un groupe d'étudiants réalisant notre maturité professionnelle post-CFC.
-          <router-link :to="{name:'Apropos'}" class="about-link">
-            En savoir plus...
-          </router-link>
+          {{ $t('t.home.sentence4') }}
         </p>
         <img class="img-clickable img-buy" src="https://www.divtec.ch/wp-content/uploads/2015/11/divtec-batiement-d-est.jpg">
       </div>
@@ -119,7 +116,7 @@
     margin-top: 0;
   }
 
-  img {
+  img, iframe {
     max-width: 100%;
   }
 
@@ -128,8 +125,12 @@
     padding: 0;
   }
 
-  .img-buy {
+  .img-buy, iframe {
     width: 100%;
+  }
+
+  iframe {
+    height: 70%;
   }
 
   .block-container {
