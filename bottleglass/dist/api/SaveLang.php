@@ -7,8 +7,6 @@
 
   session_start();
 
-  var_dump($_SESSION);
-
   $response = array(
     /**
      *
@@ -43,6 +41,8 @@
   $lang = $_POST["l"];
 
   file_put_contents('../static/lang/' . $lang . '.json', $data);
+
+  $response['lang'] = $_POST['l'];
 
   echo json_encode($response);
 

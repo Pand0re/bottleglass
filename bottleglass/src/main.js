@@ -62,13 +62,13 @@ function OnLanguageFileLoaded(lang, data) {
   });
 }
 
-loadJSON('./static/lang/fr.json',function(fr) {
+loadJSON('./static/lang/fr.json?' + Math.random(),function(fr) {
   OnLanguageFileLoaded('fr', fr);
 });
-loadJSON('./static/lang/en.json',function(en) {
+loadJSON('./static/lang/en.json?' + Math.random(),function(en) {
   OnLanguageFileLoaded('en', en);
 });
-loadJSON('./static/lang/de.json',function(de) {
+loadJSON('./static/lang/de.json?' + Math.random(),function(de) {
   OnLanguageFileLoaded('de', de);
 });
 

@@ -107,7 +107,7 @@
           '&l=' + Self.lang +
           '&token=' + Self.$parent.token,
           function(xhr) {
-            console.log(xhr.response)
+            console.log("État de l'enregistrement : " + xhr.response);
           }
         );
 
@@ -119,7 +119,7 @@
       GetData: function() {
         let Self = this;
 
-        this.$ajax('./static/lang/' + Self.lang + '.json', 'GET', '',
+        this.$ajax('./static/lang/' + Self.lang + '.json?' + Math.random(), 'GET', '',
           function(xhr) {
             console.log(xhr);
             Self.t = (JSON.parse(xhr.response).t);
